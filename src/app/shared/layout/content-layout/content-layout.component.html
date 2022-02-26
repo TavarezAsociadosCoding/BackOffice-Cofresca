@@ -1,0 +1,24 @@
+<div>
+    <div class="page-wrapper">
+        <app-header (rightSidebarEvent)="rightSidebar($event)"></app-header>
+        <div class="page-body-wrapper">
+            <div class="page-sidebar" [class.open]="navServices.collapseSidebar">
+                <app-sidebar></app-sidebar>
+                <div class="right-sidebar" [class.show]="right_side_bar" id="right_side_bar">
+                    <app-right-sidebar></app-right-sidebar>
+                </div>
+            </div>
+            <div class="page-body">
+                <app-breadcrumb></app-breadcrumb>
+                <main [@animateRoute]="getRouterOutletState(o)">
+                    <router-outlet #o="outlet"></router-outlet>
+                </main>
+                <!-- <router-outlet></router-outlet> -->
+            </div>
+            <footer class="footer">
+                <app-footer></app-footer>
+            </footer>
+        </div>
+    </div>
+    <div class="btn-light custom-theme" [class.rtl]="layoutClass" (click)="clickRtl(layoutType)">{{layoutType}}</div>
+</div>

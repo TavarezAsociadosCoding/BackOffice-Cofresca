@@ -1,0 +1,79 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-8 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Sales Summary</h5>
+                </div>
+                <div class="card-body sell-graph">
+                    <canvas baseChart id="myGraph" [datasets]="salesChartData" [labels]="salesChartLabels"
+                        [options]="salesChartOptions" [colors]="salesChartColors" [legend]="salesChartLegend"
+                        [chartType]="salesChartType"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6">
+            <div class="card report-employee">
+                <div class="card-header">
+                    <h2>75%</h2>
+                    <h6 class="mb-0">Employees Satisfied</h6>
+                </div>
+                <div class="card-body p-0 o-hidden">
+                    <div class="ct-4 flot-chart-container report-full">
+                            <x-chartist [type]="chart5.type" [data]="chart5.data" [options]="chart5.options"></x-chartist>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Transfer Report</h5>
+                </div>
+                <div class="card-body">
+                    <div id="batchDelete" class="custom-datatable">
+                        <div class="table-responsive">
+                            <ng2-smart-table [settings]="settings" [source]="report"></ng2-smart-table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Expenses</h5>
+                </div>
+                <div class="card-body expense-chart">
+                    <div class="chart-overflow" id="area-chart1">
+                        <google-chart [data]="areaChart1"></google-chart>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5> Sales / Purchase</h5>
+                </div>
+                <div class="card-body">
+                    <div class="sales-chart">
+                        <google-chart [data]="columnChart1"></google-chart>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5> Sales / Purchase Return</h5>
+                </div>
+                <div class="card-body sell-graph">
+                    <google-chart [data]="lineChart"></google-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->

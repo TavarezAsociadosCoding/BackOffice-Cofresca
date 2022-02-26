@@ -1,0 +1,143 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h5>Discount Coupon Details</h5>
+        </div>
+        <div class="card-body tab2-card">
+            <ngb-tabset class="tab-coupon">
+                <ngb-tab title="General">
+                    <ng-template ngbTabContent>
+                        <form [formGroup]="generalForm"  class="needs-validation" novalidate="">
+                            <h4>General</h4>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group row">
+                                        <label for="validationCustom0" class="col-xl-3 col-md-4"><span>*</span>
+                                            Coupan Title</label>
+                                        <input class="form-control col-md-7" formControlName="name"
+                                            id="validationCustom0" type="text" required="">
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="validationCustom1" class="col-xl-3 col-md-4"><span>*</span>
+                                            Coupan Code</label>
+                                        <input class="form-control col-md-7" formControlName="code"
+                                            id="validationCustom1" type="text" required="">
+                                        <div class="valid-feedback">Please Provide a Valid Coupon Code.</div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-md-4">Start Date</label>
+                                        <div class="input-group col-md-7 input-grp-p">
+                                            <input class="datepicker-here form-control digits" ngbDatepicker
+                                                formControlName="start_date" #f="ngbDatepicker">
+                                            <div class="input-group-append">
+                                                <button class="btn calendar" (click)="f.toggle()" type="button"><i
+                                                        class="fa fa-calendar"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-md-4">End Date</label>
+                                        <div class="input-group col-md-7 input-grp-p">
+                                            <input class="datepicker-here form-control digits" ngbDatepicker
+                                                formControlName="end_date" #c="ngbDatepicker">
+                                            <div class="input-group-append">
+                                                <button class="btn calendar" (click)="c.toggle()" type="button"><i
+                                                        class="fa fa-calendar"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-md-4">Free Shipping</label>
+                                        <div class="checkbox checkbox-primary col-md-7">
+                                            <input id="checkbox-primary-1" type="checkbox"
+                                                formControlName="free_shipping" data-original-title="" title="">
+                                            <label for="checkbox-primary-1">Allow Free Shipping</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-md-4">Quantity</label>
+                                        <input class="form-control col-md-7" formControlName="quantity" type="number"
+                                            required="">
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-md-4">Discount Type</label>
+                                        <select class="custom-select col-md-7" required="">
+                                            <option value="">--Select--</option>
+                                            <option value="1">Percent</option>
+                                            <option value="2">Fixed</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-md-4">Status</label>
+                                        <div class="checkbox checkbox-primary col-md-7">
+                                            <input id="checkbox-primary-2" formControlName="status" type="checkbox"
+                                                data-original-title="" title="">
+                                            <label for="checkbox-primary-2">Enable the Coupon</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab>
+                    <ng-template ngbTabTitle>Restriction</ng-template>
+                    <ng-template ngbTabContent>
+                        <form [formGroup]="restrictionForm" class="needs-validation" novalidate="">
+                            <h4>Restriction</h4>
+                            <div class="form-group row">
+                                <label for="validationCustom3" class="col-xl-3 col-md-4">Products</label>
+                                <input class="form-control col-md-7" formControlName="products" id="validationCustom3"
+                                    type="text" required="">
+                                <div class="valid-feedback">Please Provide a Product Name.</div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-xl-3 col-md-4">Category</label>
+                                <select class="custom-select col-md-7" formControlName="category" required="">
+                                    <option value="">--Select--</option>
+                                    <option value="1">Electronics</option>
+                                    <option value="2">Clothes</option>
+                                    <option value="2">Shoes</option>
+                                    <option value="2">Digital</option>
+                                </select>
+                            </div>
+                            <div class="form-group row">
+                                <label for="validationCustom4" class="col-xl-3 col-md-4">Minimum Spend</label>
+                                <input class="form-control col-md-7" formControlName="min" id="validationCustom4"
+                                    type="number">
+                            </div>
+                            <div class="form-group row">
+                                <label for="validationCustom5" class="col-xl-3 col-md-4">Maximum Spend</label>
+                                <input class="form-control col-md-7" formControlName="max" id="validationCustom5"
+                                    type="number">
+                            </div>
+                        </form>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab>
+                    <ng-template ngbTabTitle>Usage</ng-template>
+                    <ng-template ngbTabContent>
+                        <form [formGroup]="usageForm" class="needs-validation" novalidate="">
+                            <h4>Usage Limits</h4>
+                            <div class="form-group row">
+                                <label for="validationCustom6" class="col-xl-3 col-md-4">Per Limit</label>
+                                <input class="form-control col-md-7" formControlName="limit" id="validationCustom6"
+                                    type="number">
+                            </div>
+                            <div class="form-group row">
+                                <label for="validationCustom7" class="col-xl-3 col-md-4">Per Customer</label>
+                                <input class="form-control col-md-7" formControlName="customer" id="validationCustom7"
+                                    type="number">
+                            </div>
+                        </form>
+                    </ng-template>
+                </ngb-tab>
+            </ngb-tabset>
+            <div class="pull-right">
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->

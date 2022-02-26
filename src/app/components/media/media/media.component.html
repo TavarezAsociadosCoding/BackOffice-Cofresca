@@ -1,0 +1,32 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid bulk-cate">
+    <div class="card ">
+        <div class="card-header">
+            <h5>Dropzone Media</h5>
+        </div>
+        <div class="card-body">
+            <div class="dropzone-custom">
+                <div class="dropzone dropzone-primary" [dropzone]="config1">
+                    <div class="dz-message needsclick">
+                        <i class="fa fa-cloud-upload"></i>
+                        <h4 class="mb-0 f-w-600">Drop files here or click to upload.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h5>Media File List</h5>
+        </div>
+        <div class="card-body">
+            <div id="batchDelete" class="category-table custom-datatable media-datatable">
+                <div class="table-responsive">
+                    <ng2-smart-table [settings]="settings" [source]="media"></ng2-smart-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->

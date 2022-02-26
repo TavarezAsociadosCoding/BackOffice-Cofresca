@@ -1,0 +1,29 @@
+<div>
+    <div class="container p-0">
+        <div class="modal-header p-l-20 p-r-20">
+            <div class="col-sm-8 p-0">
+                <h6 class="modal-title font-weight-bold">FRIEND LIST</h6>
+            </div>
+            <div class="col-sm-4 text-right p-0"><i class="mr-2" data-feather="settings"></i></div>
+        </div>
+    </div>
+    <div class="friend-list-search mt-0">
+        <input type="text" placeholder="search friend"><i class="fa fa-search"></i>
+    </div>
+    <div class="p-l-30 p-r-30">
+        <div class="chat-box">
+            <div class="people-list friend-list">
+                <ul class="list">
+                    <li class="clearfix" *ngFor="let user of users">
+                        <img class="rounded-circle user-image blur-up lazyloaded" [src]="user.img" alt="">
+                        <div class="status-circle online"></div>
+                        <div class="about">
+                            <div class="name">{{user.name}}</div>
+                            <div class="status"> {{user.status}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

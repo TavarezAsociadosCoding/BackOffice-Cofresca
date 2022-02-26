@@ -1,0 +1,105 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Add Product</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row product-adding">
+                        <div class="col-xl-5">
+                            <div class="add-product">
+                                <div class="row">
+                                    <div class="col-xl-9 xl-50 col-sm-6 col-9">
+                                        <img src="assets/images/pro3/1.jpg" alt="" class="img-fluid image_zoom_1">
+                                    </div>
+                                    <div class="col-xl-3 xl-50 col-sm-6 col-3">
+                                        <ul class="file-upload-product">
+                                            <li *ngFor="let item of url; let i=index">
+                                                <div class="box-input-file">
+                                                    <input class="upload" type="file" (change)="readUrl($event,i)">
+                                                    <img class="imgUpload" alt="" [src]="item.img"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-7">
+                            <form class="needs-validation" [formGroup]="productForm" novalidate>
+                                <div class="add-product-form">
+                                    <div class="form-group row">
+                                        <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Title
+                                            :</label>
+                                        <input class="form-control col-xl-8 col-sm-7" id="validationCustom01"
+                                            type="text" [formControl]="productForm.controls['name']" required>
+                                        <div *ngIf="productForm.controls.name.touched && productForm.controls.name.errors?.required"
+                                            class="text text-danger">
+                                            Title Name is required.
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Price :</label>
+                                        <input class="form-control col-xl-8 col-sm-7" id="validationCustom02"
+                                            type="number" [formControl]="productForm.controls['price']" required="">
+                                        <div *ngIf="productForm.controls.price.touched && productForm.controls.price.errors?.required"
+                                            class="text text-danger">
+                                            Product Price is required.
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="validationCustom03" class="col-xl-3 col-sm-4 mb-0">Product Code
+                                            :</label>
+                                        <input class="form-control col-xl-8 col-sm-7" id="validationCustom03"
+                                            type="number" [formControl]="productForm.controls['code']" required="">
+                                        <div *ngIf="productForm.controls.code.touched && productForm.controls.code.errors?.required"
+                                            class="text text-danger">
+                                            Product <Code></Code> is required.
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Select
+                                            Size
+                                            :</label>
+                                        <select class="form-control digits col-xl-8 col-sm-7"
+                                            id="exampleFormControlSelect1">
+                                            <option>Small</option>
+                                            <option>Medium</option>
+                                            <option>Large</option>
+                                            <option>Extra Large</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-sm-4 mb-0">Total Products :</label>
+                                        <div class="qty-box1">
+                                            <div class="input-group">
+                                                <i class="fa fa-minus btnGtr1" (click)=decrement()></i>
+                                                <input class="touchspin1 text-center" name="counter" [value]="counter"
+                                                    type="text">
+                                                <i class="fa fa-plus btnLess1" (click)=increment()></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-sm-4">Add Description :</label>
+                                        <div class="col-xl-8 col-sm-7 pl-0 description-sm">
+                                            <ck-editor id="editor1" language="en" [fullPage]="false"></ck-editor>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="form-group row mb-0">
+                                <div class="product-buttons col-sm-8 offset-xl-3 offset-sm-4">
+                                    <button type="button" class="btn btn-primary mr-1">Add</button>
+                                    <button type="button" class="btn btn-light">Discard</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->

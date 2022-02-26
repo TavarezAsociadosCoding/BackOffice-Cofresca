@@ -1,0 +1,31 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Page Details</h5>
+                </div>
+                <div class="card-body">
+                    <div class="custom-datatable">
+                        <button class="btn btn-primary mr-1 mb-3" style="float: right;">Delete</button>
+                        <div class="clearfix"></div>
+                        <ngx-datatable class="bootstrap" [rows]="list_pages" [columnMode]="'force'" [headerHeight]="50"
+                            [footerHeight]="50" [rowHeight]="'auto'" [limit]="5" [selected]="selected"
+                            [selectionType]="'checkbox'" [selectAllRowsOnPage]="false" (select)='onSelect($event)'>
+                            <ngx-datatable-column [width]="30" [sortable]="false" [canAutoResize]="false"
+                                [draggable]="false" [resizeable]="false" [headerCheckboxable]="true"
+                                [checkboxable]="true">
+                                <button type="button" class="btn btn-primery">Delete</button>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Name"></ngx-datatable-column>
+                            <ngx-datatable-column name="Status"></ngx-datatable-column>
+                            <ngx-datatable-column prop="created on"></ngx-datatable-column>
+                        </ngx-datatable>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->

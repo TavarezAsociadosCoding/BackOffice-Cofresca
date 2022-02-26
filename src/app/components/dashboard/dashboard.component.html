@@ -1,0 +1,627 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-3 col-md-6 xl-50">
+            <div class="card o-hidden widget-cards">
+                <div class="bg-warning card-body">
+                    <div class="media static-top-widget row">
+                        <div class="icons-widgets col-4">
+                            <div class="align-self-center text-center">
+                                <app-feather-icons [icon]="'navigation'" class="font-warning"></app-feather-icons>
+                            </div>
+                        </div>
+                        <div class="media-body col-8"><span class="m-0">Earnings</span>
+                            <h3 class="mb-0">$ <span class="counter" [CountTo]="6659" [from]="0"
+                                    [duration]="2">6659</span><small> This Month</small></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 xl-50">
+            <div class="card o-hidden  widget-cards">
+                <div class="bg-secondary card-body">
+                    <div class="media static-top-widget row">
+                        <div class="icons-widgets col-4">
+                            <div class="align-self-center text-center">
+                                <app-feather-icons [icon]="'box'" class="font-secondary"></app-feather-icons>
+                            </div>
+                        </div>
+                        <div class="media-body col-8"><span class="m-0">Products</span>
+                            <h3 class="mb-0">$ <span class="counter" [CountTo]="9856" [from]="0"
+                                    [duration]="2">9856</span><small> This Month</small></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 xl-50">
+            <div class="card o-hidden widget-cards">
+                <div class="bg-primary card-body">
+                    <div class="media static-top-widget row">
+                        <div class="icons-widgets col-4">
+                            <div class="align-self-center text-center">
+                                <app-feather-icons [icon]="'message-square'" class="font-primary"></app-feather-icons>
+                            </div>
+                        </div>
+                        <div class="media-body col-8"><span class="m-0">Messages</span>
+                            <h3 class="mb-0">$ <span class="counter" [CountTo]="893" [from]="0"
+                                    [duration]="2">893</span><small> This Month</small></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 xl-50">
+            <div class="card o-hidden widget-cards">
+                <div class="bg-danger card-body">
+                    <div class="media static-top-widget row">
+                        <div class="icons-widgets col-4">
+                            <div class="align-self-center text-center">
+                                <app-feather-icons [icon]="'users'" class="font-danger"></app-feather-icons>
+                            </div>
+                        </div>
+                        <div class="media-body col-8"><span class="m-0">New Vendors</span>
+                            <h3 class="mb-0">$ <span class="counter" [CountTo]="45631" [from]="0"
+                                    [duration]="2">45631</span><small> This Month</small></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 xl-100">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Market Value</h5>
+                </div>
+                <div class="card-body">
+                    <div class="market-chart">
+                        <x-chartist class="board-chart ct-golden-section" [data]="chart3.data" [type]="chart3.type"
+                            [options]="chart3.options" [events]="chart3.events">
+                        </x-chartist>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 xl-100">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Latest Orders</h5>
+                </div>
+                <div class="card-body">
+                    <div class="user-status table-responsive latest-order-table">
+                        <table class="table table-bordernone">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Order ID</th>
+                                    <th scope="col">Order Total</th>
+                                    <th scope="col">Payment Method</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="digits">$120.00</td>
+                                    <td class="font-danger">Bank Transfers</td>
+                                    <td class="digits">On Way</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td class="digits">$90.00</td>
+                                    <td class="font-secondary">Ewallets</td>
+                                    <td class="digits">Delivered</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td class="digits">$240.00</td>
+                                    <td class="font-warning">Cash</td>
+                                    <td class="digits">Delivered</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td class="digits">$120.00</td>
+                                    <td class="font-primary">Direct Deposit</td>
+                                    <td class="digits">$6523</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td class="digits">$50.00</td>
+                                    <td class="font-primary">Bank Transfers</td>
+                                    <td class="digits">Delivered</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="javascript:void(0)" class="btn btn-primary">View All Orders</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 xl-50">
+            <div class="card order-graph sales-carousel">
+                <div class="card-header">
+                    <h6>Total Sales</h6>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="small-chartjs">
+                                <canvas baseChart id="small-graph-1" height="60vw" width="140vw"
+                                    [datasets]="smallLineChartData" [labels]="smallLineChartLabels"
+                                    [options]="smallLineChartOptions" [colors]="smallLineChartColors"
+                                    [legend]="smallLineChartLegend" [chartType]="smallLineChartType"
+                                    (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="value-graph">
+                                <h3>42% <span><i class="fa fa-angle-up font-primary"></i></span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="media">
+                        <div class="media-body">
+                            <span>Sales Last Month</span>
+                            <h2 class="mb-0">9054</h2>
+                            <p>0.25% <span><i class="fa fa-angle-up"></i></span></p>
+                            <h5 class="f-w-600">Gross sales of August</h5>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+                        </div>
+                        <div class="bg-primary b-r-8">
+                            <div class="small-box">
+
+                                <i data-feather="briefcase"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 xl-50">
+            <div class="card order-graph sales-carousel">
+                <div class="card-header">
+                    <h6>Total purchase</h6>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="small-chartjs">
+                                <canvas baseChart id="small-graph-2" height="60vw" width="140vw"
+                                    [datasets]="smallLine2ChartData" [labels]="smallLine2ChartLabels"
+                                    [options]="smallLine2ChartOptions" [colors]="smallLine2ChartColors"
+                                    [legend]="smallLine2ChartLegend" [chartType]="smallLine2ChartType"
+                                    (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="value-graph">
+                                <h3>20% <span><i class="fa fa-angle-up font-secondary"></i></span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="media">
+                        <div class="media-body">
+                            <span>Monthly purchase</span>
+                            <h2 class="mb-0">2154</h2>
+                            <p>0.13% <span><i class="fa fa-angle-up"></i></span></p>
+                            <h5 class="f-w-600">Avg Gross purchase</h5>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+                        </div>
+                        <div class="bg-secondary b-r-8">
+                            <div class="small-box">
+                                <i data-feather="credit-card"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 xl-50">
+            <div class="card order-graph sales-carousel">
+                <div class="card-header">
+                    <h6>Total cash transaction</h6>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="small-chartjs">
+                                <canvas baseChart id="small-graph-3" height="60vw" width="140vw"
+                                    [datasets]="smallLine3ChartData" [labels]="smallLine3ChartLabels"
+                                    [options]="smallLine3ChartOptions" [colors]="smallLine3ChartColors"
+                                    [legend]="smallLine3ChartLegend" [chartType]="smallLine3ChartType"
+                                    (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="value-graph">
+                                <h3>28% <span><i class="fa fa-angle-up font-warning"></i></span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="media">
+                        <div class="media-body">
+                            <span>Cash on hand</span>
+                            <h2 class="mb-0">4672</h2>
+                            <p>0.8% <span><i class="fa fa-angle-up"></i></span></p>
+                            <h5 class="f-w-600">Details about cash</h5>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+                        </div>
+                        <div class="bg-warning b-r-8">
+                            <div class="small-box">
+                                <i data-feather="shopping-cart"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 xl-50">
+            <div class="card order-graph sales-carousel">
+                <div class="card-header">
+                    <h6>Daily Deposits</h6>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="small-chartjs">
+                                <canvas baseChart id="small-graph-4" height="60vw" width="140vw"
+                                    [datasets]="smallLine4ChartData" [labels]="smallLine4ChartLabels"
+                                    [options]="smallLine4ChartOptions" [colors]="smallLine4ChartColors"
+                                    [legend]="smallLine4ChartLegend" [chartType]="smallLine4ChartType"
+                                    (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="value-graph">
+                                <h3>75% <span><i class="fa fa-angle-up font-danger"></i></span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="media">
+                        <div class="media-body">
+                            <span>Security Deposits</span>
+                            <h2 class="mb-0">0782</h2>
+                            <p>0.25% <span><i class="fa fa-angle-up"></i></span></p>
+                            <h5 class="f-w-600">Gross sales of June</h5>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+                        </div>
+                        <div class="bg-danger b-r-8">
+                            <div class="small-box">
+                                <i data-feather="calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Buy / Sell</h5>
+                </div>
+                <div class="card-body sell-graph">
+                    <canvas baseChart id="myGraph" [datasets]="lineChartData" [labels]="lineChartLabels"
+                        [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
+                        [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 xl-100">
+            <div class="card height-equal">
+                <div class="card-header">
+                    <h5>Products Cart</h5>
+                </div>
+                <div class="card-body">
+                    <div class="user-status table-responsive products-table">
+                        <table class="table table-bordernone mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Details</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Simply dummy text of the printing</td>
+                                    <td class="digits">1</td>
+                                    <td class="font-primary">Pending</td>
+                                    <td class="digits">$6523</td>
+                                </tr>
+                                <tr>
+                                    <td>Long established</td>
+                                    <td class="digits">5</td>
+                                    <td class="font-secondary">Cancle</td>
+                                    <td class="digits">$6523</td>
+                                </tr>
+                                <tr>
+                                    <td>sometimes by accident</td>
+                                    <td class="digits">10</td>
+                                    <td class="font-secondary">Cancle</td>
+                                    <td class="digits">$6523</td>
+                                </tr>
+                                <tr>
+                                    <td>Classical Latin literature</td>
+                                    <td class="digits">9</td>
+                                    <td class="font-primary">Return</td>
+                                    <td class="digits">$6523</td>
+                                </tr>
+                                <tr>
+                                    <td>keep the site on the Internet</td>
+                                    <td class="digits">8</td>
+                                    <td class="font-primary">Pending</td>
+                                    <td class="digits">$6523</td>
+                                </tr>
+                                <tr>
+                                    <td>Molestiae consequatur</td>
+                                    <td class="digits">3</td>
+                                    <td class="font-secondary">Cancle</td>
+                                    <td class="digits">$6523</td>
+                                </tr>
+                                <tr>
+                                    <td>Pain can procure</td>
+                                    <td class="digits">8</td>
+                                    <td class="font-primary">Return</td>
+                                    <td class="digits">$6523</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 xl-100">
+            <div class="card height-equal">
+                <div class="card-header">
+                    <h5>Empolyee Status</h5>
+                </div>
+                <div class="card-body">
+                    <div class="user-status table-responsive products-table">
+                        <table class="table table-bordernone mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Designation</th>
+                                    <th scope="col">Skill Level</th>
+                                    <th scope="col">Experience</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="bd-t-none u-s-tb">
+                                        <div class="align-middle image-sm-size"><img
+                                                class="img-radius align-top m-r-15 rounded-circle"
+                                                src="assets/images/dashboard/user2.jpg" alt="" data-original-title=""
+                                                title="">
+                                            <div class="d-inline-block">
+                                                <h6>John Deo <span class="text-muted digits">(14+ Online)</span></h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Designer</td>
+                                    <td>
+                                        <div class="progress-showcase">
+                                            <div class="progress" style="height: 8px;">
+                                                <div class="progress-bar bg-primary" role="progressbar"
+                                                    style="width: 30%" aria-valuenow="50" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="digits">2 Year</td>
+                                </tr>
+                                <tr>
+                                    <td class="bd-t-none u-s-tb">
+                                        <div class="align-middle image-sm-size"><img
+                                                class="img-radius align-top m-r-15 rounded-circle"
+                                                src="assets/images/dashboard/user1.jpg" alt="" data-original-title=""
+                                                title="">
+                                            <div class="d-inline-block">
+                                                <h6>Holio Mako <span class="text-muted digits">(250+ Online)</span></h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Developer</td>
+                                    <td>
+                                        <div class="progress-showcase">
+                                            <div class="progress" style="height: 8px;">
+                                                <div class="progress-bar bg-secondary" role="progressbar"
+                                                    style="width: 70%" aria-valuenow="50" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="digits">3 Year</td>
+                                </tr>
+                                <tr>
+                                    <td class="bd-t-none u-s-tb">
+                                        <div class="align-middle image-sm-size"><img
+                                                class="img-radius align-top m-r-15 rounded-circle"
+                                                src="assets/images/dashboard/man.png" alt="" data-original-title=""
+                                                title="">
+                                            <div class="d-inline-block">
+                                                <h6>Mohsib lara<span class="text-muted digits">(99+ Online)</span></h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Tester</td>
+                                    <td>
+                                        <div class="progress-showcase">
+                                            <div class="progress" style="height: 8px;">
+                                                <div class="progress-bar bg-primary" role="progressbar"
+                                                    style="width: 60%" aria-valuenow="50" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="digits">5 Month</td>
+                                </tr>
+                                <tr>
+                                    <td class="bd-t-none u-s-tb">
+                                        <div class="align-middle image-sm-size"><img
+                                                class="img-radius align-top m-r-15 rounded-circle"
+                                                src="assets/images/dashboard/user.png" alt="" data-original-title=""
+                                                title="">
+                                            <div class="d-inline-block">
+                                                <h6>Hileri Soli <span class="text-muted digits">(150+ Online)</span>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Designer</td>
+                                    <td>
+                                        <div class="progress-showcase">
+                                            <div class="progress" style="height: 8px;">
+                                                <div class="progress-bar bg-secondary" role="progressbar"
+                                                    style="width: 30%" aria-valuenow="50" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="digits">3 Month</td>
+                                </tr>
+                                <tr>
+                                    <td class="bd-t-none u-s-tb">
+                                        <div class="align-middle image-sm-size"><img
+                                                class="img-radius align-top m-r-15 rounded-circle"
+                                                src="assets/images/dashboard/designer.jpg" alt=""
+                                                data-original-title="" title="">
+                                            <div class="d-inline-block">
+                                                <h6>Pusiz bia <span class="text-muted digits">(14+ Online)</span></h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Designer</td>
+                                    <td>
+                                        <div class="progress-showcase">
+                                            <div class="progress" style="height: 8px;">
+                                                <div class="progress-bar bg-primary" role="progressbar"
+                                                    style="width: 90%" aria-valuenow="50" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="digits">5 Year</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Sales Status</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-xl-3 col-sm-6 xl-50">
+                            <div class="order-graph">
+                                <h6>Orders By Location</h6>
+                                <div class="chart-block chart-vertical-center">
+                                    <ngx-charts-pie-chart class="pie-colours-1" [view]="view"
+                                        [scheme]="doughnutChartColorScheme" [results]="pieData" [explodeSlices]="false"
+                                        [labels]="doughnutChartShowLabels" [arcWidth]=0.50 [doughnut]="true"
+                                        [animations]="false" [tooltipDisabled]="doughnutChartTooltip"
+                                        [gradient]="doughnutChartGradient">
+                                    </ngx-charts-pie-chart>
+                                </div>
+                                <div class="order-graph-bottom">
+                                    <div class="media">
+                                        <div class="order-color-primary"></div>
+                                        <div class="media-body">
+                                            <h6 class="mb-0">Saint Lucia <span class="pull-right">$157</span></h6>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="order-color-secondary"></div>
+                                        <div class="media-body">
+                                            <h6 class="mb-0">Kenya <span class="pull-right">$347</span></h6>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="order-color-danger"></div>
+                                        <div class="media-body">
+                                            <h6 class="mb-0">Liberia<span class="pull-right">$468</span></h6>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="order-color-warning"></div>
+                                        <div class="media-body">
+                                            <h6 class="mb-0">Christmas Island<span class="pull-right">$742</span></h6>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="order-color-success"></div>
+                                        <div class="media-body">
+                                            <h6 class="mb-0">Saint Helena <span class="pull-right">$647</span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-sm-6 xl-50">
+                            <div class="order-graph sm-order-space">
+                                <h6>Sales By Location</h6>
+                                <div class="peity-chart-dashboard text-center chart-vertical-center">
+                                    <ngx-charts-pie-chart class="pie-colours-1" [view]="view"
+                                        [scheme]="doughnutChartColorScheme" [results]="doughnutData"
+                                        [explodeSlices]="false" [labels]="doughnutChartShowLabels" [arcWidth]=0.99
+                                        [doughnut]="true" [animations]="false" [tooltipDisabled]="doughnutChartTooltip"
+                                        [gradient]="doughnutChartGradient">
+                                    </ngx-charts-pie-chart>
+                                </div>
+                                <div class="order-graph-bottom sales-location">
+                                    <div class="media">
+                                        <div class="order-shape-primary"></div>
+                                        <div class="media-body">
+                                            <h6 class="mb-0 mr-0">Germany <span class="pull-right">25%</span></h6>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="order-shape-secondary"></div>
+                                        <div class="media-body">
+                                            <h6 class="mb-0 mr-0">Brasil <span class="pull-right">10%</span></h6>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="order-shape-danger"></div>
+                                        <div class="media-body">
+                                            <h6 class="mb-0 mr-0">United Kingdom<span class="pull-right">34%</span></h6>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="order-shape-warning"></div>
+                                        <div class="media-body">
+                                            <h6 class="mb-0 mr-0">Australia<span class="pull-right">5%</span></h6>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="order-shape-success"></div>
+                                        <div class="media-body">
+                                            <h6 class="mb-0 mr-0">Canada <span class="pull-right">25%</span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 xl-100">
+                            <div class="order-graph xl-space">
+                                <h6>Revenue for last month</h6>
+                                <div class="ct-4 flot-chart-container">
+                                    <x-chartist [type]="chart5.type" [data]="chart5.data" [options]="chart5.options">
+                                    </x-chartist>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Container-fluid Ends-->
