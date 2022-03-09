@@ -39,21 +39,21 @@ export class CategoryComponent implements OnInit {
     },
     columns: {
       img: {
-        title: 'Image',
+        title: 'Imagen',
         type: 'html',
       },
       product_name: {
-        title: 'Name'
+        title: 'Nombre'
       },
       price: {
-        title: 'Price'
+        title: 'Precio'
       },
       status: {
-        title: 'Status',
+        title: 'Estado',
         type: 'html',
       },
       category: {
-        title: 'Category',
+        title: 'Categoria',
       }
     },
   };

@@ -49,3 +49,5 @@ Thumbs.db
 
 #Angular
 .angular/*
+# Local Netlify folder
+.netlify

@@ -32,9 +32,7 @@ export class LoginComponent implements OnInit {
 
   owlcarousel = [
     {
-      title: "Cofresca Admin",
-      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-    }
+      title: "Cofresca Admin"    }
   ]
   owlcarouselOptions = {
     loop: true,

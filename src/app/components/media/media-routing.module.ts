@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from 'src/app/core';
 import { MediaComponent } from './media/media.component';
 
 const routes: Routes = [
@@ -12,7 +13,7 @@ const routes: Routes = [
         data: {
           title: "Media",
           breadcrumb: "Media"
-        }
+        }, canActivate: [AuthGuard],
       }
     ]
   }
@@ -20,6 +21,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+exports: [RouterModule]
 })
 export class MediaRoutingModule { }

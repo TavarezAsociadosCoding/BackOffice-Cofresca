@@ -16,7 +16,7 @@
         </div>
         <div class="nav-right col">
             <ul class="nav-menus" [ngClass]="{'open' : openNav}">
-                <li>
+                <!-- <li>
                     <form class="form-inline search-form">
                         <div class="form-group">
                             <input class="form-control-plaintext" [class.open]="isOpenMobile" type="search"
@@ -27,13 +27,13 @@
                             </span>
                         </div>
                     </form>
-                </li>
+                </li> -->
                 <li>
                     <a href="javascript:void(0)" class="text-dark" toggleFullscreen>
                         <app-feather-icons [icon]="'maximize-2'"></app-feather-icons>
                     </a>
                 </li>
-                <li class="onhover-dropdown"><a class="txt-dark" href="javascript:void(0)">
+                <!-- <li class="onhover-dropdown"><a class="txt-dark" href="javascript:void(0)">
                         <h6>EN</h6>
                     </a>
                     <ul class="language-dropdown onhover-show-div p-20">
@@ -46,13 +46,13 @@
                         <li><a href="javascript:void(0)" data-lng="fr"><i class="flag-icon flag-icon-nz"></i> French</a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="onhover-dropdown">
-                    <span class="badge badge-pill badge-primary pull-right notification-badge">3</span>
+                    <span class="badge badge-pill badge-primary pull-right notification-badge">0</span>
                     <app-feather-icons [icon]="'bell'"></app-feather-icons><span class="dot"></span>
                     <ul class="notification-dropdown onhover-show-div">
-                        <li>Notification <span class="badge badge-pill badge-primary pull-right">3</span></li>
-                        <li>
+                        <!-- <li>Notificacion <span class="badge badge-pill badge-primary pull-right">3</span></li> -->
+                        <!-- <li>
                             <div class="media">
                                 <div class="media-body">
                                     <h6 class="mt-0"><span>
@@ -85,15 +85,15 @@
                                     <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer.</p>
                                 </div>
                             </div>
-                        </li>
-                        <li class="txt-dark"><a href="javascript:void(0)">All</a> notification</li>
+                        </li> -->
+                        <!-- <li class="txt-dark"><a href="javascript:void(0)">All</a> notification</li> -->
                     </ul>
                 </li>
-                <li><a>
+                <!-- <li><a>
                         <app-feather-icons class="right_side_toggle" [icon]="'message-square'"
                             (click)="right_side_bar()">
                         </app-feather-icons><span class="dot"></span>
-                    </a></li>
+                    </a></li> -->
                 <li class="onhover-dropdown">
                     <div class="media align-items-center"><img
                             class="align-self-center pull-right img-50 rounded-circle"
@@ -104,19 +104,19 @@
                     </div>
                     <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
                         <li><a [routerLink]="'/settings/profile'">
-                                <app-feather-icons [icon]="'user'"></app-feather-icons>Edit Profile
+                                <app-feather-icons [icon]="'user'"></app-feather-icons>Editar Perfil
                             </a></li>
                         <li><a href="javascript:void(0)">
-                                <app-feather-icons [icon]="'mail'"></app-feather-icons>Inbox
+                                <app-feather-icons [icon]="'mail'"></app-feather-icons>Mensajes
                             </a></li>
                         <li><a href="javascript:void(0)">
-                                <app-feather-icons [icon]="'lock'"></app-feather-icons>Lock Screen
+                                <app-feather-icons [icon]="'lock'"></app-feather-icons>Pantalla de bloqueo
                             </a></li>
                         <li><a href="javascript:void(0)">
-                                <app-feather-icons [icon]="'settings'"></app-feather-icons>Settings
+                                <app-feather-icons [icon]="'settings'"></app-feather-icons>Ajustes
                             </a></li>
                         <li><a [routerLink]="'/auth/login'">
-                                <app-feather-icons [icon]="'log-out'"></app-feather-icons>Logout
+                                <app-feather-icons [icon]="'log-out'"></app-feather-icons>Cierre de sesión
                             </a></li>
                     </ul>
                 </li>

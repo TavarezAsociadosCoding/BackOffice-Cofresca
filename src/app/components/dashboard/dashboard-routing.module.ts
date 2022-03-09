@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from 'src/app/core';
 import { DashboardComponent } from './dashboard.component';
 
 
@@ -13,7 +14,7 @@ const routes: Routes = [
         data: {
           title: "Dashboard",
           breadcrumb: "Dashboard"
-        }
+        } 
       }
     ]
   }

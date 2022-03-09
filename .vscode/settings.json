@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/2ad8cc62-ddeb-4099-a53b-3d1d9e5581f0/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/backOfficeCofresca",
+    "appService.deploySubpath": "dist"
+}

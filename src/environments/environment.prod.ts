@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://cofresca.azurewebsites.net/',
+  apiUrl: 'https://cofresca.azurewebsites.net/',
 
 };
