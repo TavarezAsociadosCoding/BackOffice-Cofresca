@@ -16,23 +16,23 @@ export class ListUserComponent implements OnInit {
   public settings = {
     columns: {
       avatar: {
-        title: 'Avatar',
+        title: 'Imagen',
         type: 'html'
       },
       fName: {
-        title: 'First Name',
+        title: 'Nombre',
       },
       lName: {
-        title: 'Last Name'
+        title: 'Apellido'
       },
       email: {
-        title: 'Email'
+        title: 'Correo'
       },
       last_login: {
-        title: 'Last Login'
+        title: 'Ultima vez conectado'
       },
       role: {
-        title: 'Role'
+        title: 'Rol'
       },
     },
   };

@@ -47,7 +47,7 @@ export class NavService {
 				{ path: '/products/physical/category', title: 'Categorias', type: 'link' },
 				{ path: '/products/physical/sub-category', title: 'Sub Categorias', type: 'link' },
 				{ path: '/products/physical/product-list', title: 'Listado de Producto', type: 'link' },
-				{ path: '/products/physical/product-detail', title: 'Detalle de Producto ', type: 'link' },
+				// { path: '/products/physical/product-detail', title: 'Detalle de Producto ', type: 'link' },
 				{ path: '/products/physical/add-product', title: 'Agregar Producto', type: 'link' }
 
 

@@ -4,7 +4,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Add Product</h5>
+                    <h5>Añadir producto</h5>
                 </div>
                 <div class="card-body">
                     <div class="row product-adding">
@@ -30,35 +30,35 @@
                             <form class="needs-validation" [formGroup]="productForm" novalidate>
                                 <div class="add-product-form">
                                     <div class="form-group row">
-                                        <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Title
+                                        <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Nombre
                                             :</label>
                                         <input class="form-control col-xl-8 col-sm-7" id="validationCustom01"
                                             type="text" [formControl]="productForm.controls['name']" required>
                                         <div *ngIf="productForm.controls.name.touched && productForm.controls.name.errors?.required"
                                             class="text text-danger">
-                                            Title Name is required.
+                                          Nombre es necesario.
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Price :</label>
+                                        <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Precio :</label>
                                         <input class="form-control col-xl-8 col-sm-7" id="validationCustom02"
                                             type="number" [formControl]="productForm.controls['price']" required="">
                                         <div *ngIf="productForm.controls.price.touched && productForm.controls.price.errors?.required"
                                             class="text text-danger">
-                                            Product Price is required.
+                                            Precio del producto es necesario.
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="validationCustom03" class="col-xl-3 col-sm-4 mb-0">Product Code
+                                        <label for="validationCustom03" class="col-xl-3 col-sm-4 mb-0">Codigo de Producto
                                             :</label>
                                         <input class="form-control col-xl-8 col-sm-7" id="validationCustom03"
                                             type="number" [formControl]="productForm.controls['code']" required="">
                                         <div *ngIf="productForm.controls.code.touched && productForm.controls.code.errors?.required"
                                             class="text text-danger">
-                                            Product <Code></Code> is required.
+                                            Producto <Code></Code> es necesario.
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                    <!-- <div class="form-group row">
                                         <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Select
                                             Size
                                             :</label>
@@ -69,9 +69,9 @@
                                             <option>Large</option>
                                             <option>Extra Large</option>
                                         </select>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group row">
-                                        <label class="col-xl-3 col-sm-4 mb-0">Total Products :</label>
+                                        <label class="col-xl-3 col-sm-4 mb-0">Cantidad de Producto :</label>
                                         <div class="qty-box1">
                                             <div class="input-group">
                                                 <i class="fa fa-minus btnGtr1" (click)=decrement()></i>
@@ -82,7 +82,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-xl-3 col-sm-4">Add Description :</label>
+                                        <label class="col-xl-3 col-sm-4">Agregar Descripcion :</label>
                                         <div class="col-xl-8 col-sm-7 pl-0 description-sm">
                                             <ck-editor id="editor1" language="en" [fullPage]="false"></ck-editor>
                                         </div>
@@ -91,8 +91,8 @@
                             </form>
                             <div class="form-group row mb-0">
                                 <div class="product-buttons col-sm-8 offset-xl-3 offset-sm-4">
-                                    <button type="button" class="btn btn-primary mr-1">Add</button>
-                                    <button type="button" class="btn btn-light">Discard</button>
+                                    <button type="button" class="btn btn-primary mr-1">Agregar</button>
+                                    <button type="button" class="btn btn-light">Descartar</button>
                                 </div>
                             </div>
                         </div>

@@ -18,40 +18,40 @@ const routes: Routes = [
         path: 'physical/category',
         component: CategoryComponent,
         data: {
-          title: "Category",
-          breadcrumb: "Category"
+          title: "Categorias",
+          breadcrumb: "Categorias"
         }
       },
       {
         path: 'physical/sub-category',
         component: SubCategoryComponent,
         data: {
-          title: "Sub Category",
-          breadcrumb: "Sub Category"
+          title: "Subcategoría",
+          breadcrumb: "Subcategoría"
         }
       },
       {
         path: 'physical/product-list',
         component: ProductListComponent,
         data: {
-          title: "Product List",
-          breadcrumb: "Product List"
+          title: "Lista de productos",
+          breadcrumb: "Lista de productos"
         }
       },
       {
         path: 'physical/product-detail',
         component: ProductDetailComponent,
         data: {
-          title: "Product Detail",
-          breadcrumb: "Product Detail"
+          title: "Detalle del producto",
+          breadcrumb: "Detalle del producto"
         }
       },
       {
         path: 'physical/add-product',
         component: AddProductComponent,
         data: {
-          title: "Add Products",
-          breadcrumb: "Add Product"
+          title: "Añadir productos",
+          breadcrumb: "Añadir productos"
         }
       },
       {

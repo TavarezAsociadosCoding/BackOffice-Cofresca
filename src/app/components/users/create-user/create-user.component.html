@@ -4,42 +4,42 @@
         <div class="col-sm-12">
             <div class="card tab2-card">
                 <div class="card-header">
-                    <h5> Add User</h5>
+                    <h5> Agregar Usuario</h5>
                 </div>
                 <div class="card-body tab2-card">
                     <ngb-tabset class="tab-coupon">
-                        <ngb-tab title="Account">
+                        <ngb-tab title="Cuenta">
                             <ng-template ngbTabContent>                                                                                                                                        <div class="tab-pane fade active show" id="account" role="tabpanel"
                                         aria-labelledby="account-tab">
                                     <form [formGroup]="accountForm" class="needs-validation user-add" novalida>
-                                        <h4>Account Details</h4>
+                                        <h4>Detalles de la cuenta</h4>
                                         <div class="form-group row">
                                             <label for="validationCustom0" class="col-xl-3 col-md-4"><span>*</span>
-                                                First Name</label>
+                                                Nombre</label>
                                             <input class="form-control col-xl-8 col-md-7" id="validationCustom0"
                                                 type="text" required="">
                                         </div>
                                         <div class="form-group row">
-                                            <label for="validationCustom1" class="col-xl-3 col-md-4"><span>*</span> Last
-                                                Name</label>
+                                            <label for="validationCustom1" class="col-xl-3 col-md-4"><span>*</span> Apellido
+                                                </label>
                                             <input class="form-control col-xl-8 col-md-7" id="validationCustom1"
                                                 type="text" required="">
                                         </div>
                                         <div class="form-group row">
                                             <label for="validationCustom2" class="col-xl-3 col-md-4"><span>*</span>
-                                                Email</label>
+                                                Correo</label>
                                             <input class="form-control col-xl-8 col-md-7" id="validationCustom2"
                                                 type="text" required="">
                                         </div>
                                         <div class="form-group row">
                                             <label for="validationCustom3" class="col-xl-3 col-md-4"><span>*</span>
-                                                Password</label>
+                                                Clave</label>
                                             <input class="form-control col-xl-8 col-md-7" id="validationCustom3"
                                                 type="password" required="">
                                         </div>
                                         <div class="form-group row">
                                             <label for="validationCustom4" class="col-xl-3 col-md-4"><span>*</span>
-                                                Confirm Password</label>
+                                                Confirmar Clave</label>
                                             <input class="form-control col-xl-8 col-md-7" id="validationCustom4"
                                                 type="password" required="">
                                         </div>
@@ -48,16 +48,16 @@
                             </ng-template>
                         </ngb-tab>
                         <ngb-tab>
-                            <ng-template ngbTabTitle>Permission
+                            <ng-template ngbTabTitle>Permisos
                                 <ng-template ngbTabContent>
                                     <form [formGroup]="permissionForm"
                                         class="needs-validation user-add" novalidate="">
                                         <div class="permission-block">
                                             <div class="attribute-blocks">
-                                                <h5 class="f-w-600 mb-3">Product Related permission </h5>
+                                                <h5 class="f-w-600 mb-3">Permiso relacionado con el producto </h5>
                                                 <div class="row">
                                                     <div class="col-xl-3 col-sm-4">
-                                                        <label>Add Product</label>
+                                                        <label>Añadir producto</label>
                                                     </div>
                                                     <div class="col-xl-9 col-sm-8">
                                                         <div
@@ -65,19 +65,19 @@
                                                             <label class="d-block" for="edo-ani1">
                                                                 <input class="radio_animated" id="edo-ani1" type="radio"
                                                                     name="rdo-ani">
-                                                                Allow
+                                                                    Permitir
                                                             </label>
                                                             <label class="d-block" for="edo-ani2">
                                                                 <input class="radio_animated" id="edo-ani2" type="radio"
                                                                     name="rdo-ani" checked="">
-                                                                Deny
+                                                                Denegar
                                                             </label>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-xl-3 col-sm-4">
-                                                        <label>Update Product</label>
+                                                        <label>Actualizar el producto</label>
                                                     </div>
                                                     <div class="col-xl-9 col-sm-8">
                                                         <div
@@ -85,12 +85,12 @@
                                                             <label class="d-block" for="edo-ani3">
                                                                 <input class="radio_animated" id="edo-ani3" type="radio"
                                                                     name="rdo-ani1">
-                                                                Allow
+                                                                Permitir
                                                             </label>
                                                             <label class="d-block" for="edo-ani4">
                                                                 <input class="radio_animated" id="edo-ani4" type="radio"
                                                                     name="rdo-ani1" checked="">
-                                                                Deny
+                                                                Denegar
                                                             </label>
                                                         </div>
                                                     </div>
@@ -105,19 +105,19 @@
                                                             <label class="d-block" for="edo-ani5">
                                                                 <input class="radio_animated" id="edo-ani5" type="radio"
                                                                     name="rdo-ani2">
-                                                                Allow
+                                                                Permitir
                                                             </label>
                                                             <label class="d-block" for="edo-ani6">
                                                                 <input class="radio_animated" id="edo-ani6" type="radio"
                                                                     name="rdo-ani2" checked="">
-                                                                Deny
+                                                                Denegar
                                                             </label>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-xl-3 col-sm-4">
-                                                        <label class="mb-0 sm-label-radio">Apply discount</label>
+                                                        <label class="mb-0 sm-label-radio">Aplicar descuento</label>
                                                     </div>
                                                     <div class="col-xl-9 col-sm-8">
                                                         <div
@@ -125,12 +125,12 @@
                                                             <label class="d-block mb-0" for="edo-ani7">
                                                                 <input class="radio_animated" id="edo-ani7" type="radio"
                                                                     name="rdo-ani3">
-                                                                Allow
+                                                                Permitir
                                                             </label>
                                                             <label class="d-block mb-0" for="edo-ani8">
                                                                 <input class="radio_animated" id="edo-ani8" type="radio"
                                                                     name="rdo-ani3" checked="">
-                                                                Deny
+                                                                Denegar
                                                             </label>
                                                         </div>
                                                     </div>
@@ -148,12 +148,12 @@
                                                             <label class="d-block" for="edo-ani9">
                                                                 <input class="radio_animated" id="edo-ani9" type="radio"
                                                                     name="rdo-ani4">
-                                                                Allow
+                                                                Permitir
                                                             </label>
                                                             <label class="d-block" for="edo-ani10">
                                                                 <input class="radio_animated" id="edo-ani10"
                                                                     type="radio" name="rdo-ani4" checked="">
-                                                                Deny
+                                                                Denegar
                                                             </label>
                                                         </div>
                                                     </div>
@@ -168,12 +168,12 @@
                                                             <label class="d-block" for="edo-ani11">
                                                                 <input class="radio_animated" id="edo-ani11"
                                                                     type="radio" name="rdo-ani5">
-                                                                Allow
+                                                                Permitir
                                                             </label>
                                                             <label class="d-block" for="edo-ani12">
                                                                 <input class="radio_animated" id="edo-ani12"
                                                                     type="radio" name="rdo-ani5" checked="">
-                                                                Deny
+                                                                Denegar
                                                             </label>
                                                         </div>
                                                     </div>
@@ -188,19 +188,19 @@
                                                             <label class="d-block" for="edo-ani13">
                                                                 <input class="radio_animated" id="edo-ani13"
                                                                     type="radio" name="rdo-ani6">
-                                                                Allow
+                                                                Permitir
                                                             </label>
                                                             <label class="d-block" for="edo-ani14">
                                                                 <input class="radio_animated" id="edo-ani14"
                                                                     type="radio" name="rdo-ani6" checked="">
-                                                                Deny
+                                                                Denegar
                                                             </label>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-xl-3 col-sm-4">
-                                                        <label class="mb-0 sm-label-radio">Apply discount</label>
+                                                        <label class="mb-0 sm-label-radio">Aplicar descuento</label>
                                                     </div>
                                                     <div class="col-xl-9 col-sm-8">
                                                         <div
@@ -208,12 +208,12 @@
                                                             <label class="d-block mb-0" for="edo-ani15">
                                                                 <input class="radio_animated" id="edo-ani15"
                                                                     type="radio" name="rdo-ani7">
-                                                                Allow
+                                                                Permitir
                                                             </label>
                                                             <label class="d-block mb-0" for="edo-ani16">
                                                                 <input class="radio_animated" id="edo-ani16"
                                                                     type="radio" name="rdo-ani7" checked="">
-                                                                Deny
+                                                                Denegar
                                                             </label>
                                                         </div>
                                                     </div>
@@ -226,7 +226,7 @@
                         </ngb-tab>
                     </ngb-tabset>
                     <div class="pull-right">
-                        <button type="button" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-primary">Guardar</button>
                     </div>
                 </div>
             </div>
