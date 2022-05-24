@@ -67,16 +67,17 @@ export class LoginComponent implements OnInit {
     }
     this.busy = true;
     const returnUrl = this.route.snapshot.queryParams['dashboard/default'] || 'dashboard/default';
-    this.authService.register(this.username, this.password)
-      .pipe(finalize(() => (this.busy = false)))
-      .subscribe(
-        () => {
-          this.router.navigate([returnUrl]);
-        },
-        () => {
-          this.loginError = true;
-        }
-      );
+    //TODO:DEBER DE EVALUAR LOS EMPLEADOS ETC Y EL STATUS DESACTIVADO ISACTIVATE
+    // this.authService.register(this.username, this.password)
+    //   .pipe(finalize(() => (this.busy = false)))
+    //   .subscribe(
+    //     () => {
+    //       this.router.navigate([returnUrl]);
+    //     },
+    //     () => {
+    //       this.loginError = true;
+    //     }
+    //   );
   }
   ngOnInit() {
 

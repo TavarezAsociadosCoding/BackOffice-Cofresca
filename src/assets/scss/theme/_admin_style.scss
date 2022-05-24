@@ -586,8 +586,8 @@ ng2-smart-table {
       display: flex;
       margin-bottom: 15px;
       .box-input-file {
-        width: 50px;
-        height: 50px;
+        width: 100px;
+        height: 100px;
         background-color: #f1f4fb;
         position: relative;
         display: flex;
@@ -5783,8 +5783,8 @@ $i:1;
     ul {
       li {
         .box-input-file, .imgUpload {
-          width: 30px;
-          height: 30px;
+          width: 50px;
+          height: 50px;
         }
       }
     }

@@ -1,19 +1,48 @@
 <!-- Container-fluid starts-->
 <div class="container-fluid">
-    <div class="card">
-        <div class="card-header">
-            <h5>Detalles del usuario</h5>
-        </div>
-        <div class="card-body">
-            <div class="btn-popup pull-right">
-                <a class="btn btn-secondary" [routerLink]="'/users/create-user'">Crear Usuario</a>
+  <div class="card">
+    <div class="card-header">
+      <h5>Detalles del usuario</h5>
+    </div>
+    <div class="card-body">
+      <table mdbTable striped="true">
+        <thead>
+          <tr>
+            <th>Correo</th>
+            <th>Activo</th>
+            <!-- <th>Monto</th> -->
+            <!-- <th>Proceso</th> -->
+            <!-- <th>Ver</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr mdbTableCol *ngFor="let user of user_list">
+            <!-- <th scope="row">{{ ord.id }}</th> -->
+            <td>{{ user.email }}</td>
+            <div *ngIf="user.isActive">
+              <td>Activo</td>
             </div>
-            <div id="batchDelete" class="category-table custom-datatable transcation-datatable user-image">
+            <div *ngIf="!user.isActive">
+              <td>Desactivado</td>
+            </div>
+
+            <!-- <td>{{ ord.totalAmount }}</td> -->
+            <!-- <td>{{ ord.status }}</td> -->
+            <!-- <td>
+              <button type="button" class="btn btn-primary">Ver</button>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+      <!-- <div class="btn-popup pull-right">
+                <a class="btn btn-secondary" [routerLink]="'/users/create-user'">Crear Usuario</a>
+            </div> -->
+      <!-- <div id="batchDelete" class="category-table custom-datatable transcation-datatable user-image">
                 <div class="table-responsive">
                     <ng2-smart-table [settings]="settings" [source]="user_list"></ng2-smart-table>
                 </div>
-            </div>
-        </div>
+            </div> -->
     </div>
+  </div>
 </div>
 <!-- Container-fluid Ends-->

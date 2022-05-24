@@ -1,9 +1,9 @@
 {
-  "name": "multikart-backend",
+  "name": "Back-Office",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 1431",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -19,6 +19,7 @@
     "@angular/core": "~13.0.3",
     "@angular/forms": "~13.0.3",
     "@angular/localize": "^13.0.3",
+    "@angular/material": "^13.3.5",
     "@angular/platform-browser": "~13.0.3",
     "@angular/platform-browser-dynamic": "~13.0.3",
     "@angular/router": "~13.0.3",
@@ -44,6 +45,7 @@
     "ng2-smart-table": "^1.7.0",
     "ngx-ckeditor": "^8.0.0",
     "ngx-dropzone-wrapper": "^8.0.0",
+    "ngx-easy-table": "^15.2.1",
     "ngx-owl-carousel-o": "^2.0.3",
     "ngx-slimscroll": "^8.1.0",
     "nodemon": "^2.0.15",
@@ -51,6 +53,7 @@
     "sass": "~1.26.11",
     "screenfull": "^5.0.1",
     "tslib": "^2.0.0",
+    "xlsx": "^0.18.5",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

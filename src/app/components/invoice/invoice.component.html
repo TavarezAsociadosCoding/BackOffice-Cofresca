@@ -1,20 +1,38 @@
 <!-- Container-fluid starts-->
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Invoice List</h5>
-                </div>
-                <div class="card-body">
-                    <div id="batchDelete" class="custom-datatable">
-                        <div class="table-responsive">
-                            <ng2-smart-table [settings]="settings" [source]="invoice"></ng2-smart-table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h5>Gestionar el pedido</h5>
         </div>
+
+        <table mdbTable striped="true">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Estado</th>
+              <th>Monto</th>
+              <th>Proceso</th>
+              <th>Ver</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr mdbTableCol *ngFor="let invoice of invoices">
+              <td>{{ invoice.id }}</td>
+              <!-- <td>{{ ord.isActive }}</td> -->
+              <!-- <td>{{ ord.totalAmount }}</td> -->
+              <!-- <td>{{ ord.status }}</td> -->
+              <td>
+                <button type="button" class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
+  <!-- Container-fluid Ends-->
 </div>
+
 <!-- Container-fluid Ends-->

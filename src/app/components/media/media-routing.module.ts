@@ -11,16 +11,17 @@ const routes: Routes = [
         path: '',
         component: MediaComponent,
         data: {
-          title: "Media",
-          breadcrumb: "Media"
-        }, canActivate: [AuthGuard],
-      }
-    ]
-  }
+          title: 'Media',
+          breadcrumb: 'Media',
+        },
+        // canActivate: [AuthGuard],
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class MediaRoutingModule { }
+export class MediaRoutingModule {}

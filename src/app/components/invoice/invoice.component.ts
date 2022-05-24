@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { invoiceDB } from '../../shared/tables/invoice';
+import { InvoicesService } from 'src/app/core/services/invoices/invoices.service';
 
 @Component({
   selector: 'app-invoice',
@@ -8,10 +8,16 @@ import { invoiceDB } from '../../shared/tables/invoice';
 })
 export class InvoiceComponent implements OnInit {
 
-  public invoice = []
+  public invoices = []
 
-  constructor() {
-    this.invoice = invoiceDB.data;
+  constructor(private invoiceService: InvoicesService) {
+    invoiceService.invoices().subscribe(
+      (invoices) => (this.invoices = invoices)
+
+      // this.product_list = this.temporal_list
+
+      // console.log('salida', users.message)
+    );
   }
 
   public settings = {

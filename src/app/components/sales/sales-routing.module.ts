@@ -11,8 +11,8 @@ const routes: Routes = [
         path: 'orders',
         component: OrdersComponent,
         data: {
-          title: "Orders",
-          breadcrumb: "Orders"
+          title: "Orden",
+          breadcrumb: "Orden"
         }
       },
       {

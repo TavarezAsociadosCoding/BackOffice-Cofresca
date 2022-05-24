@@ -23,7 +23,7 @@ export class ListVendorsComponent implements OnInit {
         type: 'html',
       },
       products: {
-        title: 'Products'
+        title: 'Productos'
       },
       store_name: {
         title: 'Store Name'

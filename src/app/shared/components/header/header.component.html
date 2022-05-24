@@ -1,22 +1,32 @@
 <div class="page-main-header" [class.open]="open">
-    <div class="main-header-right row">
-        <div class="main-header-left d-lg-none">
-            <div class="logo-wrapper"><a [routerLink]="'/dashboard/default'"><img class="blur-up lazyloaded"
-                        src="assets/images/dashboard/logo.png" alt=""></a></div>
-        </div>
-        <div class="mobile-sidebar">
-            <div class="media-body text-right switch-sm">
-                <label class="switch">
-                    <a>
-                        <app-feather-icons id="sidebar-toggle" [icon]="'align-left'" (click)="collapseSidebar()">
-                        </app-feather-icons>
-                    </a>
-                </label>
-            </div>
-        </div>
-        <div class="nav-right col">
-            <ul class="nav-menus" [ngClass]="{'open' : openNav}">
-                <!-- <li>
+  <div class="main-header-right row">
+    <div class="main-header-left d-lg-none">
+      <div class="logo-wrapper">
+        <a [routerLink]="'/dashboard/default'"
+          ><img
+            class="blur-up lazyloaded"
+            src="assets/images/dashboard/logo.png"
+            alt=""
+        /></a>
+      </div>
+    </div>
+    <div class="mobile-sidebar">
+      <div class="media-body text-right switch-sm">
+        <label class="switch">
+          <a>
+            <app-feather-icons
+              id="sidebar-toggle"
+              [icon]="'align-left'"
+              (click)="collapseSidebar()"
+            >
+            </app-feather-icons>
+          </a>
+        </label>
+      </div>
+    </div>
+    <div class="nav-right col">
+      <ul class="nav-menus" [ngClass]="{ open: openNav }">
+        <!-- <li>
                     <form class="form-inline search-form">
                         <div class="form-group">
                             <input class="form-control-plaintext" [class.open]="isOpenMobile" type="search"
@@ -28,12 +38,12 @@
                         </div>
                     </form>
                 </li> -->
-                <li>
-                    <a href="javascript:void(0)" class="text-dark" toggleFullscreen>
-                        <app-feather-icons [icon]="'maximize-2'"></app-feather-icons>
-                    </a>
-                </li>
-                <!-- <li class="onhover-dropdown"><a class="txt-dark" href="javascript:void(0)">
+        <li>
+          <a href="javascript:void(0)" class="text-dark" toggleFullscreen>
+            <app-feather-icons [icon]="'maximize-2'"></app-feather-icons>
+          </a>
+        </li>
+        <!-- <li class="onhover-dropdown"><a class="txt-dark" href="javascript:void(0)">
                         <h6>EN</h6>
                     </a>
                     <ul class="language-dropdown onhover-show-div p-20">
@@ -47,12 +57,16 @@
                         </li>
                     </ul>
                 </li> -->
-                <li class="onhover-dropdown">
-                    <span class="badge badge-pill badge-primary pull-right notification-badge">0</span>
-                    <app-feather-icons [icon]="'bell'"></app-feather-icons><span class="dot"></span>
-                    <ul class="notification-dropdown onhover-show-div">
-                        <!-- <li>Notificacion <span class="badge badge-pill badge-primary pull-right">3</span></li> -->
-                        <!-- <li>
+        <li class="onhover-dropdown">
+          <span
+            class="badge badge-pill badge-primary pull-right notification-badge"
+            >0</span
+          >
+          <app-feather-icons [icon]="'bell'"></app-feather-icons
+          ><span class="dot"></span>
+          <ul class="notification-dropdown onhover-show-div">
+            <!-- <li>Notificacion <span class="badge badge-pill badge-primary pull-right">3</span></li> -->
+            <!-- <li>
                             <div class="media">
                                 <div class="media-body">
                                     <h6 class="mt-0"><span>
@@ -86,44 +100,65 @@
                                 </div>
                             </div>
                         </li> -->
-                        <!-- <li class="txt-dark"><a href="javascript:void(0)">All</a> notification</li> -->
-                    </ul>
-                </li>
-                <!-- <li><a>
+            <!-- <li class="txt-dark"><a href="javascript:void(0)">All</a> notification</li> -->
+          </ul>
+        </li>
+        <!-- <li><a>
                         <app-feather-icons class="right_side_toggle" [icon]="'message-square'"
                             (click)="right_side_bar()">
                         </app-feather-icons><span class="dot"></span>
                     </a></li> -->
-                <li class="onhover-dropdown">
-                    <div class="media align-items-center"><img
-                            class="align-self-center pull-right img-50 rounded-circle"
-                            src="assets/images/dashboard/man.png" alt="header-user">
+        <li class="onhover-dropdown">
+          <div class="media align-items-center">
+            <img
+              class="align-self-center pull-right img-50 rounded-circle"
+              src="assets/images/dashboard/drop-list.jpg"
+              alt="header-user"
+            />
 
-                        <div class="dotted-animation"><span class="animate-circle"></span><span
-                                class="main-circle"></span></div>
-                    </div>
-                    <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
-                        <li><a [routerLink]="'/settings/profile'">
-                                <app-feather-icons [icon]="'user'"></app-feather-icons>Editar Perfil
-                            </a></li>
-                        <li><a href="javascript:void(0)">
-                                <app-feather-icons [icon]="'mail'"></app-feather-icons>Mensajes
-                            </a></li>
-                        <li><a href="javascript:void(0)">
-                                <app-feather-icons [icon]="'lock'"></app-feather-icons>Pantalla de bloqueo
-                            </a></li>
-                        <li><a href="javascript:void(0)">
-                                <app-feather-icons [icon]="'settings'"></app-feather-icons>Ajustes
-                            </a></li>
-                        <li><a [routerLink]="'/auth/login'">
-                                <app-feather-icons [icon]="'log-out'"></app-feather-icons>Cierre de sesión
-                            </a></li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="d-lg-none mobile-toggle pull-right" (click)="openMobileNav()">
-                <app-feather-icons [icon]="'more-horizontal'"></app-feather-icons>
-            </div>
-        </div>
+            <!-- <div class="dotted-animation">
+              <span class="animate-circle"></span
+              ><span class="main-circle"></span>
+            </div> -->
+          </div>
+          <ul
+            class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover"
+          >
+            <li>
+              <a [routerLink]="'/settings/profile'">
+                <app-feather-icons [icon]="'user'"></app-feather-icons>Editar
+                Perfil
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <app-feather-icons [icon]="'mail'"></app-feather-icons>Mensajes
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <app-feather-icons [icon]="'lock'"></app-feather-icons>Pantalla
+                de bloqueo
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <app-feather-icons [icon]="'settings'"></app-feather-icons
+                >Ajustes
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="'/auth/login'">
+                <app-feather-icons [icon]="'log-out'"></app-feather-icons>Cierre
+                de sesión
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="d-lg-none mobile-toggle pull-right" (click)="openMobileNav()">
+        <app-feather-icons [icon]="'more-horizontal'"></app-feather-icons>
+      </div>
     </div>
+  </div>
 </div>
