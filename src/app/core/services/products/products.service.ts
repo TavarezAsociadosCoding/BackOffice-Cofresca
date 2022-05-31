@@ -21,6 +21,7 @@ import {
   Products,
   ProductsResult,
 } from '../../models/products';
+import { Orders } from '../../interceptors/orders';
 // import { RegisterUser } from '../models/Iresponse';
 // import { LoginResult, RegisterResult } from '../models/Iresult';
 
@@ -126,4 +127,9 @@ export class ProductService implements OnDestroy {
     throw new Error('Method not implemented.');
   }
   //   user$ = this._user.asObservable();
+///Host/api/orders
+  public getData():Observable<Orders[]>
+  {
+    return this.http.get<Orders[]>(this.apiUrl +'orders');
+  }
 }

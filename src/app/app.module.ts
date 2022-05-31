@@ -20,10 +20,11 @@ import { InvoiceModule } from './components/invoice/invoice.module';
 import { SettingModule } from './components/setting/setting.module';
 import { ReportsModule } from './components/reports/reports.module';
 import { AuthModule } from './components/auth/auth.module';
+import { WarehouseDisplayComponent } from './components/warehouse-display/warehouse-display.component';
 // import { ExcelsheetComponent } from './components/products/physical/excelsheet/excelsheet.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, WarehouseDisplayComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

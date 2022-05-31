@@ -1,0 +1,24 @@
+.global {
+	background: #ffffff;
+}
+
+.container-board {
+  border-radius: 5px;
+  background-color: #ffffff;
+  height: 500px;
+}
+
+.container-body{
+  background-color: #e2e2e2;
+  border-radius: 5px;
+}
+
+.fa-check-circle{
+  font-size: 40px;
+  color: rgba(62, 232, 62, 0.719);
+}
+
+.fa-times{
+  font-size: 40px;
+  color: rgba(239, 23, 23, 0.719);
+}

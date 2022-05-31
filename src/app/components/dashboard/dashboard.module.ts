@@ -9,6 +9,7 @@ import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ChartistModule } from 'ng-chartist';
 import { SharedModule } from '../../shared/shared.module';
+import { WarehouseDisplayComponent } from '../warehouse-display/warehouse-display.component';
 
 @NgModule({
   declarations: [DashboardComponent],
