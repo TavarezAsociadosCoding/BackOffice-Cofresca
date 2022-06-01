@@ -1,16 +1,15 @@
 <div class="container-fluid d-flex">
-  <div class="col-3 m-2">
-    <div class="global text-center mt-2">
-      <h1>PARA ENTREGAR HOY</h1>
-      <h2>47 %</h2>
-      <h1>Clientes</h1>
+  <div class="col-3 global row mr-4 justify-content-center" >
+    <div class="text-center mt-2">
+      <h1>Total de oldenes</h1>
+      <h2>{{Total}}</h2>
     </div>
-    <div class="global text-center mt-2">
-      <h2>35 %</h2>
+    <div class="text-center justify-content-center m-2">
+      <h1>{{listo}} de {{Total}}</h1>
       <h1>Listos</h1>
     </div>
-    <div class="global text-center mt-2">
-      <h2>47 %</h2>
+    <div class="text-center justify-content-center m-2">
+      <h1>{{pendintes}} de {{Total}}</h1>
       <h1>Pendintes</h1>
     </div>
   </div>
@@ -18,7 +17,7 @@
     <div *ngFor="let item of orders" class="col-xl-3 col container-body m-2 text-center">
       <i class="mt-2" [class]="+ item.isActive ? 'fa fa-check-circle' : 'fa fa-times'"></i>
       <div class="text-center m-2">
-        {{item.orderDate}}
+        {{dateForm(item.orderDate)}}
       </div>
       <div class="text-center m-2 alert" [class]="item.staus === 'Pedientes' ? 'alert-success' : 'alert-danger' ">
          {{item.status}}

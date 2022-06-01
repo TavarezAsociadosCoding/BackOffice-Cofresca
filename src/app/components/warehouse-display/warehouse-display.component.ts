@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 import { Orders } from 'src/app/core/interceptors/orders';
 import { ProductService } from '../../core/services/products/products.service';
 
@@ -9,10 +10,17 @@ import { ProductService } from '../../core/services/products/products.service';
 })
 export class WarehouseDisplayComponent implements OnInit {
   public orders:Orders[] = [];
+  public pendintes:number = 0;
+  public listo:number = 0;
+  public Total:number = 0 ;
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     this.getData();
+  }
+
+  public dateForm(date:Date):string{
+    return moment(date).format("DD/MM/YYYY")
   }
 
  private getData():void{
@@ -20,7 +28,16 @@ export class WarehouseDisplayComponent implements OnInit {
      {
        next:(data:Orders[]) =>{
           this.orders = data;
-          console.log(this.orders)
+          this.Total = data.length;
+          data.forEach((item,index)=>{
+            if(item.status === "Pedientes"){
+              this.pendintes++;
+            }
+            if(item.status === "Listo"){
+              this.Total--;
+              this.listo++;
+            }
+          })
        },
        error:(error) =>{
           console.log(error);

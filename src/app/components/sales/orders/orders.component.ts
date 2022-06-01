@@ -5,13 +5,17 @@ import { CurrencyService } from 'src/app/shared/service/currecy.service';
 import { orderDB } from '../../../shared/tables/order-list';
 // import { Company, data } from '../../../assets/data';
 import { Columns, Config, DefaultConfig } from 'ngx-easy-table';
+import * as moment from 'moment';
+import { Orders } from 'src/app/core/models/order/order';
+//import { Orders } from '../../models/order/order';
+
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.scss'],
 })
 export class OrdersComponent implements OnInit {
-  public order = [];
+  public order:Orders[] = [];
   public temp = [];
   public configuration: Config;
   public columns: Columns[];
@@ -31,7 +35,7 @@ export class OrdersComponent implements OnInit {
   @ViewChild(DatatableComponent, { static: false }) table: DatatableComponent;
   constructor(private orderService: OrderService) {
     orderService.orders().subscribe(
-      (orders) => (this.order = orders)
+      (orders:Orders[]) => (this.order = orders)
 
       // this.product_list = this.temporal_list
 
@@ -39,6 +43,10 @@ export class OrdersComponent implements OnInit {
     );
     // this.order = orderDB.list_order;
     // this.order =
+  }
+
+  public dateForm(date:Date):string{
+    return moment(date).format("DD/MM/YYYY")
   }
 
   updateFilter(event) {
