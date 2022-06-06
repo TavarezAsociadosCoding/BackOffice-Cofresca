@@ -10,17 +10,17 @@
         <table mdbTable striped="true">
           <thead>
             <tr>
-              <th>Fecha</th>
-              <th>Estado</th>
+              <th>Id</th>
+              <th>Fecha Creacion</th>
               <th>Monto</th>
-              <th>Proceso</th>
               <th>Ver</th>
             </tr>
           </thead>
           <tbody>
             <tr mdbTableCol *ngFor="let invoice of invoices">
               <td>{{ invoice.id }}</td>
-              <!-- <td>{{ ord.isActive }}</td> -->
+              <td>{{ dateForm(invoice.orderDate) }}</td>
+              <td>{{ invoice.total }}</td>
               <!-- <td>{{ ord.totalAmount }}</td> -->
               <!-- <td>{{ ord.status }}</td> -->
               <td>

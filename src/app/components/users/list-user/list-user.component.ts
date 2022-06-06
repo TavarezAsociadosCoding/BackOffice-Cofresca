@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 import { UsersService } from 'src/app/core/services/users/users.service';
 import { userListDB } from 'src/app/shared/tables/list-users';
 
@@ -12,8 +13,8 @@ export class ListUserComponent implements OnInit {
 
   constructor(private UsersService: UsersService) {
     // this.user_list = userListDB.list_user;
-    UsersService.users().subscribe((users) =>
-       this.user_list = users.message
+    UsersService.users().subscribe(
+      (users) => (this.user_list = users.message)
       // console.log('salida', users.message)
     );
   }
@@ -41,6 +42,8 @@ export class ListUserComponent implements OnInit {
       },
     },
   };
-
+  public dateForm(date: Date): string {
+    return moment(date).format('DD/MM/YYYY');
+  }
   ngOnInit() {}
 }

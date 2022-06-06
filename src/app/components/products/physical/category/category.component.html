@@ -1,52 +1,30 @@
-<!-- Container-fluid starts-->
+
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Categoría de productos</h5>
-                </div>
-                <div class="card-body">
-                    <div class="btn-popup pull-right">
-                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-original-title="test"
-                            data-target="#exampleModal" (click)="open(content)">Agregar Categorias</button> -->
-                        <ng-template #content let-modal>
-                            <!-- <div class="modal-header">
-                                <h5 class="modal-title f-w-600" id="exampleModalLabel">Agregar Producto</h5>
-                                <button type="button" class="close" aria-label="Close"
-                                    (click)="modal.dismiss('Cross click')">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div> -->
-                            <div class="modal-body">
-                                <form class="needs-validation">
-                                    <div class="form">
-                                        <div class="form-group">
-                                            <label for="validationCustom01" class="mb-1">Category Name :</label>
-                                            <input class="form-control" id="validationCustom01" type="text">
-                                        </div>
-                                        <div class="form-group mb-0">
-                                            <label for="validationCustom02" class="mb-1">Category Image :</label>
-                                            <input class="form-control" id="validationCustom02" type="file">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">Save</button>
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal"
-                                    (click)="modal.dismiss('Cross click')">Close</button>
-                            </div>
-                        </ng-template>
-                    </div>
-                    <div id="batchDelete" class="category-table custom-datatable">
-                        <div class="table-responsive">
-                            <ng2-smart-table [settings]="settings" [source]="categories"></ng2-smart-table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="card-header">
+    <h5>Categoría de productos</h5>
+  </div>
+  <section class="overflow-auto">
+    <article
+      class="p-0 m-0 row d-flex flex-nowrap flex-row py-3 my-4 item-card full-width"
+      *ngFor="let item of categories"
+    >
+      <div class="p-0 m-0 col">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600"
+          >Nombre</label
+        >
+        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
+          item.categoryName
+        }}</span>
+      </div>
+
+      <div class="p-0 m-0 col">
+        <button
+          class="btn btn-light d-flex justify-content-center align-items-center flex-row"
+        >
+          <i class="fa fa-eye u-smallSize"></i>
+          <label class="m-0 ml-3 u-smallerSize"> Ver</label>
+        </button>
+      </div>
+    </article>
+  </section>
 </div>
-<!-- Container-fluid Ends-->

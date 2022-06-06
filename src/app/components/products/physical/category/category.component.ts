@@ -1,41 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { categoryDB } from '../../../../shared/tables/category';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { CategoryService } from 'src/app/core/services/categories/categories.service';
+import { Categories } from 'src/app/core/models/categories/categories';
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.scss']
+  styleUrls: ['./category.component.scss'],
 })
 export class CategoryComponent implements OnInit {
   public closeResult: string;
-  public categories = []
+  public categories = [];
 
-  constructor(private modalService: NgbModal) {
-    this.categories = categoryDB.category;
-  }
+  // constructor(private modalService: NgbModal) {
+  //   this.categories = categoryDB.category;
+  // }
 
-  open(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }
+  constructor(private categoryService: CategoryService) {
+    categoryService.categories().subscribe(
+      (categories:Categories[]) => (this.categories = categories)
 
+      // this.product_list = this.temporal_list
+
+      // console.log('salida', users.message)
+    );
+    // this.order = orderDB.list_order;
+    // this.order =
+  }
 
   public settings = {
     actions: {
-      position: 'right'
+      position: 'right',
     },
     columns: {
       img: {
@@ -43,10 +39,10 @@ export class CategoryComponent implements OnInit {
         type: 'html',
       },
       product_name: {
-        title: 'Nombre'
+        title: 'Nombre',
       },
       price: {
-        title: 'Precio'
+        title: 'Precio',
       },
       status: {
         title: 'Estado',
@@ -54,11 +50,9 @@ export class CategoryComponent implements OnInit {
       },
       category: {
         title: 'Categoria',
-      }
+      },
     },
   };
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

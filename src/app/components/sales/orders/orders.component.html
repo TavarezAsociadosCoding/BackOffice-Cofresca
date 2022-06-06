@@ -35,38 +35,53 @@
 </div>
  -->
 
- <div class="container-fluid">
+<div class="container-fluid">
   <section class="overflow-auto">
-    <article class="p-0 m-0 row d-flex flex-nowrap flex-row py-3 my-4 item-card full-width" *ngFor="let item of order">
-
+    <article
+      class="p-0 m-0 row d-flex flex-nowrap flex-row py-3 my-4 item-card full-width"
+      *ngFor="let item of order"
+    >
       <div class="pill col mr-2">
-        <span [class]="'pill-container d-flex justify-content-center align-items-center gray-text '+ (item.isActive ? 'invoice-approved-pill' : 'invoice-rejected-pill') ">
-          {{ 'activo' }}
+        <span
+          [class]="
+            'pill-container d-flex justify-content-center align-items-center gray-text ' +
+            (item.isActive ? 'invoice-approved-pill' : 'invoice-rejected-pill')
+          "
+        >
+          {{ "activo" }}
         </span>
       </div>
 
-      <div class='p-0 m-0 col-3'>
-          <label class="col-12 mb-0 pl-0 item-label font-weight-600">Fecha</label>
-          <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{dateForm(item.orderDate)}}</span>
-
+      <div class="p-0 m-0 col-3">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600">Fecha</label>
+        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
+          dateForm(item.orderDate)
+        }}</span>
       </div>
-              <div class='p-0 m-0 col'>
-                <label class="col-12 mb-0 pl-0 item-label font-weight-600">Monto</label>
-                <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{item.totalAmount}}</span>
-            </div>
+      <div class="p-0 m-0 col">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600">Monto</label>
+        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
+          item.totalAmount
+        }}</span>
+      </div>
 
+      <div class="p-0 m-0 col">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600"
+          >Proceso</label
+        >
+        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
+          item.status
+        }}</span>
+      </div>
 
-            <div class='p-0 m-0 col'>
-              <label class="col-12 mb-0 pl-0 item-label font-weight-600">Proceso</label>
-              <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{item.status}}</span>
-          </div>
-
-          <div class='p-0 m-0 col'>
-            <button class="btn btn-light d-flex justify-content-center align-items-center flex-row" >
-              <i class="fa fa-eye u-smallSize"></i>
-              <label class="m-0 ml-3 u-smallerSize"> Ver</label>
-            </button>
-        </div>
+      <div class="p-0 m-0 col">
+        <button
+          class="btn btn-light d-flex justify-content-center align-items-center flex-row"
+        >
+          <i class="fa fa-eye u-smallSize"></i>
+          <label class="m-0 ml-3 u-smallerSize"> Ver</label>
+        </button>
+      </div>
     </article>
   </section>
 </div>

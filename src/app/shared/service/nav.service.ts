@@ -100,17 +100,17 @@ export class NavService {
           title: 'Listado de Usuarios',
           type: 'link',
         },
-        { path: '/users/create-user', title: 'Crear Usuarios', type: 'link' },
+        // { path: '/users/create-user', title: 'Crear Usuarios', type: 'link' },
       ],
     },
     {
       title: 'Ventas',
-      icon: 'dollar-sign',
+      icon: 'archive',
       type: 'sub',
       active: true,
       children: [
         { path: '/sales/orders', title: 'Ordenes', type: 'link' },
-        { path: '/sales/transactions', title: 'Transaciones', type: 'link' },
+        // { path: '/sales/transactions', title: 'Transaciones', type: 'link' },
       ],
     },
     // {
@@ -150,7 +150,7 @@ export class NavService {
     {
       title: 'Facturas',
       path: '/invoice',
-      icon: 'archive',
+      icon: 'dollar-sign',
       type: 'link',
       active: true,
     },

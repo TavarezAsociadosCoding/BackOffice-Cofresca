@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 import { InvoicesService } from 'src/app/core/services/invoices/invoices.service';
 
 @Component({
   selector: 'app-invoice',
   templateUrl: './invoice.component.html',
-  styleUrls: ['./invoice.component.scss']
+  styleUrls: ['./invoice.component.scss'],
 })
 export class InvoiceComponent implements OnInit {
-
-  public invoices = []
+  public invoices = [];
 
   constructor(private invoiceService: InvoicesService) {
     invoiceService.invoices().subscribe(
@@ -20,37 +20,9 @@ export class InvoiceComponent implements OnInit {
     );
   }
 
-  public settings = {
-    actions: {
-      position: 'right'
-    },
-    columns: {
-      no: {
-        title: 'No'
-      },
-      invoice: {
-        title: 'Invoice'
-      },
-      date: {
-        title: 'Date'
-      },
-      shipping: {
-        title: 'Shipping'
-      },
-      amount: {
-        title: 'Amount'
-      },
-      tax: {
-        title: 'Tax'
-      },
-      total: {
-        title: 'Total'
-      }
-    },
-  };
-
-
-  ngOnInit() {
+  public dateForm(date: Date): string {
+    return moment(date).format('DD/MM/YYYY');
   }
 
+  ngOnInit() {}
 }

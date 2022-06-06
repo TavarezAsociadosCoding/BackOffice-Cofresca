@@ -8,17 +8,17 @@ const routes: Routes = [
   {
     path: '',
     children: [
+      // {
+      //   path: 'default',
+      //   component: DashboardComponent,
+      //   data: {
+      //     title: 'Dashboard',
+      //     breadcrumb: 'Dashboard',
+      //   },
+      //   // canActivate: [AuthGuard],
+      // },
       {
         path: 'default',
-        component: DashboardComponent,
-        data: {
-          title: 'Dashboard',
-          breadcrumb: 'Dashboard',
-        },
-        // canActivate: [AuthGuard],
-      },
-      {
-        path: 'htc',
         component: WarehouseDisplayComponent,
         data: {
           title: 'Warehouse display',

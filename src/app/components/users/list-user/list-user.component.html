@@ -1,48 +1,57 @@
-<!-- Container-fluid starts-->
 <div class="container-fluid">
-  <div class="card">
-    <div class="card-header">
-      <h5>Detalles del usuario</h5>
-    </div>
-    <div class="card-body">
-      <table mdbTable striped="true">
-        <thead>
-          <tr>
-            <th>Correo</th>
-            <th>Activo</th>
-            <!-- <th>Monto</th> -->
-            <!-- <th>Proceso</th> -->
-            <!-- <th>Ver</th> -->
-          </tr>
-        </thead>
-        <tbody>
-          <tr mdbTableCol *ngFor="let user of user_list">
-            <!-- <th scope="row">{{ ord.id }}</th> -->
-            <td>{{ user.email }}</td>
-            <div *ngIf="user.isActive">
-              <td>Activo</td>
-            </div>
-            <div *ngIf="!user.isActive">
-              <td>Desactivado</td>
-            </div>
+  <section class="overflow-auto">
+    <article
+      class="p-0 m-0 row d-flex flex-nowrap flex-row py-3 my-4 item-card full-width"
+      *ngFor="let item of user_list"
+    >
+      <div class="pill col mr-2">
+        <span
+          [class]="
+            'pill-container d-flex justify-content-center align-items-center gray-text ' +
+            (item.isActive ? 'invoice-approved-pill' : 'invoice-rejected-pill')
+          "
+        >
+          {{ "activo" }}
+        </span>
+      </div>
 
-            <!-- <td>{{ ord.totalAmount }}</td> -->
-            <!-- <td>{{ ord.status }}</td> -->
-            <!-- <td>
-              <button type="button" class="btn btn-primary">Ver</button>
-            </td> -->
-          </tr>
-        </tbody>
-      </table>
-      <!-- <div class="btn-popup pull-right">
-                <a class="btn btn-secondary" [routerLink]="'/users/create-user'">Crear Usuario</a>
-            </div> -->
-      <!-- <div id="batchDelete" class="category-table custom-datatable transcation-datatable user-image">
-                <div class="table-responsive">
-                    <ng2-smart-table [settings]="settings" [source]="user_list"></ng2-smart-table>
-                </div>
-            </div> -->
-    </div>
-  </div>
+      <!-- <div class="p-0 m-0 col-3">
+        <label class="col-6 mb-0 pl-0 item-label font-weight-600">Fecha</label>
+        <span class="col-6 pl-0 font-weight-600 item-value font-weight-500">{{
+          dateForm(item.createdDate)
+        }}</span>
+      </div> -->
+      <div class="p-0 m-0 col">
+        <label class="col-6 mb-0 pl-0 item-label font-weight-600">Email</label>
+        <span class="col-6 pl-0 font-weight-600 item-value font-weight-500">{{
+          item.email
+        }}</span>
+      </div>
+
+      <div class="p-0 m-0 col">
+        <label class="col-6 mb-0 pl-0 item-label font-weight-600"
+          >Telefono</label
+        >
+        <span class="col-6 pl-0 font-weight-600 item-value font-weight-500">{{
+          item.phone
+        }}</span>
+      </div>
+      <div class="p-0 m-0 col">
+        <label class="col-6 mb-0 pl-0 item-label font-weight-600"
+          >Empresa</label
+        >
+        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
+          item.companyName
+        }}</span>
+      </div>
+      <div class="p-0 m-0 col">
+        <button
+          class="btn btn-light d-flex justify-content-center align-items-center flex-row"
+        >
+          <i class="fa fa-eye u-smallSize"></i>
+          <label class="m-0 ml-3 u-smallerSize"> Ver</label>
+        </button>
+      </div>
+    </article>
+  </section>
 </div>
-<!-- Container-fluid Ends-->
