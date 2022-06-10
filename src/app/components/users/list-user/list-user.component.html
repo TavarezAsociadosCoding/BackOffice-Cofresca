@@ -1,4 +1,4 @@
-<div class="container-fluid">
+ <div class="container-fluid">
   <section class="overflow-auto">
     <article
       class="p-0 m-0 row d-flex flex-nowrap flex-row py-3 my-4 item-card full-width"
@@ -11,42 +11,36 @@
             (item.isActive ? 'invoice-approved-pill' : 'invoice-rejected-pill')
           "
         >
-          {{ "activo" }}
+          {{ (item.isActive ? "activo" : "inactivo") }}
         </span>
       </div>
 
-      <!-- <div class="p-0 m-0 col-3">
-        <label class="col-6 mb-0 pl-0 item-label font-weight-600">Fecha</label>
-        <span class="col-6 pl-0 font-weight-600 item-value font-weight-500">{{
-          dateForm(item.createdDate)
-        }}</span>
-      </div> -->
-      <div class="p-0 m-0 col">
-        <label class="col-6 mb-0 pl-0 item-label font-weight-600">Email</label>
-        <span class="col-6 pl-0 font-weight-600 item-value font-weight-500">{{
+      <div class="p-0 m-0 col-3">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600">Email</label>
+        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
           item.email
+        }}</span>
+      </div>
+      <div class="p-0 m-0 col">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600">Telefono</label>
+        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
+          item.phone
         }}</span>
       </div>
 
       <div class="p-0 m-0 col">
-        <label class="col-6 mb-0 pl-0 item-label font-weight-600"
-          >Telefono</label
-        >
-        <span class="col-6 pl-0 font-weight-600 item-value font-weight-500">{{
-          item.phone
-        }}</span>
-      </div>
-      <div class="p-0 m-0 col">
-        <label class="col-6 mb-0 pl-0 item-label font-weight-600"
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600"
           >Empresa</label
         >
         <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
           item.companyName
         }}</span>
       </div>
+
       <div class="p-0 m-0 col">
         <button
           class="btn btn-light d-flex justify-content-center align-items-center flex-row"
+          (click)="onSumit(item)"
         >
           <i class="fa fa-eye u-smallSize"></i>
           <label class="m-0 ml-3 u-smallerSize"> Ver</label>

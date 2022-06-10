@@ -62,4 +62,8 @@ export class OrdersComponent implements OnInit {
     // Whenever the filter changes, always go back to the first page
     this.table.offset = 0;
   }
+
+  onSumit(item: any){
+    console.log(item);
+  }
 }

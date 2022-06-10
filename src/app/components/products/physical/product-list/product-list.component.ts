@@ -26,4 +26,8 @@ export class ProductListComponent implements OnInit {
     console.log('mi lista', this.product_list);
   }
   ngOnInit() {}
+
+  Delete(item:any){
+
+  }
 }
