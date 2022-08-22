@@ -7,6 +7,8 @@ import { orderDB } from '../../../shared/tables/order-list';
 import { Columns, Config, DefaultConfig } from 'ngx-easy-table';
 import * as moment from 'moment';
 import { Orders } from 'src/app/core/models/order/order';
+import { ModalAdapterService } from 'src/app/shared/service/modal-adapter.service';
+import { OrderModalComponent } from './order-modal/order-modal.component';
 //import { Orders } from '../../models/order/order';
 
 @Component({
@@ -33,8 +35,8 @@ export class OrdersComponent implements OnInit {
      this.configuration = { ...DefaultConfig };
   }
   @ViewChild(DatatableComponent, { static: false }) table: DatatableComponent;
-  constructor(private orderService: OrderService) {
-    orderService.orders().subscribe(
+  constructor(private orderService: OrderService,private _modalAdapter: ModalAdapterService) {
+   this.orderService.orders().subscribe(
       (orders:Orders[]) => (this.order = orders)
 
       // this.product_list = this.temporal_list
@@ -64,6 +66,15 @@ export class OrdersComponent implements OnInit {
   }
 
   onSumit(item: any){
-    console.log(item);
+   this.openModal(item);
+  }
+
+  private async openModal( row: any) {
+    const modal = this._modalAdapter.open(OrderModalComponent);
+    modal.componentInstance.data = row;
+    modal.componentInstance.passEntry.subscribe(() => {
+      
+      this._modalAdapter.close();
+    });
   }
 }
