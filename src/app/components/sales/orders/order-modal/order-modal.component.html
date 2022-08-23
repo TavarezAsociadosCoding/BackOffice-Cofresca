@@ -47,6 +47,18 @@
           </ol>
         </div>
       </div>
+      <div class="col">
+        <div class="col-sm-12 payment-mode">
+          <h4>Numero de Orden</h4>
+          <p>{{ data.id }}</p>
+          <h4 class="mt-1">Fecha de orden</h4>
+          <p>{{ data.orderDate | date: "shortDate" }}</p>
+          <h4 class="mt-1">Total de la orden</h4>
+          <p>
+            {{ data.totalAmount }}
+          </p>
+        </div>
+        </div>
     </div>
   </div>
 </div>
