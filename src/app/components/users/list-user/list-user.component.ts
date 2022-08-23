@@ -46,4 +46,8 @@ export class ListUserComponent implements OnInit {
     return moment(date).format('DD/MM/YYYY');
   }
   ngOnInit() {}
+
+  public onSumit(item:any){
+    console.log(item);
+  }
 }
