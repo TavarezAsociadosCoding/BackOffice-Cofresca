@@ -55,4 +55,8 @@ export class CategoryComponent implements OnInit {
   };
 
   ngOnInit() {}
+
+  public onSumit(item:any){
+
+  }
 }

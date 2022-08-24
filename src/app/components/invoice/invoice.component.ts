@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { Invoices } from 'src/app/core/models/invoices/invoices';
 import { InvoicesService } from 'src/app/core/services/invoices/invoices.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { InvoicesService } from 'src/app/core/services/invoices/invoices.service
   styleUrls: ['./invoice.component.scss'],
 })
 export class InvoiceComponent implements OnInit {
-  public invoices = [];
+  public invoices:Invoices[] = [];
 
   constructor(private invoiceService: InvoicesService) {
     invoiceService.invoices().subscribe(
@@ -25,4 +26,8 @@ export class InvoiceComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  public onSumit(item:any){
+    console.log(item);
+  }
 }

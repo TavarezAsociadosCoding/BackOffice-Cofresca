@@ -1,40 +1,3 @@
-<!--
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="card">
-        <div class="card-header">
-          <h5>Gestionar el pedido</h5>
-        </div>
-        <table mdbTable striped="true" class="m-2">
-          <thead>
-            <tr>
-              <th>Fecha</th>
-              <th>Estado</th>
-              <th>Monto</th>
-              <th>Proceso</th>
-              <th>Ver</th>
-            </tr>
-          </thead>
-          <tbody >
-            <tr mdbTableCol *ngFor="let ord of order">
-              <td>{{ ord.orderDate }}</td>
-              <td>{{ ord.isActive }}</td>
-              <td>{{ ord.totalAmount }}</td>
-              <td>{{ ord.status }}</td>
-              <td>
-                <button type="button" class="btn btn-primary">Ver</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-</div>
- -->
-
 <div class="container-fluid">
   <section class="overflow-auto">
     <article
@@ -77,6 +40,7 @@
       <div class="p-0 m-0 col">
         <button
           class="btn btn-light d-flex justify-content-center align-items-center flex-row"
+          (click)="onSumit(item)"
         >
           <i class="fa fa-eye u-smallSize"></i>
           <label class="m-0 ml-3 u-smallerSize"> Ver</label>

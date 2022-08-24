@@ -1,0 +1,52 @@
+<div class="modal-body c-modal">
+  <div class="c-modal__header">
+    <div class="c-modal__title">Agregar nuevo deposito</div>
+
+    <button
+      mat-button
+      type="button"
+      class="close c-modal__btnClose"
+      aria-label="Close"
+      (click)="closeModal({ resultType: 'close' })"
+    >
+      <span aria-hidden="true" class="close-label">&times;</span>
+    </button>
+  </div>
+  <div class="c-modal__body">
+    <div class="row col-12">
+      <div class="col-lg-8">
+        <div class="product-order">
+          <h4 class="ml-1"><b>Los detalles de su pedido</b></h4>
+          <ol class="list-group list-group-numbered">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+              *ngFor="let product of data.ordersDetails"
+            >
+              <span class="badge rounded-pill">
+                <img
+                  [src]="product.products.image"
+                  alt=""
+                  class="img-fluid w-75"
+              /></span>
+              <ul class="order-detail d-flex flex-column col-6">
+                <li>producto: {{ product.products.name }}</li>
+                <li>Cantidad: {{ product.quantity }}</li>
+                <li>
+                  Precio:
+                  {{ product.products.prices * product?.quantity }}
+                </li>
+              </ul>
+            </li>
+
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+            >
+              <span>Total</span>
+              <span>{{ data.totalAmount }}</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

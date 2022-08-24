@@ -1,25 +1,20 @@
 
-<div class="container-fluid">
-  <div class="card-header">
-    <h5>Categoría de productos</h5>
-  </div>
+ <div class="container-fluid">
   <section class="overflow-auto">
     <article
       class="p-0 m-0 row d-flex flex-nowrap flex-row py-3 my-4 item-card full-width"
       *ngFor="let item of categories"
     >
-      <div class="p-0 m-0 col">
-        <label class="col-12 mb-0 pl-0 item-label font-weight-600"
-          >Nombre</label
-        >
+      <div class="p-0 m-0 col-10">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600">Nombre</label>
         <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
           item.categoryName
         }}</span>
       </div>
-
-      <div class="p-0 m-0 col">
+      <div class="p-0 m-0 col-2">
         <button
           class="btn btn-light d-flex justify-content-center align-items-center flex-row"
+          (click)="onSumit(item)"
         >
           <i class="fa fa-eye u-smallSize"></i>
           <label class="m-0 ml-3 u-smallerSize"> Ver</label>

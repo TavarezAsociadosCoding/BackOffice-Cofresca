@@ -1,65 +1,55 @@
-<div class="container-fluid">
-  <div class="row products-admin ratio_asos">
-    <div class="col-xl-3 col-sm-6" *ngFor="let product of product_list">
-      <div class="card">
-        <div class="card-body product-box">
-          <div class="img-wrapper">
-            <div class="lable-block">
-              <!-- <span class="lable3" *ngIf="product.tag == 'new'">new</span> -->
-              <!-- <span class="lable4" *ngIf="product.sale == 'on sale'" -->
-                <!-- >on sale</span -->
-              <!-- > -->
-            </div>
-            <div class="front">
-              <a href="javascript:void(0)"
-                ><img
-                  [src]="[product.image]"
-                  class="img-fluid blur-up lazyload bg-img"
-                  alt=""
-              /></a>
-              <div class="product-hover">
-                <ul>
-                  <li>
-                    <button
-                      class="btn"
-                      type="button"
-                      data-original-title=""
-                      title=""
-                    >
-                      <i class="icon-pencil-alt"></i>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      class="btn"
-                      type="button"
-                      data-toggle="modal"
-                      data-target="#exampleModalCenter"
-                      data-original-title=""
-                      title=""
-                    >
-                      <i class="icon-trash"></i>
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="product-detail">
-            <!-- <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div> -->
-            <a href="javascript:void(0)">
-              <h6>{{ product.name }}</h6>
-            </a>
-            <h4>{{ product.prices }}</h4>
-            <!-- <ul class="color-variant">
-                            <li class="bg-light0"></li>
-                            <li class="bg-light1"></li>
-                            <li class="bg-light2"></li>
-                        </ul> -->
-          </div>
-        </div>
+<div class="container-fluid card">
+  <section class="overflow-auto">
+    <article
+      class="p-0 m-0 row d-flex flex-nowrap flex-row py-3 my-4 item-card full-width"
+      *ngFor="let item of product_list"
+    >
+      <div class="p-0 m-0 col-3">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600"
+          >producto</label
+        >
+        <img
+          [src]="[item.image]"
+          class="img-fluid blur-up lazyload bg-img w-25"
+          alt=""
+        />
       </div>
-    </div>
-  </div>
+      <div class="p-0 m-0 col-3">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600"
+          >Nombre</label
+        >
+        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
+          item.name
+        }}</span>
+      </div>
+      <div class="p-0 m-0 col-2">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600"
+          >precio</label
+        >
+        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
+          item.prices
+        }}</span>
+      </div>
+
+      <div class="p-0 m-0 col-2">
+        <button
+          class="align-items-center btn btn-light d-flex justify-content-center row"
+          (click)="Delete(item)"
+        >
+        <i class="icon-trash ml-1 p-1"></i>
+          <label class="m-0 mr-4 u-smallerSize"> elimiar</label>
+        </button>
+      </div>
+
+      <div class="p-0 m-0 col-2">
+        <button
+          class="align-items-center btn btn-light d-flex justify-content-center row"
+          (click)="Delete(item)"
+        >
+        <i class="icon-pencil-alt ml-1 p-1"></i>
+          <label class="m-0 mr-4 u-smallerSize"> editar</label>
+        </button>
+      </div>
+    </article>
+  </section>
 </div>
