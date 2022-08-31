@@ -110,6 +110,13 @@ export class NavService {
       active: true,
       children: [
         { path: '/sales/orders', title: 'Ordenes', type: 'link' },
+        {
+          title: 'Facturas',
+          path: '/invoice',
+          icon: 'dollar-sign',
+          type: 'link',
+          active: true,
+        },
         // { path: '/sales/transactions', title: 'Transaciones', type: 'link' },
       ],
     },
@@ -134,25 +141,18 @@ export class NavService {
     // 		{ path: '/localization/taxes', title: 'Taxes', type: 'link' },
     // 	]
     // },
-    {
-      title: 'Reportes',
-      path: '/reports',
-      icon: 'bar-chart',
-      type: 'link',
-      active: true,
-    },
+    // {
+    //   title: 'Reportes',
+    //   path: '/reports',
+    //   icon: 'bar-chart',
+    //   type: 'link',
+    //   active: true,
+    // },
     {
       title: 'Configuracion',
       icon: 'settings',
       type: 'sub',
-      children: [{ path: '/settings/profile', title: 'Profile', type: 'link' }],
-    },
-    {
-      title: 'Facturas',
-      path: '/invoice',
-      icon: 'dollar-sign',
-      type: 'link',
-      active: true,
+      children: [{ path: '/settings/profile', title: 'Perfil', type: 'link' }],
     },
     // {
     // 	title: 'Coupons', icon: 'tag', type: 'sub', active: false, children: [

@@ -7,6 +7,7 @@ import { ApplicationUser } from '../models/application-user';
 import { environment } from 'src/environments/environment';
 import { RegisterUser } from '../models/Iresponse';
 import { LoginResult, RegisterResult } from '../models/Iresult';
+import { Profile } from '../models/profile/profile';
 
 // interface LoginResult {
 //   username: string;
@@ -52,6 +53,9 @@ export class AuthService implements OnDestroy {
 
   ngOnDestroy(): void {
     // window.removeEventListener("storage", this.storageEventListener.bind(this));
+  }
+  public getUserIdStorage(): string {
+    return localStorage.getItem('userId');
   }
 
   login(username: string, password: string) {
@@ -99,7 +103,32 @@ export class AuthService implements OnDestroy {
         })
       );
   }
-
+  public editProfile(userId: string, _profile: Profile) {
+    return this.http
+      .put<Profile>(`${this.apiUrl}/editUser/${userId}`, {
+        companyName: _profile.companyName,
+        rnc: _profile.rnc,
+        phone: _profile.phone,
+        address: _profile.address,
+        phoneGerente: _profile.phoneGerente,
+      })
+      .pipe(
+        map((x) => {
+          console.log(x);
+          // this._register.next({
+          //   message: x.message,
+          //   success: x.success,
+          // });
+          return x;
+        })
+      );
+    // .pipe(
+    //   map((x) => {
+    //     // this.setLocalStorage(x);
+    //     return x;
+    //   })
+    // );
+  }
   register({
     username,
     firstname,
@@ -178,18 +207,24 @@ export class AuthService implements OnDestroy {
   setLocalStorage(x: LoginResult) {
     localStorage.setItem('access_token', x.accesstoken);
     localStorage.setItem('expiration', x.expiration);
+    localStorage.setItem('userId', x.userid);
+
     // localStorage.setItem('login-event', 'login' + Math.random());
   }
 
   clearLocalStorage() {
     localStorage.removeItem('access_token');
     localStorage.removeItem('expiration');
+    localStorage.removeItem('userId');
+
     // localStorage.removeItem('refresh_token');
     // localStorage.setItem('logout-event', 'logout' + Math.random());
   }
   getLocalStorage() {
     localStorage.getItem('access_token');
   }
+
+
 
   public ValidationToken(): boolean {
     let expirationString = localStorage.getItem('expiration');
