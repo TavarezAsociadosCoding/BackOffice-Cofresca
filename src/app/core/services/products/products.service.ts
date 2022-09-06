@@ -62,6 +62,7 @@ export class ProductService implements OnDestroy {
 
   //TODO:CATEGORIAS HARCODE
   public crear_product(
+    Id,
     Name,
     BarCode,
     Prices,
@@ -70,39 +71,14 @@ export class ProductService implements OnDestroy {
     stock,
     description
   ) {
-    let CategoryId = 1;
-    const auth_token = this.getLocalStorage();
-
-    // const headers = {
-    //   'Content-Type': 'application/json',
-    //   Authorization: `Bearer ${auth_token}`,
-    // };
-
-    // const headers = {
-    //   Authorization: 'Bearer my-token',
-    //   'My-Custom-Header': 'foobar',
-    // };
-    // "Name":"Piña",
-    // "BarCode":"125",
-    // "Prices":70,
-    // "CategoryId":1,
-    // "image":"https://todofrescord.com/wp-content/uploads/2019/03/pi%C3%B1a.jpg"
-
-    // const body = JSON.stringify({
-    //   Name: Name,
-    //   BarCode: BarCode,
-    //   Prices: Prices,
-    //   CategoryId: 1,
-    //   image: image,
-    // });
-
-    // const payload = JSON.parse(body);
+  
     return this.http
       .post<CreateProductResult>(`${this.apiUrl}products`, {
+        Id:Id,
         Name: Name,
         BarCode: '000',
         Prices: Prices,
-        CategoryId: 1,
+        CategoryId: categoryId,
         image: image,
         Description: description,
         Stock: stock,

@@ -15,8 +15,8 @@ export class OrderModalComponent implements OnInit {
   constructor(
     private activeModal: NgbActiveModal,
   ) { }
-
   ngOnInit() {
+
   }
 
   public closeModal(result: any) {

@@ -68,11 +68,11 @@ export class NavService {
           type: 'link',
         },
         // { path: '/products/physical/product-detail', title: 'Detalle de Producto ', type: 'link' },
-        {
-          path: '/products/add-product',
-          title: 'Agregar Producto',
-          type: 'link',
-        },
+        // {
+        //   path: '/products/add-product',
+        //   title: 'Agregar Producto',
+        //   type: 'link',
+        // },
         {
           path: '/products/import-product',
           title: 'importa Producto',
@@ -148,6 +148,19 @@ export class NavService {
     //   type: 'link',
     //   active: true,
     // },
+    {
+      title: 'Asesorias',
+      type: 'sub',
+      icon: 'list',
+      children: [
+        { path: '/consultants', title: 'Asesorias', type: 'link' },
+        {
+          path: '/consultants/add-consultant',
+          title: 'Crear Asesorias',
+          type: 'link',
+        },
+      ],
+    },
     {
       title: 'Configuracion',
       icon: 'settings',

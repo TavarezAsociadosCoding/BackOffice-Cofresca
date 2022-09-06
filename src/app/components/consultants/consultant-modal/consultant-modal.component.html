@@ -1,0 +1,25 @@
+<div class="modal-body c-modal">
+  <div class="c-modal__header">
+    <div class="c-modal__title">{{ data.header }}</div>
+    <div class="c-modal__title">{{ data.type }}</div>
+  </div>
+  <div class="c-modal__body">
+    <div class="row">
+      <form (ngSubmit)="onSubmit()">
+        <div class="modal-body">
+          <textarea
+            class="form-control col-xs-12"
+            rows="7"
+            cols="80"
+            (change)="doTextareaValueChange($event)"
+            >{{ textareaValue }}</textarea
+          >
+          <hr />
+          <button class="btn btn-primary mr-1" (click)="onSubmit()">
+            Editar Asesoria
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

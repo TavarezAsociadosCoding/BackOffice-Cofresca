@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <section class="overflow-auto">
+    <article
+      class="p-0 m-0 row d-flex flex-nowrap flex-row py-3 my-4 item-card full-width"
+      *ngFor="let consultant of consultants"
+    >
+      <div class="p-0 m-0 col">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600"
+          >Nombre</label
+        >
+        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
+          consultant.header
+        }}</span>
+      </div>
+
+      <div class="p-0 m-0 col">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600">Tipo</label>
+        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
+          consultant.type
+        }}</span>
+      </div>
+
+      <div class="p-0 m-0 col">
+        <button
+          class="btn btn-light d-flex justify-content-center align-items-center flex-row"
+          (click)="onSumit(consultant)"
+        >
+          <i class="fa fa-eye u-smallSize"></i>
+          <label class="m-0 ml-3 u-smallerSize"> Ver</label>
+        </button>
+      </div>
+    </article>
+  </section>
+</div>

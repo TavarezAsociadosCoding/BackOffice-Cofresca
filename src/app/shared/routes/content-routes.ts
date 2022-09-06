@@ -126,4 +126,15 @@ export const content: Routes = [
     },
     canActivate: [AuthGuard],
   },
+  {
+    path: 'consultants',
+    loadChildren: () =>
+      import('../../components/consultants/consultants.module').then(
+        (m) => m.ConsultantsModule
+      ),
+    data: {
+      breadcrumb: 'Asesorias',
+    },
+    canActivate: [AuthGuard],
+  },
 ];

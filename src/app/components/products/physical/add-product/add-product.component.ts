@@ -62,24 +62,24 @@ export class AddProductComponent implements OnInit {
     let qty = this.counter;
     let image = this.url[0].img;
     console.log('estoy llamando el crear product');
-    let x = await (await this.ProductService.crear_product(
-      name,
-      barcode,
-      prices,
-      image,
-      'categorias',
-      10,
-      'creacion normal'
-    )).subscribe(
-      () => {
-        console.log('espere resultado');
-        // this.router.navigate("/home");
-      },
-      () => {
-        console.log('error');
-        // this.loginError = true;
-      }
-    );
+    // let x = await (await this.ProductService.crear_product(
+    //   name,
+    //   barcode,
+    //   prices,
+    //   image,
+    //   'categorias',
+    //   10,
+    //   'creacion normal'
+    // )).subscribe(
+    //   () => {
+    //     console.log('espere resultado');
+    //     // this.router.navigate("/home");
+    //   },
+    //   () => {
+    //     console.log('error');
+    //     // this.loginError = true;
+    //   }
+    // );
   }
 
   //FileUpload

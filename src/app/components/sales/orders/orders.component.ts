@@ -21,30 +21,17 @@ export class OrdersComponent implements OnInit {
   public temp = [];
   public configuration: Config;
   public columns: Columns[];
-  // public data: Company[] = [];
-  // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
 
   ngOnInit() {
-     this.columns = [
-       { key: 'level', title: 'Level' },
-       { key: 'age', title: 'Age' },
-       { key: 'company', title: 'Company' },
-       { key: 'name', title: 'Name' },
-       { key: 'isActive', title: 'STATUS' },
-     ];
+   
      this.configuration = { ...DefaultConfig };
   }
   @ViewChild(DatatableComponent, { static: false }) table: DatatableComponent;
   constructor(private orderService: OrderService,private _modalAdapter: ModalAdapterService) {
    this.orderService.orders().subscribe(
       (orders:Orders[]) => (this.order = orders)
-
-      // this.product_list = this.temporal_list
-
-      // console.log('salida', users.message)
     );
-    // this.order = orderDB.list_order;
-    // this.order =
+
   }
 
   public dateForm(date:Date):string{

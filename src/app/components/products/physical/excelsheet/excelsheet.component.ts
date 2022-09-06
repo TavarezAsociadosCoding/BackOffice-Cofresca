@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { CategoryService } from 'src/app/core/services/categories/categories.service';
 import { ProductService } from 'src/app/core/services/products/products.service';
 import * as XLSX from 'xlsx';
 
@@ -10,7 +11,9 @@ import * as XLSX from 'xlsx';
 })
 export class ExcelsheetComponent implements OnInit {
   data: [][];
+  count: number = 0;
   constructor(
+    private categoriesService: CategoryService,
     private ProductService: ProductService,
     private _sanitizer: DomSanitizer
   ) {}
@@ -34,18 +37,20 @@ export class ExcelsheetComponent implements OnInit {
       console.log(ws);
 
       this.data = XLSX.utils.sheet_to_json(ws, { header: 1 });
+
+      console.log('!!!!!!DATA!!!!!!');
+      console.log(this.data);
       const obj = {};
       for (let i = 0; i < this.data.length; i++) {
         //Categoria
 
         if (i > 0) {
-          console.log(this.data[i]);
+          // console.log(this.data[i]);
           // let categoria = this.data[i][0];
           // for(let colum=0; colum < this.data[i].length;colum)
           const producto: any[] = this.data[i];
-          let categorias: number = 1;
+          // let categorias: number = 1;
           //Nombre
-          console.log(producto);
           let nombre: string = producto[1];
           //Precio
           let precio: number = producto[3];
@@ -61,25 +66,39 @@ export class ExcelsheetComponent implements OnInit {
             'data:image/jpg;base64,' +
             (this._sanitizer.bypassSecurityTrustResourceUrl(producto[7]) as any)
               .changingThisBreaksApplicationSecurity;
+
           let imagen = descripImg;
+
           let descripcion = producto[4];
 
           let barcode = producto[5];
 
-          //  let categorories =producto[4];
+          let producto_ID = producto[8];
+
+          let categorories_Name = producto[9];
+
+          let categorories_ID = producto[10];
+
+          this.categoriesService.createCategories(
+            categorories_Name,
+            categorories_ID
+          );
 
           let x = await (
             await this.ProductService.crear_product(
+              producto_ID,
               nombre,
               barcode,
               precio,
               imagen,
-              'categorias',
+              categorories_ID,
               stock,
               descripcion
             )
           ).subscribe(
             () => {
+              this.count = i;
+
               console.log('espere resultado');
               // this.router.navigate("/home");
             },

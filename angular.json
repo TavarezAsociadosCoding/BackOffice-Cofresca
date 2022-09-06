@@ -27,7 +27,7 @@
               "chartist",
               "chart.js"
             ],
-            "outputPath": "dist/multikart-backend/browser",
+            "outputPath": "dist/multikart-backend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",

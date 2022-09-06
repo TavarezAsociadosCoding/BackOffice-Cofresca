@@ -35,4 +35,22 @@ export class CategoryService implements OnDestroy {
       })
     );
   }
+
+  public createCategories(_CategoryName: string, _id: number) {
+    return this.http
+      .post(this.apiUrl + 'categories', {
+        CategoryName: _CategoryName,
+        id: _id,
+      })
+      .toPromise();
+  }
+
+  public updateCategories(_id: number, _CategoryName: string) {
+    return this.http
+      .put(this.apiUrl + `categories?id=${_id}`, {
+        CategoryName: _CategoryName,
+        id: _id,
+      })
+      .toPromise();
+  }
 }
