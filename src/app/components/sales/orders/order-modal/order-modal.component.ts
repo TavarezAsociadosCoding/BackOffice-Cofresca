@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-order-modal',
@@ -15,6 +16,11 @@ export class OrderModalComponent implements OnInit {
   constructor(
     private activeModal: NgbActiveModal,
   ) { }
+
+  public dateForm(date: Date): string {
+    return moment(date).format("DD/MM/YYYY h:mm:ss a");
+  }
+  
   ngOnInit() {
 
   }

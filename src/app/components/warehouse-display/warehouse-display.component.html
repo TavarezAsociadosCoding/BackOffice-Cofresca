@@ -1,50 +1,54 @@
-<div class="container-fluid d-flex">
-  <div class="col-3 global row mr-4 justify-content-center" >
-    <div class="text-center mt-2">
-      <h1>Total de oldenes</h1>
-      <h2>{{Total}}</h2>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <ul class="ml-5 pl-2 navbar-nav mr-auto">
+      <li class="nav-item active">
+        <label class="nav-link" href="#">Pendientes: {{ Total }}</label>
+      </li>
+      <li class="nav-item">
+        <label class="nav-link" href="#"
+          >Listos: {{ listo }} de {{ Total }}</label
+        >
+      </li>
+      <li class="nav-item">
+        <label class="nav-link" href="#"
+          >Pendintes: {{ pendintes }} de {{ Total }}</label
+        >
+      </li>
+    </ul>
+</nav>
+<div class="col-12 overflow-auto justify-content-center row">
+  <div
+    *ngFor="let item of orders"
+    class="col-xl-2 col container-body m-2 text-center"
+  >
+    <h4 class="mt-2">{{ item.isExpress ? "Exprés" : "Normal" }}</h4>
+    <i
+      class="mt-2"
+      [class]="+item.isActive ? 'fa fa-check-circle' : 'fa fa-times'"
+    ></i>
+    <div class="text-center m-2">
+      {{ dateForm(item.orderDate) }}
     </div>
-    <div class="text-center justify-content-center m-2">
-      <h1>{{listo}} de {{Total}}</h1>
-      <h1>Listos</h1>
+    <div
+      class="text-center m-2 alert"
+      [class]="item.staus === 'Pedientes' ? 'alert-success' : 'alert-danger'"
+    >
+      {{ item.status }}
     </div>
-    <div class="text-center justify-content-center m-2">
-      <h1>{{pendintes}} de {{Total}}</h1>
-      <h1>Pendintes</h1>
+    <div class="row justify-content-center">
+      <h3> {{ item.customer.firstName }}</h3>
     </div>
-  </div>
-  <div class="container container-board overflow-auto justify-content-center row">
-    <div *ngFor="let item of orders" class="col-xl-3 col container-body m-2 text-center">
-      <i class="mt-2" [class]="+ item.isActive ? 'fa fa-check-circle' : 'fa fa-times'"></i>
-      <div class="text-center m-2">
-        {{dateForm(item.orderDate)}}
-      </div>
-      <div class="text-center m-2 alert" [class]="item.staus === 'Pedientes' ? 'alert-success' : 'alert-danger' ">
-         {{item.status}}
-      </div>
-      <div class="row justify-content-center">
-        <h3> {{item.customer.firstName}}</h3>
-        <h4> {{item.customer.lastName}} </h4>
-      </div>
-      <div>
-        <ul  class="row justify-content-center list-group">
-          <div *ngFor="let itemDetails of item.ordersDetails">
-            <div>
-            nomber: {{itemDetails.products.name}}
-          </div>
-          <div>
-           Precio: {{itemDetails.amount}}
-          </div>
-           <div >
-            cantidad: {{itemDetails.quantity}}
-           </div>
-           </div>
-          </ul>
-      </div>
+    <div>
+      <ul class="row justify-content-center list-group">
+        <div *ngFor="let itemDetails of item.ordersDetails">
+          <div>nomber: {{ itemDetails.products.name }}</div>
+          <div>Precio: {{ itemDetails.amount }}</div>
+          <div>cantidad: {{ itemDetails.quantity }}</div>
+        </div>
+      </ul>
+    </div>
 
-      <h1>
-         {{item.totalAmount}}
-      </h1>
-    </div>
+    <h1>
+      {{ item.totalAmount }}
+    </h1>
   </div>
 </div>

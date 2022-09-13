@@ -1,6 +1,6 @@
 <div class="modal-body c-modal">
   <div class="c-modal__header">
-    <div class="c-modal__title">Agregar nuevo deposito</div>
+    <div class="c-modal__title">Pedidos</div>
 
     <button
       mat-button
@@ -13,7 +13,7 @@
     </button>
   </div>
   <div class="c-modal__body">
-    <div class="row col-12">
+    <div class="row">
       <div class="col-lg-8">
         <div class="product-order">
           <h4 class="ml-1"><b>Los detalles de su pedido</b></h4>
@@ -31,13 +31,14 @@
               <ul class="order-detail d-flex flex-column col-6">
                 <li>producto: {{ product.products.name }}</li>
                 <li>Cantidad: {{ product.quantity }}</li>
+                <li>Precio por unida: {{ product.unitPrice }}</li>
                 <li>
-                  Precio:
-                  {{ product.products.prices * product?.quantity }}
+                  Precio total:
+                  {{ product.unitPrice * product?.quantity }}
                 </li>
               </ul>
+              
             </li>
-
             <li
               class="list-group-item d-flex justify-content-between align-items-start"
             >
@@ -47,18 +48,19 @@
           </ol>
         </div>
       </div>
+
       <div class="col">
         <div class="col-sm-12 payment-mode">
           <h4>Numero de Orden</h4>
           <p>{{ data.id }}</p>
           <h4 class="mt-1">Fecha de orden</h4>
-          <p>{{ data.orderDate | date: "shortDate" }}</p>
+          <p>{{ dateForm(data.orderDate)}}</p>
           <h4 class="mt-1">Total de la orden</h4>
           <p>
             {{ data.totalAmount }}
           </p>
         </div>
-        </div>
+      </div>
     </div>
   </div>
 </div>

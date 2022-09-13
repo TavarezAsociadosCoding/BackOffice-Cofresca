@@ -29,7 +29,10 @@ export class OrdersComponent implements OnInit {
   @ViewChild(DatatableComponent, { static: false }) table: DatatableComponent;
   constructor(private orderService: OrderService,private _modalAdapter: ModalAdapterService) {
    this.orderService.orders().subscribe(
-      (orders:Orders[]) => (this.order = orders)
+      (orders:Orders[]) => {
+        console.log("🚀 ~ file: orders.component.ts ~ line 33 ~ OrdersComponent ~ constructor ~ orders", orders)
+        this.order = orders;
+      }
     );
 
   }

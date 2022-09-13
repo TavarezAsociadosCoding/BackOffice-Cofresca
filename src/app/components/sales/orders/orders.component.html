@@ -11,10 +11,18 @@
             (item.isActive ? 'invoice-approved-pill' : 'invoice-rejected-pill')
           "
         >
-          {{ "activo" }}
+          {{ item.isActive ? "Abierta" : 'Cerrada '}}
         </span>
       </div>
-
+      <!-- customer -->
+      <div class="p-0 m-0 col-3">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600"
+          >Cliente</label
+        >
+        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
+          item.customer.firstName
+        }}</span>
+      </div>
       <div class="p-0 m-0 col-3">
         <label class="col-12 mb-0 pl-0 item-label font-weight-600">Fecha</label>
         <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{

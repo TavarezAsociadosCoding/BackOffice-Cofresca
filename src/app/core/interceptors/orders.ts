@@ -36,6 +36,7 @@ export interface Orders {
   employeeId: number;
   id: number;
   isActive: boolean;
+  isExpress:boolean;
   orderDate: Date;
   shippingAddress: string;
   status: string;

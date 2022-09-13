@@ -47,6 +47,23 @@ export class NavService {
       active: true,
     },
     {
+      title: 'Ventas',
+      icon: 'archive',
+      type: 'sub',
+      active: true,
+      children: [
+        { path: '/sales/orders', title: 'Ordenes', type: 'link' },
+        {
+          title: 'Facturas',
+          path: '/invoice',
+          icon: 'dollar-sign',
+          type: 'link',
+          active: true,
+        },
+        // { path: '/sales/transactions', title: 'Transaciones', type: 'link' },
+      ],
+    },
+    {
       title: 'Productos',
       icon: 'box',
       type: 'sub',
@@ -90,7 +107,7 @@ export class NavService {
       ],
     },
     {
-      title: 'Usuarios',
+      title: 'Clientes',
       icon: 'user-plus',
       type: 'sub',
       active: true,
@@ -101,23 +118,6 @@ export class NavService {
           type: 'link',
         },
         // { path: '/users/create-user', title: 'Crear Usuarios', type: 'link' },
-      ],
-    },
-    {
-      title: 'Ventas',
-      icon: 'archive',
-      type: 'sub',
-      active: true,
-      children: [
-        { path: '/sales/orders', title: 'Ordenes', type: 'link' },
-        {
-          title: 'Facturas',
-          path: '/invoice',
-          icon: 'dollar-sign',
-          type: 'link',
-          active: true,
-        },
-        // { path: '/sales/transactions', title: 'Transaciones', type: 'link' },
       ],
     },
     // {
