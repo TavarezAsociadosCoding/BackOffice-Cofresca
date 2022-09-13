@@ -70,7 +70,7 @@ export const content: Routes = [
     loadChildren: () =>
       import('../../components/users/users.module').then((m) => m.UsersModule),
     data: {
-      breadcrumb: 'Usuarios',
+      breadcrumb: 'Clientes',
     },
     canActivate: [AuthGuard],
   },

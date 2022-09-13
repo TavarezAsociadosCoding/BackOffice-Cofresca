@@ -114,7 +114,7 @@ export class NavService {
       children: [
         {
           path: '/users/list-user',
-          title: 'Listado de Usuarios',
+          title: 'Listado de Clientes',
           type: 'link',
         },
         // { path: '/users/create-user', title: 'Crear Usuarios', type: 'link' },

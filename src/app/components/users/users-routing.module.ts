@@ -11,8 +11,8 @@ const routes: Routes = [
         path: 'list-user',
         component: ListUserComponent,
         data: {
-          title: 'Listado de usuarios',
-          breadcrumb: 'Listado de usuarios',
+          title: 'Listado de Clientes',
+          breadcrumb: 'Listado de Clientes',
         },
       },
       {
