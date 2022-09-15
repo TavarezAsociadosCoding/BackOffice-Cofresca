@@ -37,7 +37,6 @@
                   {{ product.unitPrice * product?.quantity }}
                 </li>
               </ul>
-              
             </li>
             <li
               class="list-group-item d-flex justify-content-between align-items-start"
@@ -50,11 +49,18 @@
       </div>
 
       <div class="col">
+        <button
+          class="btn btn-sm font-weight-bold btn-link"
+          (click)="exportToCsv()"
+        >
+          <i class="fa fa-external-link"></i>
+          Export to CSV
+        </button>
         <div class="col-sm-12 payment-mode">
           <h4>Numero de Orden</h4>
           <p>{{ data.id }}</p>
           <h4 class="mt-1">Fecha de orden</h4>
-          <p>{{ dateForm(data.orderDate)}}</p>
+          <p>{{ dateForm(data.orderDate) }}</p>
           <h4 class="mt-1">Total de la orden</h4>
           <p>
             {{ data.totalAmount }}

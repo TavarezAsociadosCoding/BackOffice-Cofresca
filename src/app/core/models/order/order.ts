@@ -56,3 +56,16 @@ export interface orderDetails {
   ordersid?: number;
   products?: Products;
 }
+export interface ReOrders {
+  id?: string;
+  orderDate?: string;
+  totalAmount?: number;
+  customerId?: number;
+  employeeId?: number;
+  isActive?: true;
+  status?: string;
+  userId?: string;
+  isExpress?: string;
+  shippingAddress?: string;
+  ordersDetails?: orderDetails[];
+}

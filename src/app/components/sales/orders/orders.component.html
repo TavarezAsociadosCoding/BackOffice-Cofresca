@@ -7,11 +7,8 @@
       <div class="pill col mr-2">
         <span
           [class]="
-            'pill-container d-flex justify-content-center align-items-center gray-text ' +
-            (item.isActive ? 'invoice-approved-pill' : 'invoice-rejected-pill')
-          "
-        >
-          {{ item.isActive ? "Abierta" : 'Cerrada '}}
+            'pill-container d-flex justify-content-center align-items-center gray-text ' +(item.isActive ? 'invoice-approved-pill' : 'invoice-rejected-pill')">
+          {{ item.isActive ? "Abierta" : "Cerrada" }}
         </span>
       </div>
       <!-- customer -->
@@ -37,9 +34,7 @@
       </div>
 
       <div class="p-0 m-0 col">
-        <label class="col-12 mb-0 pl-0 item-label font-weight-600"
-          >Proceso</label
-        >
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600">Proceso</label>
         <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
           item.status
         }}</span>
