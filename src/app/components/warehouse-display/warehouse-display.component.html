@@ -1,19 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <ul class="ml-5 pl-2 navbar-nav mr-auto">
-      <li class="nav-item active">
-        <label class="nav-link" href="#">Pendientes: {{ Total }}</label>
-      </li>
-      <li class="nav-item">
-        <label class="nav-link" href="#"
-          >Listos: {{ listo }} de {{ Total }}</label
-        >
-      </li>
-      <li class="nav-item">
-        <label class="nav-link" href="#"
-          >Pendintes: {{ pendintes }} de {{ Total }}</label
-        >
-      </li>
-    </ul>
+  <ul class="ml-5 pl-2 navbar-nav mr-auto">
+    <li class="nav-item active">
+      <label class="nav-link" href="#">Pendientes: {{ Total }}</label>
+    </li>
+    <li class="nav-item">
+      <label class="nav-link" href="#"
+        >Listos: {{ listo }} de {{ Total }}</label
+      >
+    </li>
+    <li class="nav-item">
+      <label class="nav-link" href="#"
+        >Pendintes: {{ pendintes }} de {{ Total }}</label
+      >
+    </li>
+  </ul>
 </nav>
 <div class="col-12 overflow-auto justify-content-center row">
   <div
@@ -32,23 +32,18 @@
       class="text-center m-2 alert"
       [class]="item.staus === 'Pedientes' ? 'alert-success' : 'alert-danger'"
     >
-      {{ item.status }}
+    9:00 AM
     </div>
     <div class="row justify-content-center">
-      <h3> {{ item.customer.firstName }}</h3>
+      <h3>{{ item.customer.firstName }}</h3>
     </div>
     <div>
       <ul class="row justify-content-center list-group">
         <div *ngFor="let itemDetails of item.ordersDetails">
-          <div>nomber: {{ itemDetails.products.name }}</div>
-          <div>Precio: {{ itemDetails.amount }}</div>
-          <div>cantidad: {{ itemDetails.quantity }}</div>
+          <div>{{ itemDetails.products.name }}</div>
+          <div>{{ itemDetails.quantity }} lib</div>
         </div>
       </ul>
     </div>
-
-    <h1>
-      {{ item.totalAmount }}
-    </h1>
   </div>
 </div>
