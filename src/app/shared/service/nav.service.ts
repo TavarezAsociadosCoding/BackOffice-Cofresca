@@ -95,6 +95,11 @@ export class NavService {
           title: 'importa Producto',
           type: 'link',
         },
+        {
+          path: '/products/update-product',
+          title: 'Actualizar Producto',
+          type: 'link',
+        },
 
         // {
         // 	title: 'digital', type: 'sub', children: [

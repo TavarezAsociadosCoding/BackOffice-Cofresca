@@ -6,6 +6,7 @@ import { ExcelJson } from '../../interface/excel-json.interface';
 
 const EXCEL_EXTENSION = '.xlsx';
 const CSV_EXTENSION = '.csv';
+const BOM = '\uFEFF';
 const CSV_TYPE = 'text/plain;charset=utf-8';
 
 @Injectable()
@@ -99,7 +100,7 @@ export class ExportService {
    * @param fileType File type to save as.
    */
   private saveAsFile(buffer: any, fileName: string, fileType: string): void {
-    const data: Blob = new Blob([buffer], { type: fileType });
+    const data: Blob = new Blob([BOM + buffer], { type: fileType });
     FileSaver.saveAs(data, fileName);
   }
 
@@ -119,32 +120,29 @@ export class ExportService {
       return;
     }
     const separator = ',';
-    const keys = Object.keys(rows[0]).filter((k) => {
-      if (columns?.length) {
-        return columns.includes(k);
-      } else {
-        return true;
-      }
-    });
+    const keys = Object.keys(rows[0]);
     const csvContent =
-      keys.join(separator) +
+      columns.join(separator) +
       '\n' +
-      rows
+      rows[0]['ordersDetails']
         .map((row) => {
-          return keys
+          return columns
             .map((k) => {
-              let cell = row[k] === null || row[k] === undefined ? '' : row[k];
-              cell =
-                cell instanceof Date
-                  ? cell.toLocaleString()
-                  : cell.toString().replace(/"/g, '""');
-              if (cell.search(/("|,|\n)/g) >= 0) {
-                cell = `"${cell}"`;
+              let cell;
+              if (k == 'Cliente') {
+                cell = 'MALA MIA INVESTMENT GROUP SRL';
+              }
+              if (k == 'Líneas del pedido / Producto') {
+                cell = row.products.name;
+              }
+              if (k == 'Líneas del pedido / Cantidad') {
+                cell = row.quantity;
               }
               return cell;
             })
             .join(separator);
         })
+
         .join('\n');
     this.saveAsFile(csvContent, `${fileName}${CSV_EXTENSION}`, CSV_TYPE);
   }

@@ -59,6 +59,14 @@ const routes: Routes = [
           breadcrumb: 'importa productos',
         },
       },
+      {
+        path: 'update-product',
+        component: ExcelsheetComponent,
+        data: {
+          title: 'Actualizar productos',
+          breadcrumb: 'Actualizar productos',
+        },
+      },
     ],
   },
 ];

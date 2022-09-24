@@ -41,17 +41,6 @@ export class ProductService implements OnDestroy {
   }
 
   public products() {
-    const auth_token = this.getLocalStorage();
-
-    // const headers = {
-    //   'Content-Type': 'application/json',
-    //   Authorization: `Bearer ${auth_token}`,
-    // };
-
-    // const headers = {
-    //   Authorization: 'Bearer my-token',
-    //   'My-Custom-Header': 'foobar',
-    // };
     return this.http.get<Products[]>(`${this.apiUrl}products`).pipe(
       map((x) => {
         console.log(x);
@@ -69,7 +58,8 @@ export class ProductService implements OnDestroy {
     image,
     categoryId,
     stock,
-    description
+    description,
+    type
   ) {
   
     return this.http
@@ -82,6 +72,7 @@ export class ProductService implements OnDestroy {
         image: image,
         Description: description,
         Stock: stock,
+        Type:type
       })
       .pipe(
         map((x) => {

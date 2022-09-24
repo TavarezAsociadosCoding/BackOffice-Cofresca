@@ -31,11 +31,11 @@
               <ul class="order-detail d-flex flex-column col-6">
                 <li>producto: {{ product.products.name }}</li>
                 <li>Cantidad: {{ product.quantity }}</li>
-                <li>Precio por unida: {{ product.unitPrice }}</li>
-                <li>
+                <!-- <li>Precio por unida: {{ product.unitPrice }}</li> -->
+                <!-- <li>
                   Precio total:
                   {{ product.unitPrice * product?.quantity }}
-                </li>
+                </li> -->
               </ul>
             </li>
             <li
@@ -54,17 +54,17 @@
           (click)="exportToCsv()"
         >
           <i class="fa fa-external-link"></i>
-          Export to CSV
+          Exportar CSV
         </button>
         <div class="col-sm-12 payment-mode">
           <h4>Numero de Orden</h4>
           <p>{{ data.id }}</p>
           <h4 class="mt-1">Fecha de orden</h4>
           <p>{{ dateForm(data.orderDate) }}</p>
-          <h4 class="mt-1">Total de la orden</h4>
+          <!-- <h4 class="mt-1">Total de la orden</h4>
           <p>
             {{ data.totalAmount }}
-          </p>
+          </p> -->
         </div>
       </div>
     </div>

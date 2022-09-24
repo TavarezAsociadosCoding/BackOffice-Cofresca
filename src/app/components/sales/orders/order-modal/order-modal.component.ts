@@ -35,13 +35,11 @@ export class OrderModalComponent implements OnInit {
 
     this._dataArray.push(this.data);
 
-    this.exportService.exportToCsv(this._dataArray, 'order-data', [
-      'id',
-      'name',
-      'quantity',
+    this.exportService.exportToCsv(this._dataArray, 'presupuesto-factura', [
+      'Export',
+      'Cliente',
+      'Líneas del pedido / Producto',
+      'Líneas del pedido / Cantidad',
     ]);
   }
-  // 'Cliente',
-  // 'Líneas del pedido / Producto',
-  // 'Líneas del pedido / Cantidad'
 }

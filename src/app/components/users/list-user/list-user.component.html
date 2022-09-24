@@ -1,4 +1,4 @@
- <div class="container-fluid">
+<div class="container-fluid">
   <section class="overflow-auto">
     <article
       class="p-0 m-0 row d-flex flex-nowrap flex-row py-3 my-4 item-card full-width"
@@ -11,7 +11,7 @@
             (item.isActive ? 'invoice-approved-pill' : 'invoice-rejected-pill')
           "
         >
-          {{ (item.isActive ? "activo" : "inactivo") }}
+          {{ item.isActive ? "activo" : "inactivo" }}
         </span>
       </div>
 
@@ -22,7 +22,9 @@
         }}</span>
       </div>
       <div class="p-0 m-0 col">
-        <label class="col-12 mb-0 pl-0 item-label font-weight-600">Telefono</label>
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600"
+          >Telefono</label
+        >
         <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
           item.phone
         }}</span>
@@ -44,6 +46,24 @@
         >
           <i class="fa fa-eye u-smallSize"></i>
           <label class="m-0 ml-3 u-smallerSize"> Ver</label>
+        </button>
+      </div>
+      <!-- <div class="p-0 m-0 col">
+        <button
+          class="btn btn-light d-flex justify-content-center align-items-center flex-row"
+          (click)="activate()"
+        >
+          <i class="fa fa-list-alt u-smallSize"></i>
+          <label class="m-0 ml-2 u-smallerSize">Activar Usuario</label>
+        </button>
+      </div> -->
+      <div class="p-0 m-0 col-2">
+        <button
+          class="align-items-center btn btn-light d-flex justify-content-center row"
+          (click)="activate(item)"
+        >
+          <i class="icon-pencil-alt ml-1 p-1"></i>
+          <label class="m-0 mr-4 u-smallerSize"> Activar</label>
         </button>
       </div>
     </article>
