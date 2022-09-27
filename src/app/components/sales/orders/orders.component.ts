@@ -9,6 +9,7 @@ import * as moment from 'moment';
 import { Orders } from 'src/app/core/models/order/order';
 import { ModalAdapterService } from 'src/app/shared/service/modal-adapter.service';
 import { OrderModalComponent } from './order-modal/order-modal.component';
+import { ModalService } from 'src/app/shared/service/modal.service';
 //import { Orders } from '../../models/order/order';
 
 @Component({
@@ -17,28 +18,31 @@ import { OrderModalComponent } from './order-modal/order-modal.component';
   styleUrls: ['./orders.component.scss'],
 })
 export class OrdersComponent implements OnInit {
-  public order:Orders[] = [];
+  public order: Orders[] = [];
   public temp = [];
   public configuration: Config;
   public columns: Columns[];
 
-  ngOnInit() {
-   
-     this.configuration = { ...DefaultConfig };
-  }
   @ViewChild(DatatableComponent, { static: false }) table: DatatableComponent;
-  constructor(private orderService: OrderService,private _modalAdapter: ModalAdapterService) {
-   this.orderService.orders().subscribe(
-      (orders:Orders[]) => {
-        console.log("🚀 ~ file: orders.component.ts ~ line 33 ~ OrdersComponent ~ constructor ~ orders", orders)
-        this.order = orders;
-      }
-    );
+  constructor(
+    private orderService: OrderService,
+    private _modalAdapter: ModalAdapterService,
+    private modalService: ModalService
+  ) {}
 
+  ngOnInit() {
+    this.configuration = { ...DefaultConfig };
+    this.getTableData();
   }
 
-  public dateForm(date:Date):string{
-    return moment(date).format("DD/MM/YYYY")
+  private getTableData() {
+    this.orderService.orders().subscribe((orders: Orders[]) => {
+      this.order = orders;
+    });
+  }
+
+  public dateForm(date: Date): string {
+    return moment(date).format('DD/MM/YYYY');
   }
 
   updateFilter(event) {
@@ -55,15 +59,44 @@ export class OrdersComponent implements OnInit {
     this.table.offset = 0;
   }
 
-  onSumit(item: any){
-   this.openModal(item);
+  onSumit(item: any) {
+    this.openModal(item);
   }
 
-  private async openModal( row: any) {
+  public async complete(item: Orders, env: string) {
+    let mess = '';
+
+    switch (env) {
+      case 'Enviado':
+        mess = 'seguro que quieres enviar el producto';
+        break;
+
+      case 'Completado':
+        mess = 'seguro que quieres cerrar esta orden';
+
+        break;
+    }
+
+    this.modalService.createRegisterModal(
+      {
+        text: mess,
+        confirmButtonText: 'Si',
+        cancelButtonText: 'Cancelar',
+      },
+      async () => {
+        item.status = env;
+
+        await this.orderService.UpdateOrder(item.id, item).then((x) => {
+          this.getTableData();
+        });
+      }
+    );
+  }
+
+  private async openModal(row: any) {
     const modal = this._modalAdapter.open(OrderModalComponent);
     modal.componentInstance.data = row;
     modal.componentInstance.passEntry.subscribe(() => {
-      
       this._modalAdapter.close();
     });
   }
