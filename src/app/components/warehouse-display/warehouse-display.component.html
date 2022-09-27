@@ -41,7 +41,7 @@
       <ul class="row justify-content-center list-group">
         <div *ngFor="let itemDetails of item.ordersDetails">
           <div>{{ itemDetails.products.name }}</div>
-          <div>{{ itemDetails.quantity }} lib</div>
+          <div>{{ itemDetails.quantity }} {{itemDetails.products.type}}</div>
         </div>
       </ul>
     </div>
