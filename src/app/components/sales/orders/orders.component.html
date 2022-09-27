@@ -7,8 +7,11 @@
       <div class="pill col mr-2">
         <span
           [class]="
-            'pill-container d-flex justify-content-center align-items-center gray-text ' +(item.isActive ? 'invoice-approved-pill' : 'invoice-rejected-pill')">
-          {{ item.isActive ? "Abierta" : "Cerrada" }}
+            'pill-container d-flex justify-content-center align-items-center gray-text ' +
+            (item.isActive ? 'invoice-approved-pill' : 'invoice-rejected-pill')
+          "
+        >
+          {{ item.isActive ? "Abierta" : "Cerrada " }}
         </span>
       </div>
       <!-- customer -->
@@ -16,11 +19,11 @@
         <label class="col-12 mb-0 pl-0 item-label font-weight-600"
           >Cliente</label
         >
-        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
+        <span class="col pl-0 font-weight-600 item-value font-weight-500">{{
           item.customer.firstName
         }}</span>
       </div>
-      <div class="p-0 m-0 col-3">
+      <div class="p-0 m-0 col">
         <label class="col-12 mb-0 pl-0 item-label font-weight-600">Fecha</label>
         <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
           dateForm(item.orderDate)
@@ -40,14 +43,34 @@
         }}</span>
       </div>
 
-      <div class="p-0 m-0 col">
+      <div class="p-0 m-2 col">
         <button
           class="btn btn-light d-flex justify-content-center align-items-center flex-row"
           (click)="onSumit(item)"
         >
-          <i class="fa fa-eye u-smallSize"></i>
+          <i class="fa fa-eye u-smallSize m-2"></i>
           <label class="m-0 ml-3 u-smallerSize"> Ver</label>
         </button>
+      </div>
+
+      <div class="p-0 m-2 col">
+        <span
+          class="btn btn-light d-flex justify-content-center align-items-center flex-row"
+          (click)="complete(item, 'Enviado')"
+        >
+          <i class="fa fa-list-alt u-smallSize m-2"> </i>
+          <label class="m-0 ml-3 u-smallerSize"> Enviado</label>
+        </span>
+      </div>
+
+      <div class="p-0 m-2 col">
+        <span
+          class="btn btn-light d-flex justify-content-center align-items-center flex-row"
+          (click)="complete(item, 'Completado')"
+        >
+          <i class="fa fa-list-alt u-smallSize m-2"> </i>
+          <label class="m-0 ml-3 u-smallerSize"> Completado</label>
+        </span>
       </div>
     </article>
   </section>
