@@ -11,7 +11,11 @@
             (item.isActive ? 'invoice-approved-pill' : 'invoice-rejected-pill')
           "
         >
+<<<<<<< HEAD
+          {{ item.isActive ? "Abierta" : "Cerrada" }}
+=======
           {{ item.isActive ? "Abierta" : "Cerrada " }}
+>>>>>>> new-09-09-2022
         </span>
       </div>
       <!-- customer -->
@@ -29,12 +33,12 @@
           dateForm(item.orderDate)
         }}</span>
       </div>
-      <div class="p-0 m-0 col">
+      <!-- <div class="p-0 m-0 col">
         <label class="col-12 mb-0 pl-0 item-label font-weight-600">Monto</label>
         <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
           item.totalAmount
         }}</span>
-      </div>
+      </div> -->
 
       <div class="p-0 m-0 col">
         <label class="col-12 mb-0 pl-0 item-label font-weight-600"

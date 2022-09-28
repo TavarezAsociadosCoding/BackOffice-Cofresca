@@ -9,7 +9,7 @@ import * as XLSX from 'xlsx';
   templateUrl: './excelsheet.component.html',
   styleUrls: ['./excelsheet.component.scss'],
 })
-export class ExcelsheetComponent implements OnInit {
+export class ExcelsheetUpdateComponent implements OnInit {
   data: [][];
   // count: number = 0;
   progress = 0;

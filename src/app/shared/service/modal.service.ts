@@ -77,21 +77,4 @@ export class ModalService {
       await confirmFunc();
     }
   }
-  public async ValidationActivate(
-    config: ModalConfig,
-    confirmFunc: () => void
-  ): Promise<void> {
-    const { title, text } = config;
-    const { isConfirmed } = await Swal.fire({
-      title,
-      text,
-      showCancelButton: false,
-      showCloseButton: false,
-      imageUrl: "../../../assets/images/modalLogo.png",
-      imageHeight: 65,
-    });
-    if (isConfirmed) {
-      await confirmFunc();
-    }
-  }
 }
