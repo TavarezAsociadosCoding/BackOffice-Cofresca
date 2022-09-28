@@ -25,13 +25,13 @@ export class WarehouseDisplayComponent implements OnInit {
 
   private getData(): void {
     this.productService.getData().subscribe({
-      next: (data: Orders[]) => {
+      next: (data: Orders[]) => {        
+        console.log("🚀 ~ file: warehouse-display.component.ts ~ line 29 ~ WarehouseDisplayComponent ~ this.productService.getData ~ data", data)
         /* mover la ordenes expres de primero */
         data.sort(function (x, y) {
           return x.isExpress === y.isExpress ? 0 : x.isExpress ? -1 : 1;
         });
         this.orders = data;
-        console.log("🚀 ~ file: warehouse-display.component.ts ~ line 34 ~ WarehouseDisplayComponent ~ this.productService.getData ~ this.orders", this.orders)
         this.Total = data.length;
         data.forEach((item, index) => {
           if (item.status === 'Pedientes') {

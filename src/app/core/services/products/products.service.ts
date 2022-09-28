@@ -106,6 +106,6 @@ export class ProductService implements OnDestroy {
 ///Host/api/orders
   public getData():Observable<Orders[]>
   {
-    return this.http.get<Orders[]>(this.apiUrl +'orders');
+    return this.http.get<Orders[]>(this.apiUrl +'orders/Status/Pendientes');
   }
 }
