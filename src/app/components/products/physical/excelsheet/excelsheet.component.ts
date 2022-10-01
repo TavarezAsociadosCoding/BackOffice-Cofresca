@@ -80,13 +80,13 @@ export class ExcelsheetComponent implements OnInit {
 
           let type = '';
           if (producto[11] == 'libra' || producto[11] == 'Libra(s)' || producto[11]=='libra(s)') {
-            type = 'Libra';
+            type = 'LB';
           }
           if (producto[11] == 'Unidad(es)' || producto[11] == '1Unidad(es)') {
-            type = 'Unidad';
+            type = 'UND';
           }
           if (producto[11] == 'galÃ³n(es)') {
-            type = 'Galon';
+            type = 'GL';
           }
 
           this.categoriesService.createCategories(
