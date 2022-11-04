@@ -8,10 +8,9 @@ import { finalize } from 'rxjs/operators';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   public loginForm: FormGroup;
   public registerForm: FormGroup;
 
@@ -21,38 +20,39 @@ export class LoginComponent implements OnInit {
   loginError = false;
   private subscription: Subscription | null = null;
 
-
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService
-) {
-  }
+  ) {}
 
   owlcarousel = [
     {
-      title: "Cofresca Admin"    }
-  ]
+      title: 'Cofresca Admin',
+    },
+  ];
   owlcarouselOptions = {
     loop: true,
     items: 1,
-    dots: true
+    dots: true,
   };
-
-
 
   login() {
     if (!this.username || !this.password) {
       return;
     }
     this.busy = true;
-    const returnUrl = this.route.snapshot.queryParams['dashboard/default'] || 'dashboard/default';
-    this.authService.login(this.username, this.password)
+    const returnUrl =
+      this.route.snapshot.queryParams['dashboard/default'] ||
+      'dashboard/default';
+    this.authService
+      .login(this.username, this.password)
       .pipe(finalize(() => (this.busy = false)))
       .subscribe(
-        () => {
+        (x) => {
+          // if (x.success == true) {
           this.router.navigate([returnUrl]);
+          // }
         },
         () => {
           this.loginError = true;
@@ -60,13 +60,14 @@ export class LoginComponent implements OnInit {
       );
   }
 
-
   register() {
     if (!this.username || !this.password) {
       return;
     }
     this.busy = true;
-    const returnUrl = this.route.snapshot.queryParams['dashboard/default'] || 'dashboard/default';
+    const returnUrl =
+      this.route.snapshot.queryParams['dashboard/default'] ||
+      'dashboard/default';
     //TODO:DEBER DE EVALUAR LOS EMPLEADOS ETC Y EL STATUS DESACTIVADO ISACTIVATE
     // this.authService.register(this.username, this.password)
     //   .pipe(finalize(() => (this.busy = false)))
@@ -79,12 +80,7 @@ export class LoginComponent implements OnInit {
     //     }
     //   );
   }
-  ngOnInit() {
+  ngOnInit() {}
 
-  }
-
-  onSubmit() {
-
-  }
-
+  onSubmit() {}
 }

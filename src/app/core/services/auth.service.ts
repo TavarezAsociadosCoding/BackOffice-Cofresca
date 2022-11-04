@@ -68,14 +68,17 @@ export class AuthService implements OnDestroy {
       })
       .pipe(
         map((x) => {
-          this._user.next({
-            username: x.username,
-            role: x.role,
-            originalUserName: x.originalUserName,
-          });
-          this.setLocalStorage(x);
-          // this.startTokenTimer();
+          if (x.success == true) {
+            this._user.next({
+              username: x.username,
+              role: x.role,
+              originalUserName: x.originalUserName,
+            });
+            this.setLocalStorage(x);
+            return x;
+          }
           return x;
+          // this.startTokenTimer();
         })
       );
   }
@@ -223,8 +226,6 @@ export class AuthService implements OnDestroy {
   getLocalStorage() {
     localStorage.getItem('access_token');
   }
-
-
 
   public ValidationToken(): boolean {
     let expirationString = localStorage.getItem('expiration');

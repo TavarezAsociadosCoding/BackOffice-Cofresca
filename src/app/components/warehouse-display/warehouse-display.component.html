@@ -32,16 +32,16 @@
       class="text-center m-2 alert"
       [class]="item.staus === 'Pedientes' ? 'alert-success' : 'alert-danger'"
     >
-    9:00 AM
+      {{ item.hoursDelivery }}
     </div>
     <div class="row justify-content-center">
-      <h3>{{ item.customer.firstName }}</h3>
+      <h3>{{ item.companyName }}</h3>
     </div>
     <div>
       <ul class="row justify-content-center list-group">
         <div *ngFor="let itemDetails of item.ordersDetails">
           <div>{{ itemDetails.products.name }}</div>
-          <div>{{ itemDetails.quantity }} {{itemDetails.products.type}}</div>
+          <div>{{ itemDetails.quantity }} {{ itemDetails.products.type }}</div>
         </div>
       </ul>
     </div>

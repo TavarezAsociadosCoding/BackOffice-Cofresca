@@ -6,6 +6,8 @@ export interface LoginResult {
   accesstoken: string;
   expiration: string;
   refreshToken: string;
+  message: string;
+  success: boolean;
 }
 
 export interface RegisterResult {

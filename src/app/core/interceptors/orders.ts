@@ -36,9 +36,12 @@ export interface Orders {
   employeeId: number;
   id: number;
   isActive: boolean;
-  isExpress:boolean;
+  isExpress: boolean;
   orderDate: Date;
   shippingAddress: string;
   status: string;
   totalAmount: number;
+  hoursDelivery: string;
+  companyName: string;
+  address: string;
 }
