@@ -130,7 +130,7 @@ export class ExportService {
             .map((k) => {
               let cell;
               if (k == 'Cliente') {
-                cell = 'MALA MIA INVESTMENT GROUP SRL';
+                cell = 'Cofresca import';
               }
               if (k == 'Líneas del pedido / Producto') {
                 cell = row.products.name;

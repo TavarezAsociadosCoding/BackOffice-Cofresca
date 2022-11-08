@@ -40,8 +40,6 @@ export class ExcelsheetComponent implements OnInit {
 
       this.data = XLSX.utils.sheet_to_json(ws, { header: 1 });
 
-      console.log('!!!!!!DATA!!!!!!');
-      console.log(this.data);
       const obj = {};
       for (let i = 0; i < this.data.length; i++) {
         //Categoria

@@ -49,7 +49,6 @@ export class ProductService implements OnDestroy {
     );
   }
 
-  //TODO:CATEGORIAS HARCODE
   public crear_product(
     Id,
     Name,
@@ -61,10 +60,9 @@ export class ProductService implements OnDestroy {
     description,
     type
   ) {
-  
     return this.http
       .post<CreateProductResult>(`${this.apiUrl}products`, {
-        Id:Id,
+        Id: Id,
         Name: Name,
         BarCode: '000',
         Prices: Prices,
@@ -72,7 +70,7 @@ export class ProductService implements OnDestroy {
         image: image,
         Description: description,
         Stock: stock,
-        Type:type
+        Type: type,
       })
       .pipe(
         map((x) => {
@@ -90,13 +88,51 @@ export class ProductService implements OnDestroy {
       );
   }
 
+  public updateProduct(
+    Id,
+    Name,
+    BarCode,
+    Prices,
+    image,
+    categoryId,
+    stock,
+    description,
+    type
+  ) {
+    return this.http
+      .put<CreateProductResult>(`${this.apiUrl}products/${Id}`, {
+        Id: Id,
+        Name: Name,
+        BarCode: '000',
+        Prices: Prices,
+        CategoryId: categoryId,
+        image: image,
+        Description: description,
+        Stock: stock,
+        Type: type,
+      })
+      .pipe(
+        map((x) => {
+          console.log('resultado actualizando producto', x);
+          return x;
+        }),
+        catchError((error: HttpErrorResponse) => {
+          if (error.status != 200) {
+            // handle error
+          } else {
+            // return error
+            return throwError(error);
+          }
+        })
+      );
+  }
+  
   ngOnDestroy(): void {
     throw new Error('Method not implemented.');
   }
   //   user$ = this._user.asObservable();
-///Host/api/orders
-  public getData():Observable<Orders[]>
-  {
-    return this.http.get<Orders[]>(this.apiUrl +'orders/Status/Pendientes');
+  ///Host/api/orders
+  public getData(): Observable<Orders[]> {
+    return this.http.get<Orders[]>(this.apiUrl + 'orders/Status/Pendientes');
   }
 }

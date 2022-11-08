@@ -89,13 +89,13 @@ export class ExcelsheetUpdateComponent implements OnInit {
             type = 'Galon';
           }
 
-          this.categoriesService.createCategories(
+          this.categoriesService.updateCategories(
             categorories_Name,
             categorories_ID
           );
 
           let x = await (
-            await this.ProductService.crear_product(
+            await this.ProductService.updateProduct(
               producto_ID,
               nombre,
               barcode,
@@ -109,10 +109,7 @@ export class ExcelsheetUpdateComponent implements OnInit {
           ).subscribe(
             (event: any) => {
               this.progress = Math.round((100 * event.loaded) / event.total);
-              // this.count = i;
-
               console.log('espere resultado');
-              // this.router.navigate("/home");
             },
             () => {
               console.log('error');

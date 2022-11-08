@@ -6,6 +6,7 @@ import { ProductListComponent } from './physical/product-list/product-list.compo
 import { AddProductComponent } from './physical/add-product/add-product.component';
 import { ProductDetailComponent } from './physical/product-detail/product-detail.component';
 import { ExcelsheetComponent } from './physical/excelsheet/excelsheet.component';
+import { ExcelsheetUpdateComponent } from './physical/excelsheet-update/excelsheet.component';
 
 const routes: Routes = [
   {
@@ -61,7 +62,7 @@ const routes: Routes = [
       },
       {
         path: 'update-product',
-        component: ExcelsheetComponent,
+        component: ExcelsheetUpdateComponent,
         data: {
           title: 'Actualizar productos',
           breadcrumb: 'Actualizar productos',
