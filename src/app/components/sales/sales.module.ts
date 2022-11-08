@@ -10,9 +10,10 @@ import { TransactionsComponent } from './transactions/transactions.component';
 import { OrderModalComponent } from './orders/order-modal/order-modal.component';
 import { FormsModule } from '@angular/forms';
 import { ExportService } from 'src/app/shared/service/export/export.service';
+import { OrdersListComponent } from './orderLists/orderLists.component';
 
 @NgModule({
-  declarations: [OrdersComponent, OrderModalComponent, TransactionsComponent],
+  declarations: [OrdersComponent, OrderModalComponent, TransactionsComponent,OrdersListComponent],
   imports: [
     CommonModule,
     SalesRoutingModule,
