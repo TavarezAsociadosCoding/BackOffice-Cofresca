@@ -22,7 +22,7 @@ import { SettingModule } from './components/setting/setting.module';
 import { AuthModule } from './components/auth/auth.module';
 import { WarehouseDisplayComponent } from './components/warehouse-display/warehouse-display.component';
 // import { ExcelsheetComponent } from './components/products/physical/excelsheet/excelsheet.component';
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 @NgModule({
   declarations: [AppComponent, WarehouseDisplayComponent],
   imports: [
@@ -44,7 +44,7 @@ import { WarehouseDisplayComponent } from './components/warehouse-display/wareho
     MenusModule,
     UsersModule,
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
