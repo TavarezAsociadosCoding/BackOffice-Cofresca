@@ -23,7 +23,6 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install --force
-          npm run build --prod
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
