@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 
 // import { ReportsRoutingModule } from './reports-routing.module';
 // import { ReportsComponent } from './reports.component';
-import { Ng2SmartTableModule } from 'ng2-smart-table';
+// import { Ng2SmartTableModule } from 'ng2-smart-table';
 
-import { ChartsModule } from 'ng2-charts';
-import { Ng2GoogleChartsModule } from 'ng2-google-charts';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { ChartistModule } from 'ng-chartist';
+// import { ChartsModule } from 'ng2-charts';
+// import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+// import { NgxChartsModule } from '@swimlane/ngx-charts';
+// import { ChartistModule } from 'ng-chartist';
 import { ConsultantComponent } from './consultants.component';
 import { ConsultantsRoutingModule } from './consultants-routing.module';
 import { CKEditorModule } from 'ngx-ckeditor';
@@ -33,15 +33,10 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   imports: [
     CKEditorModule,
     CommonModule,
-    ChartsModule,
-    Ng2GoogleChartsModule,
-    NgxChartsModule,
-    ChartistModule,
     ConsultantsRoutingModule,
     ReactiveFormsModule,
     DropzoneModule,
     NgbModule,
-    Ng2SmartTableModule,
     GalleryModule.forRoot(),
   ],
   providers: [

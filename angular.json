@@ -24,7 +24,6 @@
               "hammerjs",
               "rxjs/internal/operators",
               "lodash",
-              "chartist",
               "chart.js"
             ],
             "outputPath": "dist/multikart-backend",
