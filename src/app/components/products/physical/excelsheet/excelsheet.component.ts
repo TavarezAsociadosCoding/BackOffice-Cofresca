@@ -104,7 +104,7 @@ export class ExcelsheetComponent implements OnInit {
           ).subscribe(
             (event: any) => {
               this.progress = Math.round((100 * event.loaded) / event.total);
-              
+              console.log(this.progress);
             },
             () => {
               console.log('error');
