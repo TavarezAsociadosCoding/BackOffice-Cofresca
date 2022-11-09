@@ -30,6 +30,7 @@ jobs:
           app_artifact_location: "/" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "dist/multikart-backend" # Built app content directory - optional
+          app_build_command: "npm cache clean --force && npm  run build -prod"
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
