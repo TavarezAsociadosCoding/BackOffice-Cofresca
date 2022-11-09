@@ -1,6 +1,5 @@
-
-import { Product } from "../product/product";
-import { Products } from "../products";
+import { Product } from '../product/product';
+import { Products } from '../products';
 
 // Order
 export interface Order {
@@ -22,7 +21,6 @@ export interface OrderPost {
   ShippingAddress?: string;
 }
 
-
 //TODO:ORDER GET
 export interface Orders {
   id?: string;
@@ -36,6 +34,29 @@ export interface Orders {
   isExpress?: string;
   shippingAddress?: string;
   ordersDetails?: orderDetails[];
+}
+
+export interface OrderInfos {
+  nameCustomer: string;
+  nameProduct: string;
+  productType: string;
+  productsID: number;
+  totalProduct: number;
+  totalProductCustomer: number;
+  userId: string;
+}
+
+export interface TotalInfos{
+  nameCustomer: string;
+  nameProduct: string;
+  productsID: number;
+  totalProduct: number;
+  totalQty: number;
+}
+
+export interface OrdesList {
+  orderInfo: Array<OrderInfos>;
+  totalInfo: Array<TotalInfos>;
 }
 
 export interface Orders_success {

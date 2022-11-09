@@ -5,7 +5,7 @@ import { map, tap, delay, finalize, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { UsersResult } from '../../models/users';
 import { CreateProductResult, Products } from '../../models/products';
-import { Orders } from '../../models/order/order';
+import { Orders, OrdesList } from '../../models/order/order';
 
 @Injectable({
   providedIn: 'root',
@@ -29,7 +29,7 @@ export class OrderService implements OnDestroy {
   }
 
   public ordersList() {
-    return this.http.get<Orders[]>(`${this.apiUrl}orders/GetInfoOrder`).pipe(
+    return this.http.get<OrdesList>(`${this.apiUrl}orders/GetInfoOrder`).pipe(
       map((x) => {
         return x;
       })

@@ -3,9 +3,7 @@ import { DatatableComponent } from '@swimlane/ngx-datatable';
 import { OrderService } from 'src/app/core/services/orders/order.service';
 import { Columns, Config, DefaultConfig } from 'ngx-easy-table';
 import * as moment from 'moment';
-import { Orders } from 'src/app/core/models/order/order';
-import { ModalAdapterService } from 'src/app/shared/service/modal-adapter.service';
-import { ModalService } from 'src/app/shared/service/modal.service';
+import { OrderInfos, OrdesList } from 'src/app/core/models/order/order';
 
 @Component({
   selector: 'app-orders',
@@ -13,7 +11,7 @@ import { ModalService } from 'src/app/shared/service/modal.service';
   styleUrls: ['./orderLists.component.scss'],
 })
 export class OrdersListComponent implements OnInit {
-  public order: Orders[] = [];
+  public order: OrderInfos[] = [];
   public temp = [];
   public configuration: Config;
   public columns: Columns[];
@@ -29,9 +27,9 @@ export class OrdersListComponent implements OnInit {
   }
 
   private getTableData() {
-    this.orderService.ordersList().subscribe((orders: Orders[]) => {
-      console.log(orders)
-      //this.order = orders;
+    this.orderService.ordersList().subscribe((orders: OrdesList) => {
+      console.log(orders);
+      this.order = orders.orderInfo;
     });
   }
 
