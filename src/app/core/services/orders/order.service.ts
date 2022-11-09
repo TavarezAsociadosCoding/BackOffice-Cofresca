@@ -23,11 +23,19 @@ export class OrderService implements OnDestroy {
   public orders() {
     return this.http.get<Orders[]>(`${this.apiUrl}orders`).pipe(
       map((x) => {
-        console.log(x);
         return x;
       })
     );
   }
+
+  public ordersList() {
+    return this.http.get<Orders[]>(`${this.apiUrl}orders/GetInfoOrder`).pipe(
+      map((x) => {
+        return x;
+      })
+    );
+  }
+
 
   //TODO:CATEGORIAS HARCODE
   //   public crear_product(

@@ -53,12 +53,11 @@ export class NavService {
       active: true,
       children: [
         { path: '/sales/orders', title: 'Ordenes', type: 'link' },
+        { path: '/sales/orderslist', title: 'Pedidos', type: 'link' },
         {
           title: 'Facturas',
           path: '/invoice',
-          icon: 'dollar-sign',
           type: 'link',
-          active: true,
         },
         // { path: '/sales/transactions', title: 'Transaciones', type: 'link' },
       ],
