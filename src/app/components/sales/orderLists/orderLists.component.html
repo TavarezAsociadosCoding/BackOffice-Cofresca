@@ -4,44 +4,38 @@
       class="p-0 m-0 row d-flex flex-nowrap flex-row py-3 my-4 item-card full-width"
       *ngFor="let item of order"
     >
-      <div class="pill col mr-2">
-        <span
-          [class]="
-            'pill-container d-flex justify-content-center align-items-center gray-text ' +
-            (item.isActive ? 'invoice-approved-pill' : 'invoice-rejected-pill')
-          "
-        >
-          {{ item.isActive ? "Abierta" : "Cerrada " }}
-        </span>
-      </div>
-      <!-- customer -->
+
       <div class="p-0 m-0 col-3">
         <label class="col-12 mb-0 pl-0 item-label font-weight-600"
           >Cliente</label
         >
-        <!-- <span class="col pl-0 font-weight-600 item-value font-weight-500">{{
-          item.customer.firstName
-        }}</span> -->
+         <span class="col pl-0 font-weight-600 item-value font-weight-500">{{
+          item.nameCustomer
+        }}</span>
       </div>
       <div class="p-0 m-0 col">
-        <label class="col-12 mb-0 pl-0 item-label font-weight-600">Fecha</label>
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600">Producto</label>
         <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
-          dateForm(item.orderDate)
+        item.nameProduct
         }}</span>
       </div>
-      <!-- <div class="p-0 m-0 col">
-        <label class="col-12 mb-0 pl-0 item-label font-weight-600">Monto</label>
-        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
-          item.totalAmount
-        }}</span>
-      </div> -->
+
 
       <div class="p-0 m-0 col">
         <label class="col-12 mb-0 pl-0 item-label font-weight-600"
-          >Proceso</label
+          >Total</label
         >
         <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
-          item.status
+          item.totalProduct
+        }}</span>
+      </div>
+
+      <div class="p-0 m-0 col">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600"
+          >Producto cliente</label
+        >
+        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
+          item.totalProductCustomer
         }}</span>
       </div>
     </article>
