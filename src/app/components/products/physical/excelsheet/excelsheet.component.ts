@@ -11,7 +11,6 @@ import * as XLSX from 'xlsx';
 })
 export class ExcelsheetComponent implements OnInit {
   data: [][];
-  // count: number = 0;
   progress = 0;
   constructor(
     private categoriesService: CategoryService,
@@ -35,8 +34,6 @@ export class ExcelsheetComponent implements OnInit {
       const wsname: string = wb.SheetNames[0];
 
       const ws: XLSX.WorkSheet = wb.Sheets[wsname];
-
-      console.log(ws);
 
       this.data = XLSX.utils.sheet_to_json(ws, { header: 1 });
 
@@ -107,10 +104,7 @@ export class ExcelsheetComponent implements OnInit {
           ).subscribe(
             (event: any) => {
               this.progress = Math.round((100 * event.loaded) / event.total);
-              // this.count = i;
-
-              console.log('espere resultado');
-              // this.router.navigate("/home");
+              
             },
             () => {
               console.log('error');
