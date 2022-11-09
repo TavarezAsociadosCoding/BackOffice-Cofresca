@@ -1,19 +1,16 @@
 {
-  "name": "backoffice",
+  "name": "multikart-backend",
   "version": "0.0.0",
   "engines": {
     "node": "14.19.1"
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 1431",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "dev:ssr": "ng run multikart:serve-ssr",
-    "serve:ssr": "node dist/multikart/server/main.js",
-    "build:ssr": "ng build --prod && ng run multikart:server:production"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
