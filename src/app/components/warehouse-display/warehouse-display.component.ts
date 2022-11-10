@@ -17,6 +17,7 @@ export class WarehouseDisplayComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
+    setInterval(() => this.getData(), 6000);
   }
 
   public dateForm(date: Date): string {
@@ -25,8 +26,7 @@ export class WarehouseDisplayComponent implements OnInit {
 
   private getData(): void {
     this.productService.getData().subscribe({
-      next: (data: Orders[]) => {        
-        console.log("🚀 ~ file: warehouse-display.component.ts ~ line 29 ~ WarehouseDisplayComponent ~ this.productService.getData ~ data", data)
+      next: (data: Orders[]) => {
         /* mover la ordenes expres de primero */
         data.sort(function (x, y) {
           return x.isExpress === y.isExpress ? 0 : x.isExpress ? -1 : 1;
