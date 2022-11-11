@@ -28,7 +28,6 @@ export class OrdersListComponent implements OnInit {
 
   private getTableData() {
     this.orderService.ordersList().subscribe((orders: OrdesList) => {
-      console.log(orders);
       this.order = orders.orderInfo;
     });
   }

@@ -12,7 +12,7 @@ import * as XLSX from 'xlsx';
 export class ExcelsheetComponent implements OnInit {
   data: [][];
   // count: number = 0;
-  progress = 0;
+  progress = false;
   constructor(
     private categoriesService: CategoryService,
     private ProductService: ProductService,
@@ -21,7 +21,7 @@ export class ExcelsheetComponent implements OnInit {
 
   ngOnInit(): void {}
   onFileChange(evt: any) {
-    this.progress = 0;
+    this.progress = true;
     const target: DataTransfer = <DataTransfer>evt.target;
 
     if (target.files.length !== 1) throw new Error('Cannot use multiple files');
@@ -106,13 +106,13 @@ export class ExcelsheetComponent implements OnInit {
             )
           ).subscribe(
             (event: any) => {
-              this.progress = Math.round((100 * event.loaded) / event.total);
-              // this.count = i;
+              this.progress = false;
 
               console.log('espere resultado');
               // this.router.navigate("/home");
             },
             () => {
+              this.progress = false;
               console.log('error');
               // this.loginError = true;
             }

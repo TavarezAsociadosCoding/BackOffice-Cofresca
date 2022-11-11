@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DatatableComponent } from '@swimlane/ngx-datatable';
 import { OrderService } from 'src/app/core/services/orders/order.service';
-import { CurrencyService } from 'src/app/shared/service/currecy.service';
-import { orderDB } from '../../../shared/tables/order-list';
 // import { Company, data } from '../../../assets/data';
 import { Columns, Config, DefaultConfig } from 'ngx-easy-table';
 import * as moment from 'moment';
