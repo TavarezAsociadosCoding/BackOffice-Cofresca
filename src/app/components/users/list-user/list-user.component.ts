@@ -3,8 +3,10 @@ import * as moment from 'moment';
 import { AuthService } from 'src/app/core';
 import { ProfileService } from 'src/app/core/services/account/account.service';
 import { UsersService } from 'src/app/core/services/users/users.service';
+import { ModalAdapterService } from 'src/app/shared/service/modal-adapter.service';
 import { ModalService } from 'src/app/shared/service/modal.service';
 import { userListDB } from 'src/app/shared/tables/list-users';
+import { UserModalComponent } from './user-modal/user-modal.component';
 
 @Component({
   selector: 'app-list-user',
@@ -16,16 +18,15 @@ export class ListUserComponent implements OnInit {
   userid;
   constructor(
     private UsersService: UsersService,
+    private _modalAdapter: ModalAdapterService,
     private ProfileService: ProfileService,
     private authService: AuthService,
     private modalService: ModalService
   ) {
     this.userid = this.authService.getUserIdStorage();
 
-    // this.user_list = userListDB.list_user;
-    UsersService.users().subscribe(
+    this.UsersService.users().subscribe(
       (users) => (this.user_list = users.message)
-      // console.log('salida', users.message)
     );
   }
 
@@ -35,8 +36,13 @@ export class ListUserComponent implements OnInit {
   ngOnInit() {}
 
   public onSumit(item: any) {
-    console.log(item);
+    const modal = this._modalAdapter.open(UserModalComponent);
+    modal.componentInstance.data = item;
+    modal.componentInstance.passEntry.subscribe(() => {
+      this._modalAdapter.close();
+    });
   }
+
   public async activate(item: any) {
     this.modalService.createRegisterModal(
       {

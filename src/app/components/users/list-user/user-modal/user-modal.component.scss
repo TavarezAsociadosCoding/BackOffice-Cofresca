@@ -1,0 +1,36 @@
+.c-modal {
+    padding: 1rem;
+    padding-bottom: 3rem;
+    &__title {
+        font-size: var(--big-size-2);
+        font-weight: 600;
+        color: var(--text-color);
+        margin-bottom: 5px;
+    }
+    &__subtitle {
+        color: var(--text-color-light);
+    }
+    &__btnClose {
+        position: absolute !important;
+        top: 2rem;
+        right: 2rem;
+        font-size: 25px !important;
+        width: 5rem !important;
+        height: 5rem !important;
+        min-width: initial !important;
+        border-radius: 50% !important;
+    }
+    &__body {
+        margin-top: 3rem;
+    }
+    &__actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+}
+
+.modal-content {
+    border-radius: 15px !important;
+}

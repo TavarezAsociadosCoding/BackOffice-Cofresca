@@ -1,0 +1,78 @@
+<div class="modal-body c-modal">
+  <div class="c-modal__header">
+    <div class="c-modal__title">User</div>
+
+    <button
+      mat-button
+      type="button"
+      class="close c-modal__btnClose"
+      aria-label="Close"
+      (click)="closeModal({ resultType: 'close' })"
+    >
+      <span aria-hidden="true" class="close-label">&times;</span>
+    </button>
+  </div>
+  <div class="c-modal__body justify-content-center align-content-center">
+    <form [formGroup]="accountForm" (submit)="submit()" class="needs-validation user-add" novalida>
+      <h4>Detalles de la cuenta</h4>
+      <div class="form-group col-12">
+        <label for="validationCustom0" class="col-xl-3 col-md-4"
+          ><span>*</span> País</label
+        >
+        <input
+          class="form-control col-xl-8 col-md-7"
+          id="validationCustom0"
+          type="text"
+          formControlName="pais"
+        />
+      </div>
+      <div class="form-group col-12">
+        <label for="validationCustom1" class="col-xl-3 col-md-4"
+          ><span>*</span> Estado
+        </label>
+        <input
+          class="form-control col-xl-8 col-md-7"
+          id="validationCustom1"
+          type="text"
+          formControlName="estado"
+        />
+      </div>
+      <div class="form-group col-12">
+        <label for="validationCustom2" class="col-xl-3 col-md-4"
+          ><span>*</span> Codigo postal</label
+        >
+        <input
+          class="form-control col-xl-8 col-md-7"
+          id="validationCustom2"
+          type="text"
+          formControlName="postal"
+        />
+      </div>
+      <div class="form-group col-12">
+        <label for="validationCustom3" class="col-xl-3 col-md-4"
+          ><span>*</span> rnc</label
+        >
+        <input
+          class="form-control col-xl-8 col-md-7"
+          id="validationCustom3"
+          type="text"
+          formControlName="rnc"
+        />
+      </div>
+      <div class="form-group col-12">
+        <label for="validationCustom4" class="col-xl-3 col-md-4"
+          ><span>*</span> Telefono</label
+        >
+        <input
+          class="form-control col-xl-8 col-md-7"
+          id="validationCustom4"
+          type="text"
+          formControlName="telefono"
+        />
+      </div>
+      <div class="pull-right">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+    </form>
+  </div>
+</div>

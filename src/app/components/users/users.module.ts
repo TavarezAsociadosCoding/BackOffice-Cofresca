@@ -9,9 +9,10 @@ import { CreateUserComponent } from './create-user/create-user.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserModalComponent } from './list-user/user-modal/user-modal.component';
 
 @NgModule({
-  declarations: [ListUserComponent, CreateUserComponent],
+  declarations: [ListUserComponent, CreateUserComponent,UserModalComponent],
   imports: [
     CommonModule,
     NgbModule,
