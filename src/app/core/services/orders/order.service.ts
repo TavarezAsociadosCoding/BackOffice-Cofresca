@@ -11,7 +11,7 @@ import { Orders, OrdesList } from '../../models/order/order';
   providedIn: 'root',
 })
 export class OrderService implements OnDestroy {
-  private readonly apiUrl = `${environment.apiUrl}api/`;
+  private readonly apiUrl = `${environment.apiUrl}/api/`;
   private timer: Subscription | null = null;
 
   constructor(private http: HttpClient) {}

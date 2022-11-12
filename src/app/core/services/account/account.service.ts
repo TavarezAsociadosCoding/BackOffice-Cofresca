@@ -9,7 +9,7 @@ import { Profile } from '../../models/profile/profile';
   providedIn: 'root',
 })
 export class ProfileService {
-  private readonly apiUrl = `${environment.apiUrl}api/`;
+  private readonly apiUrl = `${environment.apiUrl}/api/accounts/`;
 
   constructor(private http: HttpClient) {}
 
@@ -38,5 +38,24 @@ export class ProfileService {
         })
       )
       .toPromise();
+  }
+
+  public editProfile(userId: string, _profile: Profile) {
+    console.log(_profile);
+    return this.http
+      .put<Profile>(`${this.apiUrl}editUser/${userId}`, {
+        companyName: _profile.companyName,
+        rnc: _profile.rnc,
+        phone: _profile.phone,
+        address: _profile.address,
+        phoneGerente: _profile.phoneGerente,
+        hoursDelivery: _profile.hoursDelivery,
+      })
+      .pipe(
+        map((x) => {
+          console.log(x);
+          return x;
+        })
+      );
   }
 }

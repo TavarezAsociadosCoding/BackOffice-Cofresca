@@ -31,6 +31,8 @@
               <ul class="order-detail d-flex flex-column col-6">
                 <li>producto: {{ product.products.name }}</li>
                 <li>Cantidad: {{ product.quantity }}</li>
+                <li>Unidad: {{ product.products.type }}</li>
+
                 <!-- <li>Precio por unida: {{ product.unitPrice }}</li> -->
                 <!-- <li>
                   Precio total:
@@ -49,13 +51,6 @@
       </div>
 
       <div class="col">
-        <button
-          class="btn btn-sm font-weight-bold btn-link"
-          (click)="exportToCsv()"
-        >
-          <i class="fa fa-external-link"></i>
-          Exportar CSV
-        </button>
         <div class="col-sm-12 payment-mode">
           <h4>Numero de Orden</h4>
           <p>{{ data.id }}</p>

@@ -11,4 +11,6 @@ export interface Profile {
   isActive: boolean;
   createdDate: Date;
   aspNetUsers: null;
+  hoursDelivery: string;
 }
+

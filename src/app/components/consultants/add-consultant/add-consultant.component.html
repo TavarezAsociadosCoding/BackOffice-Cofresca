@@ -8,10 +8,9 @@
         </div>
         <div class="card-body">
           <div class="row product-adding">
-            <div class="col-xl-7">
+            <div class="col-xl-7" *ngIf="consultantForm">
               <form
-                class="needs-validation"
-                formGroup="consultantForm"
+                [formGroup]="consultantForm"
                 (ngSubmit)="crear()"
                 novalidate
               >
@@ -29,7 +28,7 @@
                       formControl="consultantForm.controls['header']"
                       required
                     />
-                    <div
+                    <!-- <div
                       *ngIf="
                         consultantForm.controls.header.touched &&
                         consultantForm.controls.header.errors?.required
@@ -37,7 +36,7 @@
                       class="text text-danger"
                     >
                       Nombre de la asesoria.
-                    </div>
+                    </div> -->
                   </div>
 
                   <div class="form-group row">
@@ -51,17 +50,11 @@
                       id="validationCustom03"
                       type="text"
                       formControl="consultantForm.controls['type']"
-                      required=""
+                      required
                     />
-                    <div
-                      *ngIf="
-                        consultantForm.controls.type.touched &&
-                        consultantForm.controls.type.errors?.required
-                      "
-                      class="text text-danger"
-                    >
+                    <!-- <div class="text text-danger">
                       Producto <Code></Code> es necesario.
-                    </div>
+                    </div> -->
                   </div>
 
                   <div class="form-group row">
@@ -77,7 +70,7 @@
                       formControl="consultantForm.controls['body']"
                       required
                     />
-                    <div
+                    <!-- <div
                       *ngIf="
                         consultantForm.controls.body.touched &&
                         consultantForm.controls.body.errors?.required
@@ -85,7 +78,7 @@
                       class="text text-danger"
                     >
                       Detalle de la asesoria.
-                    </div>
+                    </div> -->
                   </div>
                 </div>
                 <button class="btn btn-primary mr-1" type="submit">

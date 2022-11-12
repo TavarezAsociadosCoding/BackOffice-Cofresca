@@ -12,7 +12,7 @@ import { Invoices } from '../../models/invoices/invoices';
   providedIn: 'root',
 })
 export class InvoicesService implements OnDestroy {
-  private readonly apiUrl = `${environment.apiUrl}api/`;
+  private readonly apiUrl = `${environment.apiUrl}/api/`;
   private timer: Subscription | null = null;
 
   constructor(private http: HttpClient) {}
@@ -25,7 +25,6 @@ export class InvoicesService implements OnDestroy {
       })
     );
   }
-
 
   ngOnDestroy(): void {
     throw new Error('Method not implemented.');

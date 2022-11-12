@@ -19,7 +19,7 @@ import { Categories } from '../../models/categories/categories';
   providedIn: 'root',
 })
 export class CategoryService implements OnDestroy {
-  private readonly apiUrl = `${environment.apiUrl}api/`;
+  private readonly apiUrl = `${environment.apiUrl}/api/`;
   private timer: Subscription | null = null;
 
   constructor(private http: HttpClient) {}

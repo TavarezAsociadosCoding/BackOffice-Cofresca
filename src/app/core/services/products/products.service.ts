@@ -29,7 +29,7 @@ import { Orders } from '../../interceptors/orders';
   providedIn: 'root',
 })
 export class ProductService implements OnDestroy {
-  private readonly apiUrl = `${environment.apiUrl}api/`;
+  private readonly apiUrl = `${environment.apiUrl}/api/`;
   private timer: Subscription | null = null;
   //   private _user = new BehaviorSubject<ApplicationUser | null>(null);
   //   private _register = new BehaviorSubject<RegisterUser | null>(null);

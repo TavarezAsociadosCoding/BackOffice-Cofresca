@@ -136,7 +136,7 @@ export class ExportService {
                 cell = row.products.name;
               }
               if (k == 'Líneas del pedido / Cantidad') {
-                cell = row.quantity;
+                cell = row.qtyDone;
               }
               return cell;
             })

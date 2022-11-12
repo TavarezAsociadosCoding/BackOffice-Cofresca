@@ -14,7 +14,7 @@ const state = {
   providedIn: 'root',
 })
 export class ConsultantsService {
-  private readonly apiUrl = `${environment.apiUrl}api/`;
+  private readonly apiUrl = `${environment.apiUrl}/api/`;
 
   constructor(private router: Router, private http: HttpClient) {}
 

@@ -15,10 +15,7 @@ export class OrderModalComponent implements OnInit {
 
   @Output() passEntry: EventEmitter<void> = new EventEmitter();
 
-  constructor(
-    private activeModal: NgbActiveModal,
-    private exportService: ExportService
-  ) {}
+  constructor(private activeModal: NgbActiveModal) {}
 
   public dateForm(date: Date): string {
     return moment(date).format('DD/MM/YYYY h:mm:ss a');
@@ -29,17 +26,5 @@ export class OrderModalComponent implements OnInit {
   public closeModal(result: any) {
     this.activeModal.close(result);
   }
-
-  exportToCsv(): void {
-    this._dataArray = [];
-
-    this._dataArray.push(this.data);
-
-    this.exportService.exportToCsv(this._dataArray, 'presupuesto-factura', [
-      'Export',
-      'Cliente',
-      'Líneas del pedido / Producto',
-      'Líneas del pedido / Cantidad',
-    ]);
-  }
+  
 }

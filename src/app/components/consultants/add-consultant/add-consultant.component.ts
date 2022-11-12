@@ -17,27 +17,9 @@ export class AddConsultantComponent implements OnInit {
     private router: Router
   ) {
     this.consultantForm = this.fb.group({
-      header: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$'),
-        ],
-      ],
-      body: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$'),
-        ],
-      ],
-      type: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$'),
-        ],
-      ],
+      header: ['', [Validators.required]],
+      body: ['', [Validators.required]],
+      type: ['', [Validators.required]],
     });
   }
 
@@ -46,11 +28,7 @@ export class AddConsultantComponent implements OnInit {
     let type = this.consultantForm.get('type').value;
     let body = this.consultantForm.get('body').value;
 
-    await this.consultantsService.postConsultants(
-      header,
-      body,
-      type
-    );
+    await this.consultantsService.postConsultants(header, body, type);
   }
 
   ngOnInit() {}

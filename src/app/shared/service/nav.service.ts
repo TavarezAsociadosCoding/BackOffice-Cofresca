@@ -91,7 +91,7 @@ export class NavService {
         // },
         {
           path: '/products/import-product',
-          title: 'importa Producto',
+          title: 'importar Producto',
           type: 'link',
         },
         {

@@ -21,7 +21,7 @@ import { Profile } from '../models/profile/profile';
   providedIn: 'root',
 })
 export class AuthService implements OnDestroy {
-  private readonly apiUrl = `${environment.apiUrl}api/accounts`;
+  private readonly apiUrl = `${environment.apiUrl}/api/accounts/`;
   private timer: Subscription | null = null;
   private _user = new BehaviorSubject<ApplicationUser | null>(null);
   private _register = new BehaviorSubject<RegisterUser | null>(null);
@@ -62,7 +62,7 @@ export class AuthService implements OnDestroy {
     // const body = JSON.stringify({ username: username, password: password });
 
     return this.http
-      .post<LoginResult>(`${this.apiUrl}/login`, {
+      .post<LoginResult>(`${this.apiUrl}login`, {
         username: username,
         password: password,
       })
@@ -92,7 +92,7 @@ export class AuthService implements OnDestroy {
     });
 
     return this.http
-      .post<LoginResult>(`${this.apiUrl}/profile`, { headers: headers })
+      .post<LoginResult>(`${this.apiUrl}profile`, { headers: headers })
       .pipe(
         map((x) => {
           this._user.next({
@@ -108,7 +108,7 @@ export class AuthService implements OnDestroy {
   }
   public editProfile(userId: string, _profile: Profile) {
     return this.http
-      .put<Profile>(`${this.apiUrl}/editUser/${userId}`, {
+      .put<Profile>(`${this.apiUrl}editUser/${userId}`, {
         companyName: _profile.companyName,
         rnc: _profile.rnc,
         phone: _profile.phone,
@@ -145,7 +145,7 @@ export class AuthService implements OnDestroy {
     // const body = JSON.stringify({ username: username, password: password });
 
     return this.http
-      .post<RegisterResult>(`${this.apiUrl}/register`, {
+      .post<RegisterResult>(`${this.apiUrl}register`, {
         firstName: firstname,
         lastName: lastname,
         email: Email,

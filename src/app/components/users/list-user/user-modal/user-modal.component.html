@@ -13,17 +13,22 @@
     </button>
   </div>
   <div class="c-modal__body justify-content-center align-content-center">
-    <form [formGroup]="accountForm" (submit)="submit()" class="needs-validation user-add" novalida>
+    <form
+      [formGroup]="accountForm"
+      (ngSubmit)="onSubmit()"
+      class="needs-validation user-add"
+      novalida
+    >
       <h4>Detalles de la cuenta</h4>
       <div class="form-group col-12">
         <label for="validationCustom0" class="col-xl-3 col-md-4"
-          ><span>*</span> País</label
+          ><span>*</span> Ciudad</label
         >
         <input
           class="form-control col-xl-8 col-md-7"
           id="validationCustom0"
           type="text"
-          formControlName="pais"
+          formControlName="city"
         />
       </div>
       <div class="form-group col-12">
@@ -34,7 +39,7 @@
           class="form-control col-xl-8 col-md-7"
           id="validationCustom1"
           type="text"
-          formControlName="estado"
+          formControlName="state"
         />
       </div>
       <div class="form-group col-12">
@@ -45,7 +50,7 @@
           class="form-control col-xl-8 col-md-7"
           id="validationCustom2"
           type="text"
-          formControlName="postal"
+          formControlName="codePostal"
         />
       </div>
       <div class="form-group col-12">
@@ -67,12 +72,37 @@
           class="form-control col-xl-8 col-md-7"
           id="validationCustom4"
           type="text"
-          formControlName="telefono"
+          formControlName="phone"
+        />
+      </div>
+      <div class="form-group col-12">
+        <label for="validationCustom4" class="col-xl-3 col-md-4"
+          ><span>*</span> Telefono de Gerente</label
+        >
+        <input
+          class="form-control col-xl-8 col-md-7"
+          id="validationCustom4"
+          type="text"
+          formControlName="phone"
+        />
+      </div>
+      <div class="form-group col-12">
+        <label for="validationCustom4" class="col-xl-3 col-md-4"
+          ><span>*</span> Horarios
+        </label>
+        <input
+          [class.disable]="true"
+          class="form-control"
+          formControlName="hoursDelivery"
+          type="time"
+          name="appt"
+          min="06:00"
+          max="12:00"
         />
       </div>
       <div class="pull-right">
         <button type="submit" class="btn btn-primary">Guardar</button>
-    </div>
+      </div>
     </form>
   </div>
 </div>

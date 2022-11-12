@@ -13,7 +13,7 @@ import { UsersResult } from '../../models/users';
   providedIn: 'root',
 })
 export class UsersService implements OnDestroy {
-  private readonly apiUrl = `${environment.apiUrl}api/accounts`;
+  private readonly apiUrl = `${environment.apiUrl}/api/accounts/`;
   private timer: Subscription | null = null;
   //   private _user = new BehaviorSubject<ApplicationUser | null>(null);
   //   private _register = new BehaviorSubject<RegisterUser | null>(null);
@@ -37,7 +37,7 @@ export class UsersService implements OnDestroy {
     //   'My-Custom-Header': 'foobar',
     // };
     return this.http
-      .get<UsersResult>(`${this.apiUrl}/users`, { headers: headers })
+      .get<UsersResult>(`${this.apiUrl}users`, { headers: headers })
       .pipe(
         map((x) => {
           console.log(x);

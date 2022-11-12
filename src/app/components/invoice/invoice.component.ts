@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { Invoices } from 'src/app/core/models/invoices/invoices';
 import { InvoicesService } from 'src/app/core/services/invoices/invoices.service';
+import { ExportService } from 'src/app/shared/service/export/export.service';
 
 @Component({
   selector: 'app-invoice',
@@ -9,9 +10,13 @@ import { InvoicesService } from 'src/app/core/services/invoices/invoices.service
   styleUrls: ['./invoice.component.scss'],
 })
 export class InvoiceComponent implements OnInit {
-  public invoices:Invoices[] = [];
+  public invoices: Invoices[] = [];
+  _dataArray: Array<any> = [];
 
-  constructor(private invoiceService: InvoicesService) {
+  constructor(
+    private invoiceService: InvoicesService,
+    private exportService: ExportService
+  ) {
     invoiceService.invoices().subscribe(
       (invoices) => (this.invoices = invoices)
 
@@ -27,7 +32,20 @@ export class InvoiceComponent implements OnInit {
 
   ngOnInit() {}
 
-  public onSumit(item:any){
-    console.log(item);
+  public onSumit(item: any): void {
+    this._dataArray = [];
+
+    this._dataArray.push(item.orders);
+
+    this.exportService.exportToCsv(this._dataArray, 'presupuesto-factura', [
+      'Export',
+      'Cliente',
+      'Líneas del pedido / Producto',
+      'Líneas del pedido / Cantidad',
+    ]);
   }
+
+  // exportToCsv(): void {
+
+  // }
 }

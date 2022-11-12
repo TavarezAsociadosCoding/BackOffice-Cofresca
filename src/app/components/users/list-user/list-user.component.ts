@@ -46,7 +46,7 @@ export class ListUserComponent implements OnInit {
   public async activate(item: any) {
     this.modalService.createRegisterModal(
       {
-        text: 'Seguro que quieres activar este usuaario',
+        text: 'Seguro que quieres activar este usuario',
         confirmButtonText: 'Si',
         cancelButtonText: 'Cancelar',
       },
@@ -58,4 +58,5 @@ export class ListUserComponent implements OnInit {
       }
     );
   }
+  
 }
