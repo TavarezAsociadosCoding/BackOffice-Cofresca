@@ -50,11 +50,20 @@
       </div>
       <div class="p-0 m-2 col-2">
         <button
+          *ngIf="item.isActive == false"
           class="align-items-center btn btn-light d-flex justify-content-center row"
           (click)="activate(item)"
         >
           <i class="icon-pencil-alt ml-1 p-1"></i>
           <label class="m-0 mr-4 u-smallerSize"> Activar</label>
+        </button>
+        <button
+          *ngIf="item.isActive"
+          class="align-items-center btn btn-light d-flex justify-content-center row"
+          (click)="desactivar(item)"
+        >
+          <i class="icon-pencil-alt ml-1 p-1"></i>
+          <label class="m-0 mr-4 u-smallerSize"> Desactivar</label>
         </button>
       </div>
     </article>

@@ -43,19 +43,23 @@ export class UserModalComponent implements OnInit {
       rnc: this.data.rnc,
       phone: this.data.phone,
       hoursDelivery: this.data.hoursDelivery,
-      phoneGerente: this.data.phoneGerente
+      phoneGerente: this.data.phoneGerente,
+      address: this.data.address,
+      companyName: this.data.companyName
     });
   }
 
   private createAccountForm() {
     this.accountForm = this.formBuilder.group({
+      address: [''],
       city: [''],
       state: [''],
       codePostal: [''],
       rnc: [''],
       phone: [''],
       hoursDelivery: [''],
-      phoneGerente:['']
+      phoneGerente: [''],
+      companyName:['']
     });
   }
 

@@ -26,8 +26,8 @@ export interface Orders {
   id?: string;
   orderDate?: string;
   totalAmount?: number;
-  customerId?: number;
-  employeeId?: number;
+  companyName?: string;
+  address?: string;
   isActive?: true;
   status?: string;
   userId?: string;
@@ -46,12 +46,13 @@ export interface OrderInfos {
   userId: string;
 }
 
-export interface TotalInfos{
+export interface TotalInfos {
   nameCustomer: string;
   nameProduct: string;
   productsID: number;
   totalProduct: number;
   totalQty: number;
+  productType: string;
 }
 
 export interface OrdesList {

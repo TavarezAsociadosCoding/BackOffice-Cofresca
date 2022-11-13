@@ -8,8 +8,8 @@
   createdDate: Date;
  -->
 
-<div class="container-fluid card ">
-  <section class="overflow-auto ">
+<div class="container-fluid card">
+  <section class="overflow-auto">
     <article
       class="p-0 m-0 row d-flex flex-nowrap flex-row py-3 my-4 item-card full-width"
       *ngFor="let item of invoices"
@@ -18,7 +18,9 @@
         <span
           [class]="
             'pill-container d-flex justify-content-center align-items-center gray-text ' +
-            (item.orders.isActive ? 'invoice-approved-pill' : 'invoice-rejected-pill')
+            (item.orders.isActive
+              ? 'invoice-approved-pill'
+              : 'invoice-rejected-pill')
           "
         >
           {{ "activo" }}
@@ -35,6 +37,15 @@
         <label class="col-12 mb-0 pl-0 item-label font-weight-600">Monto</label>
         <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
           item.subTotal
+        }}</span>
+      </div>
+
+      <div class="p-0 m-0 col">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600"
+          >Cliente</label
+        >
+        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
+          item.orders.companyName
         }}</span>
       </div>
 
@@ -59,4 +70,3 @@
     </article>
   </section>
 </div>
-

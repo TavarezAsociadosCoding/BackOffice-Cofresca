@@ -11,15 +11,13 @@ import { OrderInfos, OrdesList } from 'src/app/core/models/order/order';
   styleUrls: ['./orderLists.component.scss'],
 })
 export class OrdersListComponent implements OnInit {
-  public order: OrderInfos[] = [];
+  public order: OrdesList;
   public temp = [];
   public configuration: Config;
   public columns: Columns[];
 
   @ViewChild(DatatableComponent, { static: false }) table: DatatableComponent;
-  constructor(
-    private orderService: OrderService,
-  ) {}
+  constructor(private orderService: OrderService) {}
 
   ngOnInit() {
     this.configuration = { ...DefaultConfig };
@@ -28,12 +26,11 @@ export class OrdersListComponent implements OnInit {
 
   private getTableData() {
     this.orderService.ordersList().subscribe((orders: OrdesList) => {
-      this.order = orders.orderInfo;
+      this.order = orders;
     });
   }
 
   public dateForm(date: Date): string {
     return moment(date).format('DD/MM/YYYY');
   }
-
 }

@@ -58,5 +58,19 @@ export class ListUserComponent implements OnInit {
       }
     );
   }
-  
+  public async desactivar(item: any) {
+    this.modalService.createRegisterModal(
+      {
+        text: 'Seguro que quieres desactivar este usuario',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'Cancelar',
+      },
+      async () => {
+        await this.ProfileService.DesactivarUser(item.userId);
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      }
+    );
+  }
 }

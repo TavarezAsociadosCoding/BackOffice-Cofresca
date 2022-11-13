@@ -8,79 +8,41 @@
         </div>
         <div class="card-body">
           <div class="row product-adding">
-            <div class="col-xl-7" *ngIf="consultantForm">
-              <form
-                [formGroup]="consultantForm"
-                (ngSubmit)="crear()"
-                novalidate
-              >
-                <div class="add-product-form">
-                  <div class="form-group row">
-                    <label
-                      for="validationCustom01"
-                      class="col-xl-3 col-sm-4 mb-0"
-                      >Nombre de la asesoria :</label
-                    >
-                    <input
-                      class="form-control col-xl-8 col-sm-7"
-                      id="validationCustom01"
-                      type="text"
-                      formControl="consultantForm.controls['header']"
-                      required
-                    />
-                    <!-- <div
-                      *ngIf="
-                        consultantForm.controls.header.touched &&
-                        consultantForm.controls.header.errors?.required
-                      "
-                      class="text text-danger"
-                    >
-                      Nombre de la asesoria.
-                    </div> -->
-                  </div>
-
-                  <div class="form-group row">
-                    <label
-                      for="validationCustom03"
-                      class="col-xl-3 col-sm-4 mb-0"
-                      >Tipo de asesorias :</label
-                    >
-                    <input
-                      class="form-control col-xl-8 col-sm-7"
-                      id="validationCustom03"
-                      type="text"
-                      formControl="consultantForm.controls['type']"
-                      required
-                    />
-                    <!-- <div class="text text-danger">
-                      Producto <Code></Code> es necesario.
-                    </div> -->
-                  </div>
-
-                  <div class="form-group row">
-                    <label
-                      for="validationCustom01"
-                      class="col-xl-3 col-sm-4 mb-0"
-                      >Detalle de la asesoria :</label
-                    >
-                    <input
-                      class="form-control col-xl-8 col-sm-7"
-                      id="validationCustom01"
-                      type="text"
-                      formControl="consultantForm.controls['body']"
-                      required
-                    />
-                    <!-- <div
-                      *ngIf="
-                        consultantForm.controls.body.touched &&
-                        consultantForm.controls.body.errors?.required
-                      "
-                      class="text text-danger"
-                    >
-                      Detalle de la asesoria.
-                    </div> -->
-                  </div>
+            <div class="col-xl-7">
+              <form class="needs-validation" (ngSubmit)="crear()">
+                <div class="form-group">
+                  <input
+                    required
+                    name="consultantForm[header]"
+                    [(ngModel)]="header"
+                    type="text"
+                    class="form-control"
+                    placeholder="Titulo"
+                    id="header"
+                  />
                 </div>
+                
+                <div class="form-group">
+                  <input
+                    required
+                    name="consultantForm[type]"
+                    [(ngModel)]="type"
+                    type="text"
+                    class="form-control"
+                    placeholder="Categoria o tipo"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    name="consultantForm[body]"
+                    [(ngModel)]="body"
+                    type="text"
+                    class="form-control"
+                    placeholder="Detalle"
+                    required
+                  />
+                </div>
+
                 <button class="btn btn-primary mr-1" type="submit">
                   Crear Asesorias
                 </button>

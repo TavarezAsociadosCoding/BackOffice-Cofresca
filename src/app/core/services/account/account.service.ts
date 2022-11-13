@@ -15,15 +15,36 @@ export class ProfileService {
 
   public async GetProfile(userId: string) {
     return this.http
-      .get<Profile>(this.apiUrl + `accounts/profile/${userId}`)
+      .get<Profile>(this.apiUrl + `/profile/${userId}`)
       .toPromise();
   }
 
   public ActivateUser(userId: string) {
     return this.http
-      .put(this.apiUrl + `accounts/activate_profile`, {
+      .put(this.apiUrl + `activate_profile`, {
         UserId: userId,
         IsActive: true,
+      })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status != 200) {
+            console.log(error);
+          } else {
+            console.log(error);
+            // return error
+            return throwError(error);
+          }
+          console.log(error);
+        })
+      )
+      .toPromise();
+  }
+
+  public DesactivarUser(userId: string) {
+    return this.http
+      .put(this.apiUrl + `activate_profile`, {
+        UserId: userId,
+        IsActive: false,
       })
       .pipe(
         catchError((error: HttpErrorResponse) => {
