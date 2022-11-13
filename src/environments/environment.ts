@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  //  apiUrl: 'https://cofrescaerpapiv1.azurewebsites.net',
+   apiUrl: 'https://cofrescaerpapiv1.azurewebsites.net',
   // apiUrl: 'http://localhost:5000',
 };
 
