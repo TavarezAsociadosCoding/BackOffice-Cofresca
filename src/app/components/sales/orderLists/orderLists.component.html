@@ -6,7 +6,7 @@
           <h3>Productos de la ordenes</h3>
         </div>
         <div class="card-body">
-          <table class="table table-striped" *ngIf="order.totalInfo">
+          <table class="table table-striped" *ngIf="order?.totalInfo">
             <thead>
               <tr>
                 <th>Producto</th>
@@ -37,7 +37,7 @@
           <h3>Ordenes</h3>
         </div>
         <div class="card-body">
-          <table class="table table-striped" *ngIf="order.orderInfo">
+          <table class="table table-striped" *ngIf="order?.orderInfo">
             <thead>
               <tr>
                 <th>Producto</th>
