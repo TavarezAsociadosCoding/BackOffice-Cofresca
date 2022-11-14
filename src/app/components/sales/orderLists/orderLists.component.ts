@@ -24,7 +24,7 @@ export class OrdersListComponent implements OnInit {
     this.getTableData();
   }
 
-  private getTableData() {
+  private async getTableData() {
     this.orderService.ordersList().subscribe((orders: OrdesList) => {
       this.order = orders;
     });
