@@ -3,14 +3,11 @@
     <li class="nav-item active">
       <label class="nav-link" href="#">Pendientes: {{ Total }}</label>
     </li>
+    <li class="nav-item"></li>
+
     <li class="nav-item">
       <label class="nav-link" href="#"
-        >Listos: {{ listo }} de {{ Total }}</label
-      >
-    </li>
-    <li class="nav-item">
-      <label class="nav-link" href="#"
-        >Pendintes: {{ pendintes }} de {{ Total }}</label
+        >Pendientes: {{ pendientes }} de {{ Total }}</label
       >
     </li>
   </ul>
@@ -30,7 +27,7 @@
     </div>
     <div
       class="text-center m-2 alert"
-      [class]="item.staus === 'Pedientes' ? 'alert-success' : 'alert-danger'"
+      [class]="item.staus === 'Pendientes' ? 'alert-success' : 'alert-danger'"
     >
       {{ item.hoursDelivery }}
     </div>

@@ -7,6 +7,19 @@ export interface Products {
   prices: number;
 }
 
+export interface ProductsEdit {
+  id?: number;
+  name?: string;
+  image?: string;
+  barCode?: string;
+  prices?: number;
+  stock?: number;
+  quantity?: number;
+  description?: string;
+  categoryId?: number;
+  type?: string;
+}
+
 export interface ProductsResult {
   message: Array<Products>;
 }

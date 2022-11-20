@@ -10,7 +10,7 @@ import { ProductService } from '../../core/services/products/products.service';
 })
 export class WarehouseDisplayComponent implements OnInit {
   public orders: Orders[] = [];
-  public pendintes: number = 0;
+  public pendientes: number = 0;
   public listo: number = 0;
   public Total: number = 0;
   constructor(private productService: ProductService) {}
@@ -35,9 +35,9 @@ export class WarehouseDisplayComponent implements OnInit {
         this.Total = data.length;
         data.forEach((item, index) => {
           if (item.status === 'Pedientes') {
-            this.pendintes++;
+            this.pendientes++;
           }
-          if (item.status === 'Listo') {
+          if (item.status === 'Completado') {
             this.Total--;
             this.listo++;
           }

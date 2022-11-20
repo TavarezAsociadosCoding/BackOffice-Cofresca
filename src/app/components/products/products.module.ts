@@ -21,6 +21,7 @@ import { DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
 import { DropzoneConfigInterface } from 'ngx-dropzone-wrapper';
 import { ExcelsheetComponent } from './physical/excelsheet/excelsheet.component';
 import { ExcelsheetUpdateComponent } from './physical/excelsheet-update/excelsheet.component';
+import { ProductModalComponent } from './physical/product-list/product-modal/product-modal.component';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   maxFilesize: 50,
@@ -29,6 +30,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
 
 @NgModule({
   declarations: [
+    ProductModalComponent,
     ExcelsheetComponent,
     ExcelsheetUpdateComponent,
     CategoryComponent,

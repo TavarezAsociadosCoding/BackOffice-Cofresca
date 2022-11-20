@@ -5,7 +5,7 @@ import { map, tap, delay, finalize, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { UsersResult } from '../../models/users';
 import { CreateProductResult, Products } from '../../models/products';
-import { Orders, OrdesList } from '../../models/order/order';
+import { orderDetails, Orders, OrdesList } from '../../models/order/order';
 
 @Injectable({
   providedIn: 'root',
@@ -35,7 +35,6 @@ export class OrderService implements OnDestroy {
       })
     );
   }
-
 
   //TODO:CATEGORIAS HARCODE
   //   public crear_product(
@@ -97,6 +96,24 @@ export class OrderService implements OnDestroy {
         Status: order.status,
         ShippingAddress: order.shippingAddress,
       })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status != 200) {
+            console.log(error);
+          } else {
+            console.log(error);
+            // return error
+            return throwError(error);
+          }
+          console.log(error);
+        })
+      )
+      .toPromise();
+  }
+
+  public async UpdateOrderDetails(orderDetails: orderDetails[]) {
+    this.http
+      .put(this.apiUrl + 'orders/UpdateOrderDetails', orderDetails)
       .pipe(
         catchError((error: HttpErrorResponse) => {
           if (error.status != 200) {

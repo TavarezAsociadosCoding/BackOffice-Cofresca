@@ -6,7 +6,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 1431",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

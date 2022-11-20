@@ -146,4 +146,47 @@ export class ExportService {
         .join('\n');
     this.saveAsFile(csvContent, `${fileName}${CSV_EXTENSION}`, CSV_TYPE);
   }
+
+  /**
+   * Creates an array of data to csv. It will automatically generate title row based on object keys.
+   *
+   * @param rows array of data to be converted to CSV.
+   * @param fileName filename to save as.
+   * @param columns array of object properties to convert to CSV. If skipped, then all object properties will be used for CSV.
+   */
+  public exportPresupuestoToCsv(
+    rows: object[],
+    fileName: string,
+    columns?: string[]
+  ): string {
+    if (!rows || !rows.length) {
+      return;
+    }
+    const separator = ',';
+    const keys = Object.keys(rows[0]);
+    const csvContent =
+      columns.join(separator) +
+      '\n' +
+      rows[0]['ordersDetails']
+        .map((row) => {
+          return columns
+            .map((k) => {
+              let cell;
+              if (k == 'Cliente') {
+                cell = 'Cofresca import';
+              }
+              if (k == 'Líneas del pedido / Producto') {
+                cell = row.products.name;
+              }
+              if (k == 'Líneas del pedido / Cantidad') {
+                cell = row.qtySend;
+              }
+              return cell;
+            })
+            .join(separator);
+        })
+
+        .join('\n');
+    this.saveAsFile(csvContent, `${fileName}${CSV_EXTENSION}`, CSV_TYPE);
+  }
 }

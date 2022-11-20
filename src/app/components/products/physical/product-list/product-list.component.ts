@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsResult } from 'src/app/core/models/products';
 import { ProductService } from 'src/app/core/services/products/products.service';
+import { ModalAdapterService } from 'src/app/shared/service/modal-adapter.service';
 import { productDB } from 'src/app/shared/tables/product-list';
+import { ProductModalComponent } from './product-modal/product-modal.component';
 
 @Component({
   selector: 'app-product-list',
@@ -15,7 +17,10 @@ export class ProductListComponent implements OnInit {
   // this.product_list = productDB.product;
   // }
 
-  constructor(private ProductService: ProductService) {
+  constructor(
+    private ProductService: ProductService,
+    private _modalAdapter: ModalAdapterService
+  ) {
     // this.user_list = userListDB.list_user;
     ProductService.products().subscribe(
       (product) => (this.product_list = product)
@@ -27,7 +32,13 @@ export class ProductListComponent implements OnInit {
   }
   ngOnInit() {}
 
-  Delete(item:any){
-
+  public async openModal(row: any) {
+    const modal = this._modalAdapter.open(ProductModalComponent);
+    modal.componentInstance.data = row;
+    modal.componentInstance.passEntry.subscribe(() => {
+      this._modalAdapter.close();
+    });
   }
+
+  Delete(item: any) {}
 }

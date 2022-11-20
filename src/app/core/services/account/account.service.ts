@@ -4,6 +4,7 @@ import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Profile } from '../../models/profile/profile';
+import { UpdatePassword } from '../../models/profile/updatepassword';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,7 @@ export class ProfileService {
 
   public async GetProfile(userId: string) {
     return this.http
-      .get<Profile>(this.apiUrl + `/profile/${userId}`)
+      .get<Profile>(this.apiUrl + `profile/${userId}`)
       .toPromise();
   }
 
@@ -61,11 +62,26 @@ export class ProfileService {
       .toPromise();
   }
 
+   public async UpdatePassword(userId: string, newpassword: string) {
+    return this.http
+      .post<UpdatePassword>(this.apiUrl + `accounts/forgotpassword`, {
+        userId: userId,
+        password: newpassword,
+      })
+      .toPromise();
+  }
+
   public editProfile(userId: string, _profile: Profile) {
     console.log(_profile);
     return this.http
       .put<Profile>(`${this.apiUrl}editUser/${userId}`, {
         companyName: _profile.companyName,
+        city: _profile.city,
+        state: _profile.state,
+        extPhoneGerente: _profile.extPhoneGerente,
+        nameUser: _profile.nameUser,
+        lastName: _profile.lastName,
+        codePostal: _profile.codePostal,
         rnc: _profile.rnc,
         phone: _profile.phone,
         address: _profile.address,

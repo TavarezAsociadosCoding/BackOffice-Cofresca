@@ -37,7 +37,7 @@ export class InvoiceComponent implements OnInit {
 
     this._dataArray.push(item.orders);
 
-    this.exportService.exportToCsv(this._dataArray, 'presupuesto-factura', [
+    this.exportService.exportToCsv(this._dataArray, 'factura', [
       'Export',
       'Cliente',
       'Líneas del pedido / Producto',
@@ -45,6 +45,22 @@ export class InvoiceComponent implements OnInit {
     ]);
   }
 
+  public onSumitPresupuesto(item: any): void {
+    this._dataArray = [];
+
+    this._dataArray.push(item.orders);
+
+    this.exportService.exportPresupuestoToCsv(
+      this._dataArray,
+      'presupuesto-factura',
+      [
+        'Export',
+        'Cliente',
+        'Líneas del pedido / Producto',
+        'Líneas del pedido / Cantidad',
+      ]
+    );
+  }
   // exportToCsv(): void {
 
   // }

@@ -39,7 +39,22 @@
           item.subTotal
         }}</span>
       </div>
-
+      <div class="p-0 m-0 col">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600"
+          >No# orden</label
+        >
+        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">{{
+          item.orders.id
+        }}</span>
+      </div>
+      <div class="p-0 m-0 col">
+        <label class="col-12 mb-0 pl-0 item-label font-weight-600"
+          >Tipo de orden</label
+        >
+        <span class="col-12 pl-0 font-weight-600 item-value font-weight-500">
+          {{ item.orders.isExpress ? "Exprés" : "Normal" }}
+        </span>
+      </div>
       <div class="p-0 m-0 col">
         <label class="col-12 mb-0 pl-0 item-label font-weight-600"
           >Cliente</label
@@ -58,6 +73,15 @@
         }}</span>
       </div>
 
+      <div class="p-0 m-0 col">
+        <button
+          class="btn btn-light d-flex justify-content-center align-items-center flex-row"
+          (click)="onSumitPresupuesto(item)"
+        >
+          <i class="fa fa-eye u-smallSize"></i>
+          <label class="m-0 ml-3 u-smallerSize"> Exportar Presupuesto </label>
+        </button>
+      </div>
       <div class="p-0 m-0 col">
         <button
           class="btn btn-light d-flex justify-content-center align-items-center flex-row"

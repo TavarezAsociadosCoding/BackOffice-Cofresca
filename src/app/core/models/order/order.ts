@@ -79,6 +79,8 @@ export interface orderDetails {
   productsid?: number;
   ordersid?: number;
   products?: Products;
+  qtyDone?: number;
+  qtySend?: number;
 }
 export interface ReOrders {
   id?: string;

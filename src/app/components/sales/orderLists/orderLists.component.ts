@@ -3,7 +3,7 @@ import { DatatableComponent } from '@swimlane/ngx-datatable';
 import { OrderService } from 'src/app/core/services/orders/order.service';
 import { Columns, Config, DefaultConfig } from 'ngx-easy-table';
 import * as moment from 'moment';
-import { OrderInfos, OrdesList } from 'src/app/core/models/order/order';
+import { OrderInfos, OrdesList, TotalInfos } from 'src/app/core/models/order/order';
 
 @Component({
   selector: 'app-orders',
@@ -12,6 +12,9 @@ import { OrderInfos, OrdesList } from 'src/app/core/models/order/order';
 })
 export class OrdersListComponent implements OnInit {
   public order: OrdesList;
+  public orderinfo: OrderInfos[] = [];
+  public ordertotal: TotalInfos[] = [];
+
   public temp = [];
   public configuration: Config;
   public columns: Columns[];
@@ -26,7 +29,8 @@ export class OrdersListComponent implements OnInit {
 
   private async getTableData() {
     this.orderService.ordersList().subscribe((orders: OrdesList) => {
-      this.order = orders;
+      this.orderinfo = orders.orderInfo;
+      this.ordertotal =orders.totalInfo;
     });
   }
 

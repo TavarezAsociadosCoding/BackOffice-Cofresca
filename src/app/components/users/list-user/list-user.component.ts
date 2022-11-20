@@ -6,6 +6,7 @@ import { UsersService } from 'src/app/core/services/users/users.service';
 import { ModalAdapterService } from 'src/app/shared/service/modal-adapter.service';
 import { ModalService } from 'src/app/shared/service/modal.service';
 import { userListDB } from 'src/app/shared/tables/list-users';
+import { PasswordModalComponent } from './password-modal/password-modal.component';
 import { UserModalComponent } from './user-modal/user-modal.component';
 
 @Component({
@@ -43,6 +44,13 @@ export class ListUserComponent implements OnInit {
     });
   }
 
+  public async openModal(row: any) {
+    const modal = this._modalAdapter.open(PasswordModalComponent);
+    modal.componentInstance.data = row;
+    modal.componentInstance.passEntry.subscribe(() => {
+      this._modalAdapter.close();
+    });
+  }
   public async activate(item: any) {
     this.modalService.createRegisterModal(
       {

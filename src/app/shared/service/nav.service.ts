@@ -44,13 +44,13 @@ export class NavService {
       icon: 'home',
       type: 'link',
       badgeType: 'primary',
-      active: true,
+      active: false,
     },
     {
       title: 'Ventas',
       icon: 'archive',
       type: 'sub',
-      active: true,
+      active: false,
       children: [
         { path: '/sales/orders', title: 'Ordenes', type: 'link' },
         { path: '/sales/orderslist', title: 'Pedidos', type: 'link' },
@@ -66,7 +66,7 @@ export class NavService {
       title: 'Productos',
       icon: 'box',
       type: 'sub',
-      active: true,
+      active: false,
       children: [
         {
           path: '/products/category',
@@ -114,7 +114,7 @@ export class NavService {
       title: 'Clientes',
       icon: 'user-plus',
       type: 'sub',
-      active: true,
+      active: false,
       children: [
         {
           path: '/users/list-user',

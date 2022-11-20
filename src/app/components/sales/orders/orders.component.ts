@@ -61,35 +61,26 @@ export class OrdersComponent implements OnInit {
     this.openModal(item);
   }
 
-  public async complete(item: Orders, env: string) {
-    let mess = '';
+  // public async complete(item: Orders, env: string) {
+  //   let mess = '';
 
-    switch (env) {
-      case 'Enviado':
-        mess = 'seguro que quieres enviar el producto';
-        break;
+    
 
-      case 'Completado':
-        mess = 'seguro que quieres cerrar esta orden';
+  //   this.modalService.createRegisterModal(
+  //     {
+  //       text: mess,
+  //       confirmButtonText: 'Si',
+  //       cancelButtonText: 'Cancelar',
+  //     },
+  //     async () => {
+  //       item.status = env;
 
-        break;
-    }
-
-    this.modalService.createRegisterModal(
-      {
-        text: mess,
-        confirmButtonText: 'Si',
-        cancelButtonText: 'Cancelar',
-      },
-      async () => {
-        item.status = env;
-
-        await this.orderService.UpdateOrder(item.id, item).then((x) => {
-          this.getTableData();
-        });
-      }
-    );
-  }
+  //       await this.orderService.UpdateOrder(item.id, item).then((x) => {
+  //         this.getTableData();
+  //       });
+  //     }
+  //   );
+  // }
 
   private async openModal(row: any) {
     const modal = this._modalAdapter.open(OrderModalComponent);

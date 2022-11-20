@@ -19,6 +19,7 @@ import { UsersResult } from '../../models/users';
 import {
   CreateProductResult,
   Products,
+  ProductsEdit,
   ProductsResult,
 } from '../../models/products';
 import { Orders } from '../../interceptors/orders';
@@ -41,7 +42,7 @@ export class ProductService implements OnDestroy {
   }
 
   public products() {
-    return this.http.get<Products[]>(`${this.apiUrl}products`).pipe(
+    return this.http.get<ProductsEdit[]>(`${this.apiUrl}products`).pipe(
       map((x) => {
         console.log(x);
         return x;

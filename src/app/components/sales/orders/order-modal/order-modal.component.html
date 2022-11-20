@@ -32,19 +32,39 @@
                 <li>producto: {{ product.products.name }}</li>
                 <li>Cantidad: {{ product.quantity }}</li>
                 <li>Unidad: {{ product.products.type }}</li>
-
+                <hr />
+                <div class="col" *ngIf="data.status == 'Pendientes'">
+                  <div class="form-group mb-3">
+                    <label class="form-label dark-text">
+                      Cantidad Enviada
+                    </label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="0"
+                      [(ngModel)]="product.qtySend"
+                    />
+                  </div>
+                </div>
+                <div class="col" *ngIf="data.status == 'Enviado'">
+                  <div class="form-group mb-3">
+                    <label class="form-label dark-text">
+                      Cantidad Recibida por el cliente</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="0"
+                      [(ngModel)]="product.qtyDone"
+                    />
+                  </div>
+                </div>
                 <!-- <li>Precio por unida: {{ product.unitPrice }}</li> -->
                 <!-- <li>
                   Precio total:
                   {{ product.unitPrice * product?.quantity }}
                 </li> -->
               </ul>
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between align-items-start"
-            >
-              <span>Total</span>
-              <span>{{ data.totalAmount }}</span>
             </li>
           </ol>
         </div>
@@ -63,5 +83,21 @@
         </div>
       </div>
     </div>
+    <button
+      (click)="sendOrder()"
+      mat-button
+      class="btn btn-primary"
+      *ngIf="data.status == 'Pendientes'"
+    >
+      Enviar orden
+    </button>
+    <button
+      (click)="sendOrder()"
+      mat-button
+      class="btn btn-primary"
+      *ngIf="data.status == 'Enviado'"
+    >
+      Cerrar orden
+    </button>
   </div>
 </div>

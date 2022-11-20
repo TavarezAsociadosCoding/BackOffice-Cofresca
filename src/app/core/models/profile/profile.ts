@@ -12,5 +12,10 @@ export interface Profile {
   createdDate: Date;
   aspNetUsers: null;
   hoursDelivery: string;
+  extPhoneGerente: string;
+  nameUser: string;
+  lastName: string;
+  city: string;
+  codePostal: string;
+  state: string;
 }
-

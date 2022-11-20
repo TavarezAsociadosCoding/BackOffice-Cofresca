@@ -45,7 +45,10 @@ export class UserModalComponent implements OnInit {
       hoursDelivery: this.data.hoursDelivery,
       phoneGerente: this.data.phoneGerente,
       address: this.data.address,
-      companyName: this.data.companyName
+      companyName: this.data.companyName,
+      extPhoneGerente: this.data.extPhoneGerente,
+      nameUser: this.data.nameUser,
+      lastName: this.data.lastName,
     });
   }
 
@@ -59,7 +62,10 @@ export class UserModalComponent implements OnInit {
       phone: [''],
       hoursDelivery: [''],
       phoneGerente: [''],
-      companyName:['']
+      companyName: [''],
+      extPhoneGerente: [''],
+      nameUser: [''],
+      lastName: [''],
     });
   }
 
@@ -75,7 +81,7 @@ export class UserModalComponent implements OnInit {
         cancelButtonText: 'Cancelar',
       },
       async () => {
-         this.profileService
+        this.profileService
           .editProfile(this.userid, this.accountForm.value)
           .subscribe(
             () => {
