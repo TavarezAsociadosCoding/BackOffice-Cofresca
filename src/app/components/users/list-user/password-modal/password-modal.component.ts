@@ -37,8 +37,8 @@ export class PasswordModalComponent implements OnInit {
   }
 
   public setValue() {
-    console.log(this.userid);
-    console.log(this.Password);
+    // console.log(this.userid);
+    // console.log(this.Password);
   }
 
   public async EditPassword() {
