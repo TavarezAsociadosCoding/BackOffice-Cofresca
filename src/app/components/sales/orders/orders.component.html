@@ -11,7 +11,8 @@
             (item.isActive ? 'invoice-approved-pill' : 'invoice-rejected-pill')
           "
         >
-          {{ item.isActive ? "Abierta" : "Cerrada " }}
+          {{ item.status }}
+          <!-- {{ item.isActive ? "Abierta" : "Cerrada " }} -->
         </span>
       </div>
 

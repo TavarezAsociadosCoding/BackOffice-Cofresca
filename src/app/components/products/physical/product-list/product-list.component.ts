@@ -40,5 +40,7 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  Delete(item: any) {}
+  Delete(item: any) {
+    window.alert('Esta funcionalidad no esta disponible');
+  }
 }

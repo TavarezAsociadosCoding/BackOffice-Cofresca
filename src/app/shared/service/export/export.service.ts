@@ -132,8 +132,10 @@ export class ExportService {
               if (k == 'Cliente') {
                 cell = 'Cofresca import';
               }
-              if (k == 'Líneas del pedido / Producto') {
-                cell = row.products.name;
+              if (
+                k == 'Líneas del pedido / Producto / ID de la base de datos'
+              ) {
+                cell = row.products.id;
               }
               if (k == 'Líneas del pedido / Cantidad') {
                 cell = row.qtyDone;
@@ -175,8 +177,10 @@ export class ExportService {
               if (k == 'Cliente') {
                 cell = 'Cofresca import';
               }
-              if (k == 'Líneas del pedido / Producto') {
-                cell = row.products.name;
+              if (
+                k == 'Líneas del pedido / Producto / ID de la base de datos'
+              ) {
+                cell = row.products.id;
               }
               if (k == 'Líneas del pedido / Cantidad') {
                 cell = row.qtySend;

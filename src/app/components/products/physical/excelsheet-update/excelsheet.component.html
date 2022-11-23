@@ -6,8 +6,14 @@
       <input type="file" (change)="onFileChange($event)" multiple="false" />
     </label>
   </div>
+<div *ngIf="progress" class="d-flex text-center align-content-center">
+  <div class="spinner-border" role="status">
+  </div>
+  <span>Cargando</span>
+</div>
 
-  <div *ngIf="data" class="progress my-3">
+  
+  <!-- <div *ngIf="data" class="progress my-3">
     <div
       class="progress-bar progress-bar-info progress-bar-striped"
       role="progressbar"
@@ -18,7 +24,7 @@
     >
       {{ progress }}%
     </div>
-  </div>
+  </div> -->
   <!-- <div class="col-4">
     <button class="btn btn-success btn-sm" [disabled]="!selectedFiles">
       Upload

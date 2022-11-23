@@ -228,20 +228,18 @@ export class AuthService implements OnDestroy {
   }
 
   public ValidationToken(): boolean {
-    let expirationString = localStorage.getItem('expiration');
-    if (expirationString != null) {
-      let expiration = Date.parse(expirationString);
-      if (expiration < Date.now()) {
-        return false;
-      } else {
-        return true;
-      }
-      // const accessToken = localStorage.getItem("access_token");
-      // if (!accessToken) {
-      //   return false;
-      // }
-    }
-    return false;
+    // Se comento para que simpre se mantega con el login activo
+
+    // let expirationString = localStorage.getItem('expiration');
+    // if (expirationString != null) {
+    //   let expiration = Date.parse(expirationString);
+    //   if (expiration < Date.now()) {
+    //     return false;
+    //   } else {
+    //     return true;
+    //   }
+    // }
+    return true;
   }
   private getTokenRemainingTime() {
     const accessToken = localStorage.getItem('access_token');

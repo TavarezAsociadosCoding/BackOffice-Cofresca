@@ -46,19 +46,14 @@ export class ExcelsheetComponent implements OnInit {
 
         if (i > 0) {
           const producto: any[] = this.data[i];
-          // let categorias: number = 1;
           //Nombre
           let nombre: string = producto[1];
           //Precio
           let precio: number = producto[3];
 
           //Referencia interna
-
           let stock: number = producto[6];
           //Descripcion
-          // let descripcion = this.data[i][0];
-          // let imagen: string =
-
           let descripImg: any =
             'data:image/jpg;base64,' +
             (this._sanitizer.bypassSecurityTrustResourceUrl(producto[7]) as any)
@@ -107,14 +102,11 @@ export class ExcelsheetComponent implements OnInit {
           ).subscribe(
             (event: any) => {
               this.progress = false;
-
               console.log('espere resultado');
-              // this.router.navigate("/home");
             },
             () => {
               this.progress = false;
               console.log('error');
-              // this.loginError = true;
             }
           );
         }

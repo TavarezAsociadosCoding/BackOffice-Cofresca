@@ -12,7 +12,7 @@ import * as XLSX from 'xlsx';
 export class ExcelsheetUpdateComponent implements OnInit {
   data: [][];
   // count: number = 0;
-  progress = 0;
+  progress = false;
   constructor(
     private categoriesService: CategoryService,
     private ProductService: ProductService,
@@ -21,108 +21,117 @@ export class ExcelsheetUpdateComponent implements OnInit {
 
   ngOnInit(): void {}
   onFileChange(evt: any) {
-    this.progress = 0;
-    const target: DataTransfer = <DataTransfer>evt.target;
+    try {
+      this.progress = true;
+      const target: DataTransfer = <DataTransfer>evt.target;
 
-    if (target.files.length !== 1) throw new Error('Cannot use multiple files');
+      if (target.files.length !== 1)
+        throw new Error('Cannot use multiple files');
 
-    const reader: FileReader = new FileReader();
-    reader.onload = async (e: any) => {
-      const bstr: string = e.target.result;
+      const reader: FileReader = new FileReader();
+      reader.onload = async (e: any) => {
+        const bstr: string = e.target.result;
 
-      const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
+        const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
 
-      const wsname: string = wb.SheetNames[0];
+        const wsname: string = wb.SheetNames[0];
 
-      const ws: XLSX.WorkSheet = wb.Sheets[wsname];
+        const ws: XLSX.WorkSheet = wb.Sheets[wsname];
 
-      console.log(ws);
+        console.log(ws);
 
-      this.data = XLSX.utils.sheet_to_json(ws, { header: 1 });
+        this.data = XLSX.utils.sheet_to_json(ws, { header: 1 });
 
-      console.log('!!!!!!DATA!!!!!!');
-      console.log(this.data);
-      const obj = {};
-      for (let i = 0; i < this.data.length; i++) {
-        //Categoria
+        for (let i = 0; i < this.data.length; i++) {
+          if (i > 0) {
+            const producto: any[] = this.data[i];
+            //Nombre
+            let nombre: string = producto[1];
+            //Precio
+            let precio: number = producto[3];
+            //Referencia interna
+            let stock: number = producto[6];
+            //Descripcion
+            let descripImg: any =
+              'data:image/jpg;base64,' +
+              (
+                this._sanitizer.bypassSecurityTrustResourceUrl(
+                  producto[7]
+                ) as any
+              ).changingThisBreaksApplicationSecurity;
 
-        if (i > 0) {
-          const producto: any[] = this.data[i];
-          // let categorias: number = 1;
-          //Nombre
-          let nombre: string = producto[1];
-          //Precio
-          let precio: number = producto[3];
+            let imagen = descripImg;
 
-          //Referencia interna
+            let descripcion = producto[4];
 
-          let stock: number = producto[6];
-          //Descripcion
-          // let descripcion = this.data[i][0];
-          // let imagen: string =
+            let barcode = producto[5];
 
-          let descripImg: any =
-            'data:image/jpg;base64,' +
-            (this._sanitizer.bypassSecurityTrustResourceUrl(producto[7]) as any)
-              .changingThisBreaksApplicationSecurity;
+            let producto_ID = producto[8];
 
-          let imagen = descripImg;
+            let categorories_Name = producto[9];
 
-          let descripcion = producto[4];
+            let categorories_ID = producto[10];
 
-          let barcode = producto[5];
-
-          let producto_ID = producto[8];
-
-          let categorories_Name = producto[9];
-
-          let categorories_ID = producto[10];
-
-          let type = '';
-          if (producto[11] == 'libra' || producto[11] == 'Libra(s)' || producto[11]=='libra(s)') {
-            type = 'Libra';
-          }
-          if (producto[11] == 'Unidad(es)' || producto[11] == '1Unidad(es)') {
-            type = 'Unidad';
-          }
-          if (producto[11] == 'galÃ³n(es)') {
-            type = 'Galon';
-          }
-
-          this.categoriesService.updateCategories(
-            categorories_Name,
-            categorories_ID
-          );
-
-          let x = await (
-            await this.ProductService.updateProduct(
-              producto_ID,
-              nombre,
-              barcode,
-              precio,
-              imagen,
-              categorories_ID,
-              stock,
-              descripcion,
-              type
-            )
-          ).subscribe(
-            (event: any) => {
-              this.progress = Math.round((100 * event.loaded) / event.total);
-              console.log('espere resultado');
-            },
-            () => {
-              console.log('error');
-              // this.loginError = true;
+            let type = '';
+            if (
+              producto[11] == 'libra' ||
+              producto[11] == 'Libra(s)' ||
+              producto[11] == 'libra(s)'
+            ) {
+              type = 'Libra';
             }
-          );
+            if (producto[11] == 'Unidad(es)' || producto[11] == '1Unidad(es)') {
+              type = 'Unidad';
+            }
+            if (producto[11] == 'galÃ³n(es)') {
+              type = 'Galon';
+            }
+
+            this.categoriesService.updateCategories(
+              categorories_Name,
+              categorories_ID
+            );
+
+            let x = await (
+              await this.ProductService.updateProduct(
+                producto_ID,
+                nombre,
+                barcode,
+                precio,
+                imagen,
+                categorories_ID,
+                stock,
+                descripcion,
+                type
+              )
+            ).subscribe(
+              (event: any) => {
+                if (
+                  this.data.length == i ||
+                  this.data.length > i ||
+                  this.data.length - 1 == i
+                ) {
+                  this.progress = false;
+                }
+                console.log('espere resultado');
+              },
+              () => {
+                this.progress = false;
+                console.log('error');
+                // this.loginError = true;
+              }
+            );
+          }
         }
-      }
 
-      let x = this.data.slice(1);
-      console.log(x);
-    };
+        let x = this.data.slice(1);
+        console.log(x);
+      };
 
-    reader.readAsBinaryString(target.files[0]);
+      reader.readAsBinaryString(target.files[0]);
+    } catch {
+      this.progress = false;
+      console.log('Ocurrio un error revise el archivo');
+    }
   }
 }

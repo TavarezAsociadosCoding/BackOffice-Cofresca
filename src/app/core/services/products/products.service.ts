@@ -127,7 +127,33 @@ export class ProductService implements OnDestroy {
         })
       );
   }
-  
+
+  public updateOnlyProduct(
+    Id,
+    Name,
+    BarCode,
+    Prices,
+    image,
+    categoryId,
+    stock,
+    description,
+    type
+  ) {
+    return this.http
+      .put<CreateProductResult>(`${this.apiUrl}products/${Id}`, {
+        Id: Id,
+        Name: Name,
+        BarCode: '000',
+        Prices: Prices,
+        CategoryId: categoryId,
+        image: image,
+        Description: description,
+        Stock: stock,
+        Type: type,
+      })
+      .toPromise();
+  }
+
   ngOnDestroy(): void {
     throw new Error('Method not implemented.');
   }

@@ -62,9 +62,9 @@ export class ProfileService {
       .toPromise();
   }
 
-   public async UpdatePassword(userId: string, newpassword: string) {
+  public async UpdatePassword(userId: string, newpassword: string) {
     return this.http
-      .post<UpdatePassword>(this.apiUrl + `accounts/forgotpassword`, {
+      .post<UpdatePassword>(this.apiUrl + `forgotpassword`, {
         userId: userId,
         password: newpassword,
       })

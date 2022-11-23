@@ -18,10 +18,8 @@ import { UsersModule } from './components/users/users.module';
 import { LocalizationModule } from './components/localization/localization.module';
 import { InvoiceModule } from './components/invoice/invoice.module';
 import { SettingModule } from './components/setting/setting.module';
-// import { ReportsModule } from './components/reports/reports.module';
 import { AuthModule } from './components/auth/auth.module';
 import { WarehouseDisplayComponent } from './components/warehouse-display/warehouse-display.component';
-// import { ExcelsheetComponent } from './components/products/physical/excelsheet/excelsheet.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 @NgModule({
   declarations: [AppComponent, WarehouseDisplayComponent],

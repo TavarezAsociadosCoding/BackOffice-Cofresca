@@ -40,7 +40,7 @@ export class InvoiceComponent implements OnInit {
     this.exportService.exportToCsv(this._dataArray, 'factura', [
       'Export',
       'Cliente',
-      'Líneas del pedido / Producto',
+      'Líneas del pedido / Producto / ID de la base de datos',
       'Líneas del pedido / Cantidad',
     ]);
   }
@@ -56,7 +56,7 @@ export class InvoiceComponent implements OnInit {
       [
         'Export',
         'Cliente',
-        'Líneas del pedido / Producto',
+        'Líneas del pedido / Producto / ID de la base de datos',
         'Líneas del pedido / Cantidad',
       ]
     );
