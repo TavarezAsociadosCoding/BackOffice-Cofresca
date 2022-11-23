@@ -49,7 +49,7 @@ export class PasswordModalComponent implements OnInit {
         cancelButtonText: 'Cancelar',
       },
       async () => {
-        this.profileService.UpdatePassword(this.userid, this.Password);
+        await this.profileService.UpdatePassword(this.userid, this.Password);
         window.location.reload();
       }
     );

@@ -43,7 +43,7 @@ export class ProductModalComponent implements OnInit {
         cancelButtonText: 'Cancelar',
       },
       async () => {
-        this.ProductService.updateOnlyProduct(
+        await this.ProductService.updateOnlyProduct(
           this.data.id,
           this.data.name,
           this.data.barCode,
