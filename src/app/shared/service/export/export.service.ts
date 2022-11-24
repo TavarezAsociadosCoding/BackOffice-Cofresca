@@ -121,6 +121,7 @@ export class ExportService {
     }
     const separator = ',';
     const keys = Object.keys(rows[0]);
+    let first = true;
     const csvContent =
       columns.join(separator) +
       '\n' +
@@ -129,8 +130,10 @@ export class ExportService {
           return columns
             .map((k) => {
               let cell;
-              if (k == 'Cliente') {
+
+              if (k == 'Cliente' && first) {
                 cell = 'Cofresca import';
+                first = false;
               }
               if (
                 k == 'Líneas del pedido / Producto / ID de la base de datos'
@@ -166,6 +169,7 @@ export class ExportService {
     }
     const separator = ',';
     const keys = Object.keys(rows[0]);
+    let first = true;
     const csvContent =
       columns.join(separator) +
       '\n' +
@@ -174,8 +178,9 @@ export class ExportService {
           return columns
             .map((k) => {
               let cell;
-              if (k == 'Cliente') {
+              if (k == 'Cliente' && first) {
                 cell = 'Cofresca import';
+                first = false;
               }
               if (
                 k == 'Líneas del pedido / Producto / ID de la base de datos'
