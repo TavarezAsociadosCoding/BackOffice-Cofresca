@@ -29,7 +29,7 @@ export class PasswordModalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.userid = this.authService.getUserIdStorage();
+    this.userid = this.data.userId;
   }
 
   public closeModal(result: any) {
@@ -49,11 +49,8 @@ export class PasswordModalComponent implements OnInit {
         cancelButtonText: 'Cancelar',
       },
       async () => {
-        await this.profileService
-          .UpdatePassword(this.userid, this.Password)
-          .then((data) => {
-            window.location.reload();
-          });
+        await this.profileService.UpdatePassword(this.userid, this.Password);
+        window.location.reload();
       }
     );
   }
