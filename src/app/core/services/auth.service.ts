@@ -239,7 +239,11 @@ export class AuthService implements OnDestroy {
     //     return true;
     //   }
     // }
-    return true;
+    const accessToken = localStorage.getItem('access_token');
+    if (accessToken) {
+      return true;
+    }
+    return false;
   }
   private getTokenRemainingTime() {
     const accessToken = localStorage.getItem('access_token');

@@ -44,7 +44,7 @@ export class NavService {
       icon: 'home',
       type: 'link',
       badgeType: 'primary',
-      active: false,
+      active: true,
     },
     {
       title: 'Ventas',
@@ -66,7 +66,7 @@ export class NavService {
       title: 'Productos',
       icon: 'box',
       type: 'sub',
-      active: false,
+      active: true,
       children: [
         {
           path: '/products/category',
@@ -114,7 +114,7 @@ export class NavService {
       title: 'Clientes',
       icon: 'user-plus',
       type: 'sub',
-      active: false,
+      active: true,
       children: [
         {
           path: '/users/list-user',
