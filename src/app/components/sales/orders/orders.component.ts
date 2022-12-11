@@ -82,6 +82,18 @@ export class OrdersComponent implements OnInit {
   //   );
   // }
 
+  public StatusCss(item:string){
+    switch (item) {
+      case "Pendientes":
+        return "invoice-rejected-pill" ;
+        case "Enviado":
+          return "invoice-invoice-yellow" ;
+        
+      default:
+        return "invoice-approved-pill";
+    }
+  }
+
   private async openModal(row: any) {
     const modal = this._modalAdapter.open(OrderModalComponent);
     modal.componentInstance.data = row;

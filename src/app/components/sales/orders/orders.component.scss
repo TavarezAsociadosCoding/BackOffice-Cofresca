@@ -57,18 +57,22 @@
     font-weight: 600;
 
     &.invoice-approved-pill {
-      background-color: #f0fbf0 !important;
-      color: #54da5d !important;
+      background-color: #00f510 !important;
+      color: #070707 !important;
     }
 
     &.invoice-rejected-pill {
-      background-color: #fff4f4 !important;
-      color: #f16a6a !important;
+      background-color: #e30000 !important;
+      color: #070707 !important;
     }
 
     &.invoice-invoice-pill {
       background-color: #ecf4f9 !important;
       color: #4499cb !important;
+    }
+    &.invoice-invoice-yellow {
+      background-color: #efff39 !important;
+      color: #070707 !important;
     }
 
   }
