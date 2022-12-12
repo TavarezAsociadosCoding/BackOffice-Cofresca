@@ -8,7 +8,7 @@
         <span
           [class]="
             'pill-container d-flex justify-content-center align-items-center gray-text ' +
-            (item.isActive ? 'invoice-approved-pill' : 'invoice-rejected-pill')
+            StatusCss(item.status)
           "
         >
           {{ item.status }}
